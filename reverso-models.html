@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Models · My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<script>
+/* Enable scroll-reveal animation only if JS is alive, and force everything
+   visible if the observer never runs (older browsers, script failure). */
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible), .reveal-scale:not(.visible)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200);
+});
+</script>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+<div class="grain" style="filter:url(#noise);"></div>
+<div class="progress" id="progressBar"></div>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <ul class="navlinks">
+    <li><a href="reverso-history.html">History</a></li>
+    <li><a href="reverso-models.html">Models</a></li>
+    <li><a href="reverso-calibres.html">Calibres</a></li>
+    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-limited.html">Limited</a></li>
+  </ul>
+</nav>
+
+<header class="history-hero">
+  <div class="wrap">
+    <p class="eyebrow">The Models</p>
+    <h1>Ninety-five years,<br>one rectangle.</h1>
+    <p class="lede">Every Reverso we can document, in order — from a 1931 watch running a borrowed Tavannes movement to the enamel miniatures of 2026. Six eras, with reference numbers, calibres and case sizes wherever the record supports them.</p>
+  </div>
+</header>
+
+<div class="subnav"><div class="subnav-inner" id="subnav"></div></div>
+
+<main id="eras"></main>
+
+<div class="wrap">
+  <div class="end-cta reveal">
+    <p class="eyebrow" style="justify-content:center;">Keep It Growing</p>
+    <h2>Know one we've missed?</h2>
+    <p>Regional exclusives, boutique specials, references we haven't traced yet — this list is built to be extended.</p>
+    <a href="my-reverso-story.html#submit" class="btn solid">Get In Touch</a>
+  </div>
+</div>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
+</footer>
+
+<script src="reverso-reference.js"></script>
+<script>
+(function(){
+  const CAM = '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>';
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  function rich(s){ return String(s==null?'':s); }
+
+  function slotHTML(slot, alt){
+    return '<div class="pslot">' + CAM + '<span class="pslot-id">' + esc(slot) + '</span>' +
+      '<img src="images/' + esc(slot) + '.jpg" alt="' + esc(alt) + '" loading="lazy" onerror="this.remove()">' +
+      '</div>';
+  }
+  function badge(t, cls){ return '<span class="badge ' + (cls||'') + '">' + esc(t) + '</span>'; }
+
+  function modelHTML(m){
+    let b = (m.tags||[]).map(function(t){ return badge(t); }).join('');
+    if(m.status === 'limited') b += badge(m.limited || 'Limited edition','limited');
+    if(m.status === 'ongoing') b += badge('In current collection','ongoing');
+    if(m.status === 'historic') b += badge('No longer produced');
+
+    let spec = '';
+    if(m.cal && m.cal !== '\u2014') spec += '<div><b>Calibre</b>' + esc(m.cal) + '</div>';
+    if(m.size && m.size !== '\u2014') spec += '<div><b>Case</b>' + esc(m.size) + '</div>';
+
+    return '<div class="model-row reveal">' +
+      slotHTML(m.slot, m.name) +
+      '<div>' +
+        '<div class="mr-year">' + esc(m.year) + '</div>' +
+        '<div class="mr-name">' + esc(m.name) + '</div>' +
+        (spec ? '<div class="mr-spec">' + spec + '</div>' : '') +
+        '<div class="badges">' + b + '</div>' +
+        '<p class="mr-text">' + rich(m.text) + '</p>' +
+        (m.src ? '<p class="mr-src">Source: ' + rich(m.src) + '</p>' : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  const R = window.RR;
+  const main = document.getElementById('eras');
+  const sub  = document.getElementById('subnav');
+
+  main.innerHTML = R.ERAS.map(function(era){
+    const list = R.MODELS.filter(function(m){ return m.era === era.id; });
+    const rows = list.map(modelHTML).join('');
+    return '<section class="chapter" id="' + era.id + '"><div class="wrap">' +
+      '<div class="era-head reveal">' +
+        '<div class="era-numeral">' + esc(era.num) + '</div>' +
+        '<div>' +
+          '<div class="era-years">' + esc(era.years) + ' &nbsp;\u00b7&nbsp; ' + list.length + ' entries</div>' +
+          '<h2>' + esc(era.name) + '</h2>' +
+          '<p class="era-lede">' + rich(era.lede) + '</p>' +
+        '</div>' +
+      '</div>' + rows +
+    '</div></section>';
+  }).join('');
+
+  sub.innerHTML = R.ERAS.map(function(e){
+    return '<a href="#' + e.id + '">' + esc(e.num) + ' \u00b7 ' + esc(e.name) + '</a>';
+  }).join('');
+
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  });
+
+  const io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  const links = Array.prototype.slice.call(sub.querySelectorAll('a'));
+  const secIo = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  document.querySelectorAll('section.chapter').forEach(function(s){ secIo.observe(s); });
+})();
+</script>
+</body>
+</html>

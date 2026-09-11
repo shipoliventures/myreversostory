@@ -1,0 +1,180 @@
+# My Reverso Story — Photo Guide
+
+## How to add a photo (no code editing)
+
+1. Make a folder called **`images`** next to the HTML files.
+2. Save your photo as a **`.jpg`** named exactly after the slot ID.
+3. Refresh. The placeholder is replaced automatically.
+
+```
+my-reverso-story.html
+reverso-history.html
+reverso-models.html
+reverso-calibres.html
+reverso-collection.html
+reverso-styles.css
+reverso-reference.js
+reverso-data.js
+images/
+   m-1931-original.jpg
+   cal-410.jpg
+   a-earhart.jpg
+   ...
+```
+
+Every placeholder on the site prints its own slot ID in small
+type underneath the icon — so you can read the name straight
+off the page and save the file to match. Nothing else to change.
+
+**Recommended:** ~1200px on the long edge, JPEG, under ~400 KB.
+Models use a 4:5 portrait crop, archive pieces 1:1 square,
+calibres a wide landscape strip.
+
+---
+
+## ⚠️ Read this before downloading anything
+
+I could not download images for you — and you should be careful
+about doing it in bulk yourself.
+
+Photos on jaeger-lecoultre.com, Hodinkee, Revolution, SJX and
+Monochrome are **copyrighted**, usually by the photographer or
+the maison, not by the site. Using them on a public website is a
+real infringement risk, however common the practice is.
+
+Safer routes, roughly in order:
+
+1. **Your own photographs.** Anything you shoot yourself is
+   unambiguously yours. Best possible option for anything you own.
+2. **Collector submissions.** Ask the owner for permission in
+   writing when they submit — the form already collects an email.
+3. **Ask Jaeger-LeCoultre press office** for a media kit. They
+   generally do grant press/editorial use for enthusiast projects
+   if you ask and credit properly. This is the correct route for
+   current models and the Métiers Rares pieces.
+4. **Auction house images** (Phillips, Christie's, Sotheby's,
+   Artcurial). Often reusable for editorial/reference purposes
+   with credit — but check each lot's terms.
+5. **Wikimedia Commons / public domain** for historical context
+   images (Amelia Earhart, Edward VIII, Balbo, polo scenes) —
+   many of these are genuinely free to use with attribution.
+
+Each entry already renders a **Source:** line where one exists,
+so the attribution framework is in place.
+
+---
+
+## Photos worth chasing from your own scans
+
+From the files you sent, these are the images I'd most want at
+high resolution — all from **JLC Yearbook FIVE (2012)**, the
+"Reverso Confidential" chapter, which is where most of the
+pièces uniques come from:
+
+
+Also valuable, from **Basha's collector guide**:
+
+| Slot | What to look for |
+|---|---|
+| `m-1931-original` | Early Staybrite Tavannes Reverso, dial signed only "Reverso" |
+| `m-deluxe` | The British-market 18k "De Luxe" with Dennison case |
+| `m-standard-lux` | The 1940 French catalogue reference page |
+| `cal-064` | The Tavannes 064 movement in its holder |
+| `cal-410` | Calibre 410 / 11U movement plate |
+
+And from **Yearbook FIVE's "Microcosmos" chapter**, which is
+essentially a portfolio of Reverso movements photographed by
+Claude Joray — the best single source for the calibre page:
+
+`cal-410` · `cal-943` · `cal-855` · `cal-854` · `cal-828`
+· `cal-879` · `cal-174` · `cal-822`
+
+---
+
+## Complete slot list (93)
+
+| File to save | Type | Date | Entry |
+|---|---|---|---|
+| `m-1931-original.jpg` | Model | 1931 | Reverso (first series) |
+| `m-1931-ladies.jpg` | Model | 1931 | Reverso, ladies’ first series |
+| `m-deluxe.jpg` | Model | 1932 | Reverso “De Luxe” |
+| `m-1933-410.jpg` | Model | 1933 | Reverso, LeCoultre-powered |
+| `m-standard-lux.jpg` | Model | 1930s | Reverso Standard & Reverso Lux |
+| `m-hamilton-altus.jpg` | Model | 1930s | Licensed abroad: the Hamilton “Altus” |
+| `m-corvo.jpg` | Model | 1972 | The Corvo Reverso |
+| `m-reverso-ii.jpg` | Model | 1982–83 | Reverso II |
+| `m-1985-waterproof.jpg` | Model | 1985 | The water-resistant Reverso |
+| `m-classique.jpg` | Model | late 1980s | Reverso Classique |
+| `m-grande-taille.jpg` | Model | 1991 | Reverso Grande Taille |
+| `m-60eme.jpg` | Model | 1991 | Reverso 60ème (Soixantième) |
+| `m-art-deco.jpg` | Model | 1992 | Reverso Art Deco |
+| `m-tourbillon-1993.jpg` | Model | 1993 | Reverso Tourbillon |
+| `m-repetition-1994.jpg` | Model | 1994 | Reverso Répétition Minutes |
+| `m-duoface-1994.jpg` | Model | 1994 | Reverso Duoface |
+| `m-chrono-retro.jpg` | Model | 1996 | Reverso Chronographe Rétrograde |
+| `m-duetto-1997.jpg` | Model | 1997 | Reverso Duetto |
+| `m-geographique.jpg` | Model | 1998 | Reverso Géographique |
+| `m-gransport.jpg` | Model | 1998 | Reverso Gran’Sport |
+| `m-sunmoon.jpg` | Model | 2000 | Reverso Grande Sun Moon |
+| `m-perpetual-2000.jpg` | Model | 2000 | Reverso Quantième Calendrier Perpétuel |
+| `m-platinum-one.jpg` | Model | 2001 | Reverso Platinum Number One |
+| `m-septantieme.jpg` | Model | 2001–02 | Reverso Septantième (70ème) |
+| `m-platinum-two.jpg` | Model | 2003 | Reverso Platinum Number Two |
+| `m-grande-family.jpg` | Model | 2003 | Reverso Grande family |
+| `m-grande-101.jpg` | Model | 2004 | Grande Reverso 101 |
+| `m-triptyque.jpg` | Model | 2006 | Reverso Grande Complication à Triptyque |
+| `m-eclipses.jpg` | Model | 2006 | Reverso à Éclipses |
+| `m-squadra.jpg` | Model | 2006–2012 | Reverso Squadra family |
+| `m-gyro2.jpg` | Model | 2008 | Reverso Gyrotourbillon 2 |
+| `m-grande-duo-986.jpg` | Model | 2009–2012 | Grande Reverso Duo / Night & Day / Calendar |
+| `m-ultrathin-1931.jpg` | Model | 2011 | Grande Reverso Ultra Thin Tribute to 1931 |
+| `m-rideau.jpg` | Model | 2011 | Reverso Répétition Minutes à Rideau |
+| `m-classic-2016.jpg` | Model | 2016–17 | Reverso Classic (Small / Medium / Large) |
+| `m-tribute-2016.jpg` | Model | 2016–18 | Reverso Tribute family |
+| `m-tribute-gyro.jpg` | Model | 2016 | Reverso Tribute Gyrotourbillon |
+| `m-one-2016.jpg` | Model | 2016–19 | Reverso One family |
+| `m-tribute-duoface-fagliano.jpg` | Model | 2016 | Reverso Tribute Duoface Fagliano |
+| `m-tribute-tourbillon-duoface.jpg` | Model | 2018 | Reverso Tribute Tourbillon Duoface |
+| `m-quadriptyque.jpg` | Model | 2021 | Reverso Hybris Mechanica Cal. 185 Quadriptyque |
+| `m-nonantieme.jpg` | Model | 2021 | Reverso Tribute Nonantième |
+| `m-tribute-chrono.jpg` | Model | 2023 | Reverso Tribute Chronograph |
+| `m-hybris-artistica-179.jpg` | Model | 2023 / 2025 | Reverso Hybris Artistica Cal. 179 |
+| `m-tribute-geographic.jpg` | Model | 2025 | Reverso Tribute Geographic |
+| `m-tribute-repeater-953.jpg` | Model | 2025 | Reverso Tribute Minute Repeater |
+| `m-monoface-ss-2025.jpg` | Model | 2025 | Reverso Tribute Monoface Small Seconds |
+| `m-duoface-ss-2025.jpg` | Model | 2025 | Reverso Tribute Duoface Small Seconds |
+| `m-classic-small-2026.jpg` | Model | 2026 | Reverso Classic Small Monoface |
+| `m-vallee-merveilles.jpg` | Model | 2026 | Reverso One — La Vallée des Merveilles |
+| `m-hokusai-2026.jpg` | Model | 2026 | Reverso Tribute Enamel Hokusai “Waterfalls”, final four |
+| `cal-064.jpg` | Calibre | 1931–1933 | Tavannes cal. 064 |
+| `cal-410.jpg` | Calibre | from 1933 | LeCoultre cal. 11U / 410 |
+| `cal-411.jpg` | Calibre | from 1933 | LeCoultre cal. 411 |
+| `cal-840.jpg` | Calibre | 1972 | Cal. 840 — “the Ovetto movement” |
+| `cal-846.jpg` | Calibre | late 1980s – today | Cal. 846 / 846/1 |
+| `cal-822.jpg` | Calibre | 1991 – today | Cal. 822 |
+| `cal-854.jpg` | Calibre | 1994 – today | Cal. 854 (854/1, 854A/2, 854C/2) |
+| `cal-844.jpg` | Calibre | 1994 – today | Cal. 844 / 864 / 842 / 968 |
+| `cal-824.jpg` | Calibre | 1991 | Cal. 824 |
+| `cal-828.jpg` | Calibre | 1993 | Cal. 828 |
+| `cal-943.jpg` | Calibre | 1994 / 2011 | Cal. 943 / 944 |
+| `cal-829.jpg` | Calibre | 1996 | Cal. 829 |
+| `cal-879.jpg` | Calibre | 2000–2003 | Cal. 879 / 873 / 874 / 875 |
+| `cal-855.jpg` | Calibre | 2000 | Cal. 855 |
+| `cal-175.jpg` | Calibre | 2006 | Cal. 175 |
+| `cal-174.jpg` | Calibre | 2008 | Cal. 174 — Gyrotourbillon 2 |
+| `cal-179.jpg` | Calibre | 2016 | Cal. 179 — Tribute Gyrotourbillon |
+| `cal-185.jpg` | Calibre | 2021 | Cal. 185 — Quadriptyque |
+| `cal-826.jpg` | Calibre | 2021 | Cal. 826 |
+| `cal-953.jpg` | Calibre | 2025 | Cal. 953 |
+| `cal-860.jpg` | Calibre | 2023 | Cal. 860 |
+| `cal-834.jpg` | Calibre | 2025 | Cal. 834 |
+| 
+| `a-juventus.jpg` | Artistic edition | 1990s–2000s | Reverso Juventus FC |
+| `a-hidden-treasures.jpg` | Artistic edition | 2021 | Reverso Tribute Enamel “Hidden Treasures” |
+| `a-hokusai.jpg` | Artistic edition | 2021–2026 | Reverso Tribute Enamel Hokusai “Waterfalls” |
+| `a-monet-venice.jpg` | Artistic edition | 2024 | Reverso Tribute Enamel “Venice Series” (Monet) |
+| `a-shahnameh.jpg` | Artistic edition | 2025 | Reverso Tribute Enamel “Shahnameh” |
+| `a-precious-flowers.jpg` | Artistic edition | 2021 | Reverso One Precious Flowers |
+| `a-cordonnet-jewellery.jpg` | Artistic edition | 2021 | Reverso One Cordonnet Jewellery |
+| `a-vallee-merveilles.jpg` | Artistic edition | 2026 | Reverso One “La Vallée des Merveilles” |
+| `a-atelier-reverso.jpg` | Artistic edition | ongoing | Atelier Reverso — the made-to-order programme |

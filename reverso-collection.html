@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Archive · My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<script>
+/* Enable scroll-reveal animation only if JS is alive, and force everything
+   visible if the observer never runs (older browsers, script failure). */
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible), .reveal-scale:not(.visible)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200);
+});
+</script>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+<div class="grain" style="filter:url(#noise);"></div>
+<div class="progress" id="progressBar"></div>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <ul class="navlinks">
+    <li><a href="reverso-history.html">History</a></li>
+    <li><a href="reverso-models.html">Models</a></li>
+    <li><a href="reverso-calibres.html">Calibres</a></li>
+    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-limited.html">Limited</a></li>
+  </ul>
+</nav>
+
+<header class="history-hero">
+  <div class="wrap">
+    <p class="eyebrow">The Archive</p>
+    <h1>Every back<br>tells a story.</h1>
+    <p class="lede">A prince in the Foreign Legion. A king who was never crowned. An aviator who vanished. A painting stolen and found in a stone wall. And, eventually, yours. This is the archive of what collectors and the manufacture itself have put on the second face of a Reverso.</p>
+  </div>
+</header>
+
+<section class="chapter">
+  <div class="wrap">
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-f="all">All</button>
+      <button class="tab" data-f="unique">Pièces Uniques</button>
+      <button class="tab" data-f="artistic">Artistic Editions</button>
+      <button class="tab" data-f="editions">Commemorative Editions</button>
+      <button class="tab" data-f="collector">Collector Stories</button>
+    </div>
+
+    <div id="intro-unique" class="era-head reveal filt" data-cat="unique">
+      <div class="era-numeral">I</div>
+      <div>
+        <div class="era-years">1933 – 2009 &nbsp;·&nbsp; documented individual watches</div>
+        <h2>Pièces Uniques</h2>
+        <p class="era-lede">Watches made for one person, engraved or enamelled by the manufacture's own hands. Some of the owners are among the most famous people of the twentieth century. Some have never been identified at all — the engraving survived; the name did not.</p>
+      </div>
+    </div>
+    <div class="arch-grid filt" data-cat="unique" id="grid-unique"></div>
+
+    <div class="era-head reveal filt" data-cat="artistic" style="margin-top:70px;">
+      <div class="era-numeral">II</div>
+      <div>
+        <div class="era-years">1990s – 2026 &nbsp;·&nbsp; limited artistic editions</div>
+        <h2>Artistic Editions</h2>
+        <p class="era-lede">Where the case-back became a gallery. Grand feu enamel, miniature painting, guillochage, paillonnage and gem-setting from the Métiers Rares atelier — usually ten pieces, occasionally twenty, never many.</p>
+      </div>
+    </div>
+    <div class="series-grid filt" data-cat="artistic" id="grid-artistic"></div>
+
+    <div class="era-head reveal filt" data-cat="editions" style="margin-top:70px;">
+      <div class="era-numeral">III</div>
+      <div>
+        <div class="era-years">1990s – today &nbsp;·&nbsp; <span id="ed-count">0</span> entries</div>
+        <h2>Commemorative Editions</h2>
+        <p class="era-lede">Watches whose case-backs were decorated to mark something — a club, a city, a boutique opening, an anniversary. Not simply watches made in small numbers: a limited complication belongs on the <a href="reverso-models.html" style="color:var(--brass);">models page</a>. What qualifies here is that the back was given a meaning.</p>
+      </div>
+    </div>
+    <div class="series-grid filt" data-cat="editions" id="grid-comm-series" style="margin-bottom:34px;"></div>
+    <div class="arch-grid filt" data-cat="editions" id="grid-editions"></div>
+    <div class="filt" data-cat="editions" style="text-align:center; margin-top:44px; padding-top:36px; border-top:1px solid var(--line);">
+      <p style="color:var(--ink-dim); font-size:18px; max-width:560px; margin:0 auto 22px;">
+        The cards above are the ones whose case-backs were decorated. Many more Reversos were made
+        in limited numbers with special dials, for particular markets and retailers, without a
+        personalised back &mdash; those are catalogued separately.
+      </p>
+      <a href="reverso-limited.html" class="btn solid">See the full list of limited editions →</a>
+    </div>
+
+    <div class="era-head reveal filt" data-cat="collector" style="margin-top:70px;">
+      <div class="era-numeral">IV</div>
+      <div>
+        <div class="era-years">Yours &nbsp;·&nbsp; <span id="collector-count">0</span> stories</div>
+        <h2>Collector Stories</h2>
+        <p class="era-lede">The reason this site exists. The pieces above were made for princes and museums; these were made for anniversaries, for fathers, for a village that isn't on the map anymore. Every one is submitted by its owner and read by a person before it appears.</p>
+      </div>
+    </div>
+    <div class="filt" data-cat="collector">
+      <div class="controls-bar" id="controls"></div>
+      <div class="gallery-grid" id="grid-collector"></div>
+      <p class="gallery-foot" id="collector-foot"></p>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="end-cta reveal">
+    <p class="eyebrow" style="justify-content:center;">Add Yours</p>
+    <h2>The archive isn't finished.</h2>
+    <p>If your Reverso carries an engraving, an enamel, a monogram — or just a story about how it reached you — it belongs in the third chapter above.</p>
+    <a href="my-reverso-story.html#submit" class="btn solid">Share Your Story</a>
+  </div>
+</div>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
+</footer>
+
+<script src="reverso-reference.js"></script>
+<script src="reverso-series.js"></script>
+<script src="reverso-data.js"></script>
+<script>
+(function(){
+  const CAM = '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>';
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  function rich(s){ return String(s==null?'':s); }
+
+  function flipSlot(slot, label){
+    function face(side){
+      return '<div class="piece-face ' + side + '">' + CAM +
+        '<span class="fid">' + esc(slot) + '-' + side + '.jpg</span>' +
+        '<img src="images/' + esc(slot) + '-' + side + '.jpg" alt="' + esc(label) + ' ' + side + '" loading="lazy" onerror="this.remove()">' +
+      '</div>';
+    }
+    return '<div class="piece-stage arch-flip">' +
+      '<span class="piece-tag">Front / Back</span>' +
+      '<div class="piece-case">' + face('front') + face('back') + '</div>' +
+    '</div>';
+  }
+
+  function archHTML(a){
+    return '<div class="arch-card reveal-scale">' +
+      flipSlot(a.slot, a.name) +
+      '<div class="arch-body">' +
+        '<div class="arch-year">' + esc(a.year) + '</div>' +
+        '<div class="arch-name">' + esc(a.name) + '</div>' +
+        '<div class="arch-meta"><span><b>Craft:</b> ' + esc(a.craft) + '</span><span><b>Made for:</b> ' + esc(a.owner) + '</span></div>' +
+        '<p class="arch-text">' + rich(a.text) + '</p>' +
+        (a.src ? '<p class="mr-src">Source: ' + rich(a.src) + '</p>' : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  const R = window.RR;
+  document.getElementById('grid-unique').innerHTML =
+    R.ARCHIVE.filter(function(a){ return a.cat === 'unique'; }).map(archHTML).join('');
+  /* ---------- artistic series: clickable cards -> dedicated pages ---------- */
+  const RS = window.RSERIES;
+  function seriesCard(s){
+    return '<a class="series-card reveal-scale" href="reverso-series.html?s=' + esc(s.slug) + '">' +
+      '<div class="pslot">' + CAM + '<span class="pslot-id">' + esc(s.slug) + '-cover</span>' +
+        '<img src="images/' + esc(s.slug) + '-cover.jpg" alt="' + esc(s.name) + '" loading="lazy" onerror="this.remove()">' +
+      '</div>' +
+      '<div class="series-body">' +
+        '<div class="arch-year">' + esc(s.year) + ' &nbsp;·&nbsp; ' + s.pieces.length + ' pieces</div>' +
+        '<div class="arch-name">' + esc(s.name) + '</div>' +
+        '<p class="arch-text">' + rich(s.blurb) + '</p>' +
+        '<span class="series-go">View the full set →</span>' +
+      '</div>' +
+    '</a>';
+  }
+  document.getElementById('grid-artistic').innerHTML =
+    RS.SERIES.filter(function(s){ return (s.group||'artistic') === 'artistic'; }).map(seriesCard).join('');
+
+  /* ---------- commemorative: series sets first, then single editions ---------- */
+  /* 'unlisted' series (e.g. gt-duoface-premiere) still work at reverso-series.html?s=...
+     but are reached only via a direct link (from the Limited Editions page), not browsed here. */
+  const commSeries = RS.SERIES.filter(function(s){ return s.group === 'commemorative' && !s.unlisted; });
+  document.getElementById('grid-comm-series').innerHTML = commSeries.map(seriesCard).join('');
+  document.getElementById('ed-count').textContent = RS.EDITIONS.length + commSeries.length;
+  document.getElementById('grid-editions').innerHTML = RS.EDITIONS.map(function(e){
+    return '<div class="arch-card reveal-scale">' +
+      flipSlot(e.slot, e.name) +
+      '<div class="arch-body">' +
+        '<div class="arch-year">' + esc(e.year) + '</div>' +
+        '<div class="arch-name">' + esc(e.name) + '</div>' +
+        '<div class="arch-meta">' +
+          '<span><b>Run:</b> ' + esc(e.run) + '</span>' +
+          (e.ref && e.ref !== '\u2014' ? '<span><b>Ref:</b> ' + esc(e.ref) + '</span>' : '') +
+          '<span><b>Marks:</b> ' + esc(e.cat) + '</span>' +
+        '</div>' +
+        '<p class="arch-text">' + rich(e.text) + '</p>' +
+        (e.link ? '<a class="le-golink" href="' + esc(e.link) + '" style="display:inline-block; margin-top:8px; font-family:\'Jost\',sans-serif; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass);">See the full set \u2192</a>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  wireExpanders();
+  window.addEventListener('load', wireExpanders);
+
+  document.querySelectorAll('.arch-flip').forEach(function(el){
+    el.addEventListener('click', function(){ el.classList.toggle('flipped'); });
+  });
+
+  /* ---------- collector stories (from the submission system) ---------- */
+  const grid = document.getElementById('grid-collector');
+  const foot = document.getElementById('collector-foot');
+
+  function storyHTML(s){
+    const front = s.front || s.img;
+    return '<div class="story-stage reveal-scale">' +
+      '<div class="story-case">' +
+        '<div class="story-face front">' +
+          (front ? '<img src="' + esc(front) + '" alt="Reverso belonging to ' + esc(s.name) + '" loading="lazy">'
+                 : '<div class="noimg"><span>No Photo Provided</span></div>') +
+          '<div class="meta"><h4>' + esc(s.name) + '</h4>' +
+            '<small>' + esc([s.ref, s.year].filter(Boolean).join(' \u00b7 ') || 'Reverso') +
+            (s.location ? ' \u00b7 ' + esc(s.location) : '') + '</small></div>' +
+        '</div>' +
+        '<div class="story-face back">' +
+          (s.back ? '<img src="' + esc(s.back) + '" alt="Case back" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;">' : '') +
+          '<div class="engraving">' + esc(s.engrave || 'On the back') + '</div>' +
+          '<p>' + esc(s.story) + '</p>' +
+          '<div class="sig">\u2014 ' + esc(s.name) + (s.location ? ', ' + esc(s.location) : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderStories(list){
+    const approved = list.filter(function(s){ return s.status === 'approved'; })
+                         .sort(function(a,b){ return (b.submittedAt||0) - (a.submittedAt||0); });
+    document.getElementById('collector-count').textContent = approved.length;
+    if(!approved.length){
+      grid.innerHTML = '<div class="gallery-empty">No collector stories published yet \u2014 yours could be the first.</div>';
+      foot.textContent = '';
+      return;
+    }
+    grid.innerHTML = approved.map(storyHTML).join('');
+    foot.textContent = approved.length + (approved.length === 1 ? ' story in the collection' : ' stories in the collection');
+    grid.querySelectorAll('.story-stage').forEach(function(el){
+      el.addEventListener('click', function(){ el.classList.toggle('flipped'); });
+      io.observe(el);
+    });
+  }
+
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  });
+
+  const io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){ io.observe(el); });
+
+  /* ---------- tabs ---------- */
+  document.getElementById('tabs').addEventListener('click', function(ev){
+    const btn = ev.target.closest('.tab');
+    if(!btn) return;
+    const f = btn.dataset.f;
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('on', t === btn); });
+    document.querySelectorAll('.filt').forEach(function(el){
+      el.style.display = (f === 'all' || el.dataset.cat === f) ? '' : 'none';
+    });
+  });
+
+  // (definition below, invoked after render)
+  /* ---------- uniform card text: add a "More" toggle only where the
+       text is actually being clipped, so short entries stay clean ---------- */
+  function wireExpanders(){
+    document.querySelectorAll('.arch-card .arch-text').forEach(function(el){
+      if(el.dataset.wired) return;
+      el.dataset.wired = '1';
+      // clamped text overflows its own box; if it doesn't, no link needed
+      if(el.scrollHeight - el.clientHeight < 4) return;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'more-btn';
+      btn.textContent = 'More →';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', function(){
+        const open = el.classList.toggle('open');
+        btn.textContent = open ? '← Less' : 'More →';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      el.insertAdjacentElement('afterend', btn);
+    });
+  }
+
+  /* ---------- load collector submissions ----------
+     The index holds lightweight records (no photos, to stay inside
+     storage limits); the full record per id carries front/back images.
+     So: read the index, keep the approved ones, then hydrate those. */
+  const RD = window.ReversoData;
+  if(RD && typeof RD.loadIndex === 'function'){
+    RD.loadIndex()
+      .then(function(index){
+        const approvedIds = index
+          .filter(function(s){ return s.status === 'approved'; })
+          .map(function(s){ return s.id; });
+        if(!approvedIds.length) return [];
+        return RD.loadMany(approvedIds);
+      })
+      .then(function(full){ renderStories(full || []); })
+      .catch(function(){ renderStories([]); });
+  } else {
+    renderStories([]);
+  }
+})();
+</script>
+</body>
+</html>
