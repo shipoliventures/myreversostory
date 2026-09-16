@@ -64,6 +64,37 @@ const SERIES = [
   ]
 },
 
+{ slug:'reverso-101-les-folies',
+  name:'Reverso 101 “Les Folies”',
+  year:'c.1990\u2013early 2000s', craft:'Gem-setting around the calibre 101 movement, integrated bracelets',
+  limited:'10 confirmed references, quantities per reference not documented', cal:'Calibre 101', case:'11 \u00d7 27.5 mm, 18k gold, various colours',
+  blurb:'Time made small enough to become jewellery, and jewellery built to keep time.',
+  intro:'Officially named \u201cLes Folies,\u201d this is the Reverso pushed as far into jewellery as Jaeger-LeCoultre has ever taken it: a genuine reversible case, small enough to sit on the wrist as a bracelet rather than a watch, built entirely around the calibre 101 \u2014 the movement JLC developed in 1929 and which still holds the Guinness World Record for the smallest mechanical watch movement ever made. At 14 \u00d7 4.85 \u00d7 3.4 mm and roughly one gram, its 98 parts are assembled by hand by only two watchmakers at the manufacture today, a job that takes a full month per movement; the same calibre, in the same era, powered the diamond-set watch Queen Elizabeth II wore to her own coronation. What sets Les Folies apart from an ordinary Calibre 101 wristwatch is that the idea of rotation doesn\u2019t stop at the case: individual gem-set links of the bracelet itself also swivel through 360\u00b0, so the whole object can be reconfigured between a plain-faced bracelet and a fully jewelled one. Across the range, Jaeger-LeCoultre\u2019s own catalogue cites 723 diamonds available across the various settings. Ten references are confirmed so far, spanning yellow, pink and white gold, integrated gem-set bracelets and black leather straps, plain diamond-set versions, ruby and emerald combinations, and one fully multi-gem \u201crainbow\u201d bracelet mixing sapphires, rubies, emeralds and diamonds together. Other expressions of the same calibre 101 movement \u2014 a larger platinum \u201cGrande Reverso 101,\u201d a five-piece white gold Art D\u00e9co version, and even a Reverso built as a ring rather than a wristwatch \u2014 are catalogued separately in the Limited Editions and Pi\u00e8ces Uniques sections of this archive, since they don\u2019t share the integrated swivelling-bracelet concept that defines Les Folies specifically.',
+  links:[],
+  pieces:[
+    { slot:'lf-yellowgold-diamondsemeralds', name:'Yellow gold, diamonds and emeralds', ref:'280.197.702 (M)', conf:'ok', artist:'Calibre 101',
+      text:'Yellow gold set with diamonds and emeralds, on a matching yellow gold bracelet also set with diamonds and emeralds.' },
+    { slot:'lf-yellowgold-diamonds', name:'Yellow gold, diamonds only', ref:'280.12.01 (M)', conf:'ok', artist:'Calibre 101',
+      text:'Yellow gold set with diamonds, on a matching yellow gold bracelet also set with diamonds \u2014 the yellow gold counterpart to the plain pink and white gold diamond-only references elsewhere in this range.' },
+    { slot:'lf-whitegold-fullpave-strap', name:'White gold, fully pav\u00e9 diamonds, black leather strap', ref:'\u2014', conf:'partial', artist:'Calibre 101',
+      text:'White gold entirely set with diamonds, but on a black leather strap rather than an integrated gem-set bracelet \u2014 unlike most of the range, which pairs its gem-setting with a matching metal bracelet. Reference and precise diamond count not yet confirmed.' },
+    { slot:'lf-whitegold-decorated-strap', name:'White gold, decorated with diamonds, black leather strap', ref:'\u2014', conf:'partial', artist:'Calibre 101',
+      text:'White gold with a partial rather than fully pav\u00e9 diamond setting, also on a black leather strap \u2014 a more restrained sibling to the fully paved white gold strap version above. Reference not yet confirmed.' },
+    { slot:'lf-whitegold-diamondsemeralds', name:'White gold, diamonds and emeralds', ref:'\u2014', conf:'partial', artist:'Calibre 101',
+      text:'White gold set with diamonds and emeralds \u2014 the white gold counterpart to the yellow gold diamonds-and-emeralds reference above. Reference not yet confirmed.' },
+    { slot:'lf-pinkgold-diamonds', name:'Pink gold, diamonds only', ref:'280.292.702 (M)', conf:'ok', artist:'Calibre 101',
+      text:'The simplest expression in the range: 18k pink gold set with diamonds throughout, on a matching pink gold bracelet also set with diamonds \u2014 no coloured stones, letting the case\u2019s own rotation and the bracelet\u2019s articulated links carry the design.' },
+    { slot:'lf-pinkgold-rubies', name:'Pink gold, diamonds and rubies', ref:'280.245.702 (M)', conf:'ok', artist:'Calibre 101',
+      text:'Pink gold set with diamonds and rubies, paired with a crocodile strap rather than an integrated bracelet \u2014 the strap\u2019s pink gold buckle is itself set with diamonds, carrying the gem-setting through to the clasp.' },
+    { slot:'lf-whitegold-diamonds', name:'White gold, fully diamond-set', ref:'280.392.702 (M) \u00b7 also cited as 280.3.70', conf:'ok', artist:'Calibre 101',
+      text:'White gold, entirely set with diamonds \u2014 by one auction house\u2019s count, 236 stones \u2014 on a matching white gold bracelet also fully diamond-set. Sold for roughly US$87,500 when new; the case and bracelet elements alike rotate through 360\u00b0.' },
+    { slot:'lf-whitegold-rubies', name:'White gold, diamonds and rubies', ref:'280.945.702G (M)', conf:'ok', artist:'Calibre 101',
+      text:'The white gold counterpart to the pink gold diamonds-and-rubies piece above: a crocodile strap with a white gold, diamond-set buckle, the case itself set with diamonds and rubies together.' },
+    { slot:'lf-rainbow', name:'White gold, multi-gem “rainbow” bracelet', ref:'280.330.004 (M)', conf:'ok', artist:'Calibre 101',
+      text:'The most elaborate reference in the range: a white gold case set with diamonds, on a bracelet mixing baguette-cut sapphires, diamonds, rubies and emeralds together \u2014 a genuine multi-gem, multi-colour treatment rather than a single accent stone against a diamond field.' }
+  ]
+},
+
 { slug:'mucha-precious-stones',
   name:'Reverso Montre de Poche “Pierres Précieuses” — Alfons Mucha',
   year:'1999\u20132000', craft:'Grand feu enamel miniature painting, Miklos Merczel \u00b7 gem-setting',
@@ -435,18 +466,20 @@ const SERIES = [
 /* ---------------------------------------------------------- */
 { slug:'cordonnet-jewellery',
   name:'Reverso One Cordonnet Jewellery',
-  year:'2021', craft:'Full pavé diamond setting',
-  limited:'Limited edition', cal:'Calibre 844', case:'Duetto, gold',
+  year:'2013\u20132021', craft:'Full pav\u00e9 diamond setting, twisted rope-style bracelet',
+  limited:'Limited edition', cal:'Calibre 844', case:'Duetto or reversible, gold',
   blurb:'The 1930s cord strap, remade in gold and diamonds.',
-  intro:'A direct descendant of the 1936 Reverso Cordonnet, which was worn on a plain black silk cord in keeping with 1930s fashion. Here the cord is reinterpreted in gold and pavé diamonds and paired with a Duetto case — mother-of-pearl on one dial, onyx on the other, both driven by the hand-wound calibre 844.',
+  intro:'A direct descendant of the 1936 Reverso Cordonnet, which was worn on a plain black silk cord in keeping with 1930s fashion. The \u201ccordonnet\u201d idea has been reinterpreted more than once since: a 2021 Duetto version pairs a diamond-set cord with mother-of-pearl and onyx dials, while an earlier 2013 piece used a diamond-set twisted rope bracelet \u2014 visually closer to a woven cord rendered in gold and stones than to a fabric strap \u2014 on a small reversible case.',
   links:[
     {t:'Luxe Magazine', u:'https://www.luxe-magazine.com/en/article/11657-jaeger_lecoultre_reverso_one_cordonnet_sparkling_elegance.html'},
     {t:'Watches News', u:'https://www.watches-news.com/reverso-one-cordonnet-jewellery/'},
     {t:'Lifetime Magazine', u:'https://lifetimemagazine.co/jaeger-lecoultre-the-reverso-one-duetto-jewellery/'}
   ],
   pieces:[
-    { slot:'cj-1', name:'Cordonnet Jewellery', ref:'—', conf:'ok', artist:'Pavé diamond, mother-of-pearl / onyx',
-      text:'Mother-of-pearl on the day dial, onyx on the night dial, with the cord itself set in diamonds. No individual reference number is issued for this piece.' }
+    { slot:'cj-1', name:'Cordonnet Jewellery', ref:'—', conf:'ok', artist:'Pav\u00e9 diamond, mother-of-pearl / onyx',
+      text:'Mother-of-pearl on the day dial, onyx on the night dial, with the cord itself set in diamonds. No individual reference number is issued for this piece.' },
+    { slot:'cj-venice-2013', name:'Diamond rope bracelet, lapis lazuli and pav\u00e9 dials', ref:'\u2014', conf:'partial', artist:'2013 \u00b7 white gold, full pav\u00e9',
+      text:'A small reversible Reverso on a fully diamond-set, twisted rope-style bracelet in white gold \u2014 one face a lapis lazuli dial signed simply \u201cReverso,\u201d the other a fully pav\u00e9 diamond dial. Promoted by Jaeger-LeCoultre for the 70th Venice International Film Festival (28 August \u2013 7 September 2013, hashtag #JLCliveMOSTRA), shot against Piazza San Marco\u2019s colonnade and the winged lion of St Mark. No reference number has been confirmed for this piece; details here are drawn from the promotional photography alone.' }
   ]
 },
 
@@ -479,18 +512,26 @@ const SERIES = [
 /* ---------------------------------------------------------- */
 { slug:'secret-necklace',
   name:'Reverso Secret Necklace',
-  year:'2023', craft:'Gem-setting · jewellery',
-  limited:'Unique / very limited', cal:'—', case:'Reverso as pendant',
-  blurb:'The Reverso taken off the wrist entirely.',
-  intro:'A high-jewellery piece in which the Reverso becomes the centrepiece of a necklace — the swivelling case reimagined as a secret pendant that turns to conceal or reveal the dial. It follows a genuine historical thread: the vintage reference table includes a unisex <em>pendant</em> Reverso (ref. 205) from the 1930s, so the watch has been worn off the wrist before.',
+  year:'1990s\u20132023', craft:'Gem-setting · jewellery',
+  limited:'Unique / very limited', cal:'Calibre 846 (vintage Pendentif) or unspecified (2023 Secret Necklace)', case:'Reverso as pendant',
+  blurb:'The Reverso taken off the wrist entirely — twice over, decades apart.',
+  intro:'The Reverso worn as a necklace turns out to have two distinct chapters. In the 1990s, Jaeger-LeCoultre catalogued a \u201cReverso Pendentif\u201d: a cross-shaped 18-carat gold mount, its edges diamond-set, holding a small reversible Reverso watch that pivots on cabochon-sapphire posts within the frame \u2014 the ordinary reversible mechanism, simply relocated from the wrist to a pendant on a navy silk cord. Then in 2023, at Watches & Wonders Geneva, the idea returned in a completely different form: a High Jewellery bolo-cord necklace with the Reverso case built into a sliding pendant, presented as the latest step in a genuinely old thread of feminine Reversos worn as brooches, handbag clips, or pendants since shortly after the 1931 original. It follows more specific precedent too: the vintage reference table separately includes a unisex <em>pendant</em> Reverso (ref. 205) from the 1930s. The 2023 line has appeared in several colourways: an all-diamond bolo cord with black onyx tassel tips, and beaded versions mixing gemstones \u2014 turquoise and coral, or onyx and jade \u2014 with pav\u00e9 gold segments.',
   links:[
     {t:'Jaeger-LeCoultre', u:'https://www.jaeger-lecoultre.com/us-en/news/watchmaking/reverso-secret-necklace'},
     {t:'Watches and Wonders', u:'https://www.watchesandwonders.com/en/geneva-2023/brands/jaeger-lecoultre/reverso/reverso-secret-necklace'},
     {t:'The Hour Markers', u:'https://www.thehourmarkers.com/articles/jaegerlecoultre-takes-the-secret-route-with-the-reverso-secret-necklace'}
   ],
   pieces:[
-    { slot:'sn-1', name:'Reverso Secret Necklace', ref:'—', conf:'ok', artist:'Gem-set, gold',
-      text:'The case suspended as a pendant, turning to hide the dial — the original idea of concealment, applied to jewellery rather than sport. No individual reference number is issued for this piece. It follows real precedent: a yellow gold and diamond pendant Reverso, ref. 465.1.86, circa 2000, has surfaced at auction on a black cord with an 18k gold clasp, running the manual calibre 844 — confirming the concept existed at least two decades before this current version.' }
+    { slot:'sn-pendentif-diamonds', name:'“Reverso Pendentif” — diamond loop', ref:'465.110.001 (M)', conf:'ok', artist:'18-carat gold, Calibre 846',
+      text:'An earlier, distinct pendant design from the same catalogue family as the ref. 465.1.86 piece cited above: a cross-shaped 18-carat gold mount, its outer edges set with diamonds, holding a small reversible Reverso watch that pivots on two cabochon-sapphire posts within the frame \u2014 the miniature reversible mechanism carried over intact, just set inside jewellery rather than worn on the wrist. Worn on a navy silk cord through a diamond-set loop. This reference\u2019s reverse panel (opposite the dial) is left as plain polished gold.' },
+    { slot:'sn-pendentif-sapphires', name:'“Reverso Pendentif” — diamond and sapphire loop', ref:'465.110.005 (M)', conf:'ok', artist:'18-carat gold, Calibre 846',
+      text:'The sibling reference to the piece above, sharing the same cross-shaped gold and diamond mount, cabochon-sapphire pivot posts, and navy cord \u2014 but with the suspension loop set with diamonds and baguette-cut sapphires together rather than diamonds alone, and its reverse panel (opposite the dial) fully pav\u00e9-set with diamonds instead of left plain.' },
+    { slot:'sn-diamond-onyx', name:'Diamond bolo necklace with black onyx tassels', ref:'\u2014', conf:'ok', artist:'White gold, full pav\u00e9 diamond, black onyx',
+      text:'The most restrained colourway in the line: a fully pav\u00e9 diamond bolo cord, with no coloured beads strung along its length, converging into a diamond-set Reverso pendant whose case-back carries an Art Deco geometric pattern in black against the diamond field. The cord continues below the pendant as two diamond-set strands, each ending in a long black onyx cylindrical tassel tipped with a diamond. Confirmed via Jaeger-LeCoultre\u2019s own Watches & Wonders 2023 presentation of the Reverso Secret Necklace \u2014 likely the base design the turquoise/coral and onyx/jade beaded colourways build from.' },
+    { slot:'sn-turquoise-coral', name:'Turquoise and coral bolo necklace', ref:'\u2014', conf:'partial', artist:'Gem-set gold, gemstone beads',
+      text:'A bolo-style necklace of two bead strands — round turquoise beads alternating with coral-pink beads and diamond-pav\u00e9 gold segments — that converge into a pav\u00e9 gold Reverso pendant with an Art Deco geometric pattern picked out in turquoise, coral, and black across the case-back. Below the pendant, the cord continues as two diamond-set gold strands, each ending in a turquoise cylindrical tassel tip capped with a diamond. No written description or reference is available for this piece; details here are drawn from photographs alone.' },
+    { slot:'sn-onyx-jade', name:'Onyx and jade bolo necklace', ref:'\u2014', conf:'partial', artist:'Gem-set gold, gemstone beads',
+      text:'The same bolo-necklace construction as the turquoise and coral version, in a different palette: black onyx beads alternating with jade-green beads and diamond-pav\u00e9 gold segments, converging into a pav\u00e9 gold Reverso pendant whose Art Deco case-back pattern is picked out in green and black rather than turquoise and coral. The tassel tips at the end of each cord are jade rather than turquoise. As with the piece above, no written description or reference number is available; details here are drawn from photographs alone.' }
   ]
 },
 

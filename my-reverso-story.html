@@ -303,6 +303,7 @@ window.addEventListener('load', function(){
 </footer>
 
 <script src="reverso-data.js"></script>
+<script src="reverso-stories.js"></script>
 <script>
 (function(){
   // reverso-data.js powers the story gallery and the submission form.
@@ -360,43 +361,70 @@ window.addEventListener('load', function(){
   // ---------- featured teaser: 3 random approved stories, refreshed on every visit ----------
   async function renderFeatured(){
     const grid = document.getElementById('galleryGrid');
+    const RSTORIES = window.RSTORIES || null;
+    const curated = RSTORIES ? RSTORIES.STORIES.map(function(s){
+      const collector = RSTORIES.collectorById(s.collectorId);
+      return {
+        curated:true, href:'reverso-story.html?id=' + s.id,
+        name: collector ? collector.name : s.title,
+        titleLine: s.title, location:'',
+        front: 'images/stories/' + s.id + '-front.jpg', back: 'images/stories/' + s.id + '-back.jpg',
+        engrave: s.title, hook: s.hook, story: s.story
+      };
+    }) : [];
     if(!RD){
-      grid.innerHTML = '<div class="gallery-empty">Stories are temporarily unavailable.</div>';
-      document.getElementById('galleryCount').textContent = '';
+      if(curated.length){
+        renderFeaturedList(curated.slice().sort(() => Math.random() - 0.5).slice(0, 3), curated.length);
+      } else {
+        grid.innerHTML = '<div class="gallery-empty">Stories are temporarily unavailable.</div>';
+        document.getElementById('galleryCount').textContent = '';
+      }
       return;
     }
     const index = await RD.loadIndex();
-    const approved = index.filter(s => s.status === 'approved');
-    document.getElementById('galleryCount').textContent = approved.length
-      ? 'Showing ' + Math.min(3, approved.length) + ' of ' + approved.length + (approved.length === 1 ? ' story in the collection' : ' stories in the collection')
+    const approvedLight = index.filter(s => s.status === 'approved');
+    const totalCount = curated.length + approvedLight.length;
+    document.getElementById('galleryCount').textContent = totalCount
+      ? 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story in the collection' : ' stories in the collection')
       : '';
-    if(!approved.length){
+    if(!totalCount){
       grid.innerHTML = '<div class="gallery-empty">No stories yet — be the first to share yours below.</div>';
       return;
     }
-    const shuffled = approved.slice().sort(() => Math.random() - 0.5).slice(0, 3);
-    const full = await RD.loadMany(shuffled.map(s => s.id));
+    const shuffledLight = approvedLight.slice().sort(() => Math.random() - 0.5).slice(0, 3);
+    const fullSubmitted = await RD.loadMany(shuffledLight.map(s => s.id));
+    const pool = curated.concat(fullSubmitted).sort(() => Math.random() - 0.5).slice(0, 3);
+    renderFeaturedList(pool, totalCount);
+  }
+  function renderFeaturedList(full, totalCount){
+    const grid = document.getElementById('galleryGrid');
     grid.innerHTML = full.map(s => `
       <div class="story-stage reveal-scale">
         <div class="story-case">
           <div class="story-face front">
-            ${s.front ? `<img src="${RD.escapeHtml(s.front)}" alt="Front of the Reverso belonging to ${RD.escapeHtml(s.name)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'noimg',innerHTML:'<span>No Photo Provided</span>'}))">`
+            ${s.front ? `<img src="${RD ? RD.escapeHtml(s.front) : s.front}" alt="Front of the Reverso belonging to ${RD ? RD.escapeHtml(s.name) : s.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'noimg',innerHTML:'<span>No Photo Provided</span>'}))">`
                       : `<div class="noimg"><span>No Photo Provided</span></div>`}
             <div class="meta">
-              <h4>${RD.escapeHtml(s.name)}</h4>
-              <small>${RD.escapeHtml([s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso')}${s.location ? ' · ' + RD.escapeHtml(s.location) : ''}</small>
+              <h4>${RD ? RD.escapeHtml(s.name) : s.name}</h4>
+              <small>${RD ? RD.escapeHtml(s.titleLine || [s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso') : (s.titleLine || [s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso')}${s.location ? ' · ' + (RD ? RD.escapeHtml(s.location) : s.location) : ''}</small>
             </div>
           </div>
           <div class="story-face back">
-            <div class="engraving">${RD.escapeHtml(s.engrave || 'On the back')}</div>
-            <p>${RD.escapeHtml(s.story)}</p>
-            <div class="sig">— ${RD.escapeHtml(s.name)}${s.location ? ', ' + RD.escapeHtml(s.location) : ''}</div>
+            ${s.back && !s.curated ? `<img src="${RD ? RD.escapeHtml(s.back) : s.back}" alt="Case back" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;" onerror="this.remove()">` : ''}
+            <div class="engraving">${RD ? RD.escapeHtml(s.engrave || 'On the back') : (s.engrave || 'On the back')}</div>
+            ${s.curated
+              ? `<p>${RD ? RD.escapeHtml(s.hook) : s.hook}</p><a class="story-more" href="${s.href}">Read the Full Story →</a>`
+              : `<p>${RD ? RD.escapeHtml(s.story) : s.story}</p>`}
+            <div class="sig">— ${RD ? RD.escapeHtml(s.name) : s.name}${s.location ? ', ' + (RD ? RD.escapeHtml(s.location) : s.location) : ''}</div>
           </div>
         </div>
       </div>
     `).join('');
+    if(!document.getElementById('galleryCount').textContent && totalCount){
+      document.getElementById('galleryCount').textContent = 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story in the collection' : ' stories in the collection');
+    }
     grid.querySelectorAll('.story-stage').forEach(el => {
-      el.addEventListener('click', () => el.classList.toggle('flipped'));
+      el.addEventListener('click', (ev) => { if(ev.target.closest('a')) return; el.classList.toggle('flipped'); });
       io.observe(el);
     });
   }

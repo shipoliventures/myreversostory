@@ -82,36 +82,12 @@ window.ReversoData = (function(){
     });
   }
 
-  // ---------- seed data (used only until the first real submission exists) ----------
-  const SEED_FULL = {
-    'seed-1': {
-      id: 'seed-1', status: 'approved',
-      name: 'Alejandro V.', location: 'Buenos Aires, Argentina',
-      ref: 'Reverso Classic, steel', year: '1998',
-      engrave: "My father's polo club crest, hand-engraved",
-      story: "My father played polo the way his father did, and this watch went with him to every match for two decades. When he handed it to me he told me the back was blank when he bought it — the crest came later, once the club actually meant something to him. I still don't wear it to play. Some things survive better as memory than equipment.",
-      front: '', back: '', email: '',
-      submittedAt: Date.now() - 1000*60*60*24*40
-    },
-    'seed-2': {
-      id: 'seed-2', status: 'approved',
-      name: 'Priya N.', location: 'Mumbai, India',
-      ref: 'Grande Reverso Ultra Thin', year: '2015',
-      engrave: 'A single line from a wedding vow',
-      story: "I had eleven words engraved on the back before I gave this to my husband on our wedding day. He didn't see them until the ceremony was over and he finally had a quiet minute to flip the case. He still checks the back before he checks the time — I think that was the idea.",
-      front: '', back: '', email: '',
-      submittedAt: Date.now() - 1000*60*60*24*12
-    },
-    'seed-3': {
-      id: 'seed-3', status: 'approved',
-      name: 'Tom H.', location: 'Edinburgh, Scotland',
-      ref: 'Reverso Tribute Duoface', year: '2021',
-      engrave: 'A tiny engraved compass rose',
-      story: "I asked the engraver for something that would mean nothing to anyone else and everything to me — a compass rose pointing toward a village that isn't on most maps anymore. It's where I proposed. The watch keeps two time zones on the dial; the back keeps the one place that actually matters to me.",
-      front: '', back: '', email: '',
-      submittedAt: Date.now() - 1000*60*60*24*3
-    }
-  };
+  // ---------- seed data ----------
+  // Real collector stories now live in reverso-stories.js as curated content.
+  // This seed set is only a fallback for the live submission system when no
+  // storage is available yet — intentionally empty rather than filled with
+  // placeholder names.
+  const SEED_FULL = {};
   function lightweightFrom(full){
     return {
       id: full.id, status: full.status, name: full.name, location: full.location,

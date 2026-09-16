@@ -145,31 +145,26 @@ const EDITIONS = [
   note:'One Lunar New Year animal at a time \u2014 Tiger, Dragon, Snake, Horse so far \u2014 each modelled-engraved into a caseback that was enamelled black first. Full set catalogued on its own page.' },
 
 /* ---------- Reverso Joaillerie ---------- */
-{ slot:'le-joaillerie-101', year:'c.1990', name:'Reverso Joaillerie, Calibre 101',
-  ref:'280.3.70', run:'Very limited', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Cal. 101',
-  material:'White gold, fully diamond-set (236 diamonds)', market:'International', back:'—',
-  note:'The case entirely set with diamonds, running the smallest mechanical movement ever series-produced (14 x 4.8 x 3.4 mm, introduced 1929), with the winding crown moved to the back because there is nowhere else for it to go. 11 x 27.5 mm; retailed for roughly US$87,500 when new.' },
+{ slot:'le-reverso-101-lesfolies', year:'c.1990\u2013early 2000s', name:'Reverso 101 “Les Folies”',
+  ref:'10 references \u2014 see full set', run:'Quantities per reference not documented', link:'reverso-series.html?s=reverso-101-les-folies', cat:'joaillerie', family:'Reverso Joaillerie',
+  cal:'Cal. 101', material:'Yellow, pink, or white gold, gem-set', market:'International', back:'\u2014',
+  note:'The Reverso built around the Guinness World Record calibre 101, where the bracelet\u2019s own gem-set links rotate along with the case \u2014 ten confirmed references across yellow, pink and white gold, with diamonds, rubies, emeralds, and one full multi-gem \u201crainbow\u201d bracelet. Full set catalogued on its own page.' },
 
 { slot:'le-grande-reverso-101', year:'c.2005', name:'Grande Reverso 101, diamonds and platinum',
   ref:'3006430', run:'Very limited', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Cal. 101',
   material:'Platinum, diamond-set skeleton', market:'International', back:'sapphire',
-  note:'A larger platinum sibling to the white gold Reverso Joaillerie Calibre 101 above \u2014 29 x 46 mm rather than 11 x 27.5 mm \u2014 with a fully skeletonised, diamond-set dial visible through a sapphire back, showing off the tiny calibre 101 movement rather than hiding it.' },
-
-{ slot:'le-night-and-day-joaillerie', year:'c.2000', name:'Reverso Joaillerie “Night and Day”',
-  ref:'280.2.70', run:'Very limited', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Cal. 1005',
-  material:'Yellow gold, diamond-set', market:'International', back:'—',
-  note:'An integrated-bracelet Joaillerie Reverso with twisting diamond \u201cevening\u201d links, running the miniature manual calibre 1005 \u2014 by one auction house\u2019s own account, among the smallest Reversos ever made. 11 x 27 mm.' },
+  note:'A larger platinum expression of the calibre 101 \u2014 29 x 46 mm rather than the 11 x 27.5 mm case used across the Les Folies bracelet family catalogued on its own page \u2014 with a fully skeletonised, diamond-set dial visible through a sapphire back, showing off the movement rather than hiding it.' },
 
 { slot:'le-reverso-ring', year:'1998', name:'The Reverso Ring Watch',
   ref:'280.3.70', run:'Unique piece', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Keyless lever',
   material:'Gold, diamond and emerald-set', market:'International', back:'—',
-  note:'The Reverso concept as a ring rather than a wristwatch \u2014 catalogued in full as a Pi\u00e8ce Unique elsewhere in this archive, since it isn\u2019t part of any numbered edition.' },
+  note:'The Reverso concept as a ring rather than a wristwatch, sharing its reference with one of the calibre 101 pieces in the Les Folies bracelet family \u2014 catalogued in full as a Pi\u00e8ce Unique elsewhere in this archive, since it isn\u2019t part of any numbered edition.' },
 
 
-{ slot:'le-cordonnet-jewellery', year:'2021', name:'Reverso One Cordonnet Jewellery',
+{ slot:'le-cordonnet-jewellery', year:'2013\u20132021', name:'Reverso One Cordonnet Jewellery',
   ref:'—', run:'Limited', link:'reverso-series.html?s=cordonnet-jewellery', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Cal. 844',
   material:'Gold, pavé diamonds', market:'International', back:'—',
-  note:'The 1930s silk cord reimagined in gold and pavé diamonds, on a Duetto case — mother-of-pearl on the day dial, onyx on the night.' },
+  note:'The 1930s silk cord reimagined in gold and pavé diamonds — a 2021 Duetto case with mother-of-pearl and onyx dials, and an earlier 2013 diamond rope-bracelet piece with lapis lazuli and pavé dials. Full set catalogued on its own page.' },
 
 { slot:'le-precious-flowers', year:'2021 – 2024', name:'Reverso One “Precious Flowers”',
   ref:'Q3292422 and others', run:'10 pieces per reference', link:'reverso-series.html?s=precious-flowers', cat:'joaillerie', family:'Reverso Joaillerie',
@@ -186,10 +181,10 @@ const EDITIONS = [
   material:'Pink or white gold, mother-of-pearl', market:'International', back:'engraved',
   note:'The opening capsule of a nature series — hummingbirds over hibiscus, combining enamel, paillonnage, gem-setting and lacquer.' },
 
-{ slot:'le-secret-necklace', year:'2023', name:'Reverso Secret Necklace',
-  ref:'—', run:'Unique / very limited', link:'reverso-series.html?s=secret-necklace', cat:'joaillerie', family:'Reverso Joaillerie', cal:'—',
+{ slot:'le-secret-necklace', year:'1990s\u20132023', name:'Reverso Secret Necklace',
+  ref:'465.110.001 (M) / 465.110.005 (M) and others', run:'Unique / very limited', link:'reverso-series.html?s=secret-necklace', cat:'joaillerie', family:'Reverso Joaillerie', cal:'Cal. 846',
   material:'Gold, gem-set', market:'International', back:'—',
-  note:'The Reverso taken off the wrist entirely — the swivelling case as a secret pendant that turns to conceal the dial. There\u2019s real precedent for this: a yellow gold and diamond pendant version, ref. 465.1.86, circa 2000, on a black cord with an 18k gold clasp and manual calibre 844, has surfaced at auction — a genuine ancestor to the 2023 piece rather than just a similar idea.' },
+  note:'Two distinct eras of the Reverso worn as a pendant: a 1990s cross-mounted \u201cReverso Pendentif\u201d on a navy cord, and a 2023 Watches & Wonders High Jewellery bolo-cord version in several colourways. Full set catalogued on its own page.' },
 
 /* ---------- Commemorative: MR PORTER cities ---------- */
 { slot:'le-mrporter-cities', year:'2021 & 2023', name:'JLC \u00d7 MR PORTER City Editions',
@@ -343,7 +338,7 @@ const EDITIONS = [
   note:'A genuine factory prototype, case No. 2\u2019786\u2019828, stamped \u201cProto 0\u201d \u2014 the zeroth example built while developing what became the production blue enamel guilloch\u00e9 Grande Reverso \u201cEmail\u201d on this same reference, catalogued separately above. It was sold with real purpose: in November 2011, for the Grand Opening of its 1881 Heritage boutique in Hong Kong, Jaeger-LeCoultre launched a \u201cProto Zero\u201d initiative offering prototypes of select limited editions through that boutique, with 10% of each sale earmarked for the End Child Sexual Abuse Foundation (ECSAF), a Hong Kong charity founded in 1998 by actress and child psychologist Ms Siao Fong Fong. For this particular watch, sold through Christie\u2019s, Jaeger-LeCoultre donated the entire proceeds of the sale to ECSAF, and Christie\u2019s donated the full buyer\u2019s premium on top \u2014 none of the standard 10% arrangement applied here; the whole hammer price and premium went to the cause. ECSAF\u2019s work spans counselling, academic research into the causes of child sexual abuse, and education programmes and workshops raising public awareness of child protection.' },
 
 { slot:'le-tricolor-1935', year:'1935', name:'The Tri-Colour Gold Bracelet Reverso',
-  ref:'\u2014', run:'Unique / very rare', cat:'gtspecial', family:'Special Dials & Precious Metals',
+  ref:'\u2014', run:'Unique / very rare', cat:'joaillerie', family:'Reverso Joaillerie',
   cal:'\u2014', material:'Tri-colour gold (yellow, pink, white)', market:'International', back:'\u2014',
   note:'An unusually early Reverso built with an integrated bracelet rather than a strap, its case and links combining yellow, pink, and white gold \u2014 a tri-colour treatment more commonly associated with later 20th-century jewellery watches than with a design only four years removed from its 1931 patent. Movement No. 61603, case No. 31935, dated by its numbering to 1935 itself.' },
 

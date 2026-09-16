@@ -277,6 +277,22 @@ Claude Joray — the best single source for the calibre page:
 | `xb-two-horses-front.jpg` | `xb-two-horses-back.jpg` | “Two Horses” | Q39334B2 |
 | `xb-standing-front.jpg` | `xb-standing-back.jpg` | “The Standing Horse” | Q39334B1 |
 
+### Reverso 101 “Les Folies”  
+*Cover:* `reverso-101-les-folies-cover.jpg`  ·  `reverso-series.html?s=reverso-101-les-folies`
+
+| Front | Back | Piece | Ref |
+|---|---|---|---|
+| `lf-yellowgold-diamondsemeralds-front.jpg` | `lf-yellowgold-diamondsemeralds-back.jpg` | Yellow gold, diamonds and emeralds | 280.197.702 (M) |
+| `lf-yellowgold-diamonds-front.jpg` | `lf-yellowgold-diamonds-back.jpg` | Yellow gold, diamonds only | 280.12.01 (M) |
+| `lf-whitegold-fullpave-strap-front.jpg` | `lf-whitegold-fullpave-strap-back.jpg` | White gold, fully pavé diamonds, black leather strap | — verify |
+| `lf-whitegold-decorated-strap-front.jpg` | `lf-whitegold-decorated-strap-back.jpg` | White gold, decorated with diamonds, black leather strap | — verify |
+| `lf-whitegold-diamondsemeralds-front.jpg` | `lf-whitegold-diamondsemeralds-back.jpg` | White gold, diamonds and emeralds | — verify |
+| `lf-pinkgold-diamonds-front.jpg` | `lf-pinkgold-diamonds-back.jpg` | Pink gold, diamonds only | 280.292.702 (M) |
+| `lf-pinkgold-rubies-front.jpg` | `lf-pinkgold-rubies-back.jpg` | Pink gold, diamonds and rubies | 280.245.702 (M) |
+| `lf-whitegold-diamonds-front.jpg` | `lf-whitegold-diamonds-back.jpg` | White gold, fully diamond-set | 280.392.702 (M) |
+| `lf-whitegold-rubies-front.jpg` | `lf-whitegold-rubies-back.jpg` | White gold, diamonds and rubies | 280.945.702G (M) |
+| `lf-rainbow-front.jpg` | `lf-rainbow-back.jpg` | White gold, multi-gem “rainbow” bracelet | 280.330.004 (M) |
+
 ### Reverso Montre de Poche “Pierres Précieuses” — Alfons Mucha  *(Pocket watches, not wristwatches)*  
 *Cover:* `mucha-precious-stones-cover.jpg`  ·  `reverso-series.html?s=mucha-precious-stones`
 
@@ -401,6 +417,7 @@ Claude Joray — the best single source for the calibre page:
 | Front | Back | Piece | Ref |
 |---|---|---|---|
 | `cj-1-front.jpg` | `cj-1-back.jpg` | Cordonnet Jewellery | — (none issued) |
+| `cj-venice-2013-front.jpg` | `cj-venice-2013-back.jpg` | Diamond rope bracelet, lapis lazuli and pavé dials | — verify |
 
 ### Reverso One “La Vallée des Merveilles”  
 *Cover:* `vallee-merveilles-cover.jpg`  ·  `reverso-series.html?s=vallee-merveilles`
@@ -416,7 +433,11 @@ Claude Joray — the best single source for the calibre page:
 
 | Front | Back | Piece | Ref |
 |---|---|---|---|
-| `sn-1-front.jpg` | `sn-1-back.jpg` | Reverso Secret Necklace | — (none issued) |
+| `sn-pendentif-diamonds-front.jpg` | `sn-pendentif-diamonds-back.jpg` | “Reverso Pendentif” — diamond loop | 465.110.001 (M) |
+| `sn-pendentif-sapphires-front.jpg` | `sn-pendentif-sapphires-back.jpg` | “Reverso Pendentif” — diamond and sapphire loop | 465.110.005 (M) |
+| `sn-diamond-onyx-front.jpg` | `sn-diamond-onyx-back.jpg` | Diamond bolo necklace with black onyx tassels | — (none issued) |
+| `sn-turquoise-coral-front.jpg` | `sn-turquoise-coral-back.jpg` | Turquoise and coral bolo necklace | — (none issued) |
+| `sn-onyx-jade-front.jpg` | `sn-onyx-jade-back.jpg` | Onyx and jade bolo necklace | — (none issued) |
 
 ### Jaeger-LeCoultre × MR PORTER — City Editions  *(Commemorative)*  
 *Cover:* `mrporter-cities-cover.jpg`  ·  `reverso-series.html?s=mrporter-cities`
@@ -532,6 +553,22 @@ Claude Joray — the best single source for the calibre page:
 | `a-cloisonne-polo-front.jpg` | `a-cloisonne-polo-back.jpg` | The Cloisonné Polo Player Reverso |
 | `a-wrist-topaz-front.jpg` | `a-wrist-topaz-back.jpg` | The Wrist Reverso “Topaz” (Alfons Mucha) |
 | `a-lempicka-quartet-front.jpg` | `a-lempicka-quartet-back.jpg` | The Tamara de Lempicka Quartet |
+| `a-big-dipper-front.jpg` | `a-big-dipper-back.jpg` | The “Big Dipper” Reverso |
+| `a-coatofarms-1980s-front.jpg` | `a-coatofarms-1980s-back.jpg` | The “Reverso II” Enamel Coat of Arms |
+| `a-coatofarms-1950s-front.jpg` | `a-coatofarms-1950s-back.jpg` | The Steel Enamelled Coat of Arms Reverso |
+| `a-coatofarms-1930s-onyx-front.jpg` | `a-coatofarms-1930s-onyx-back.jpg` | The Onyx Bracelet Coat of Arms Reverso |
+| `a-coa-wienercercle-front.jpg` | `a-coa-wienercercle-back.jpg` | The “Wiener Cercle” Reverso |
+| `a-coa-redgriffin-front.jpg` | `a-coa-redgriffin-back.jpg` | The “Sans Peur” Griffin Reverso |
+| `a-coa-runninghorse-front.jpg` | `a-coa-runninghorse-back.jpg` | The “HMS Victory” Reverso |
+| `a-coa-crownedcross-front.jpg` | `a-coa-crownedcross-back.jpg` | The House of Savoy Reverso |
+| `a-coa-yellowshield-front.jpg` | `a-coa-yellowshield-back.jpg` | The A.S. Roma Reverso |
+| `a-coa-quarteredroundels-front.jpg` | `a-coa-quarteredroundels-back.jpg` | The Crescent and Mullets Reverso |
+| `a-coa-lionsandbells-front.jpg` | `a-coa-lionsandbells-back.jpg` | The “Nec Timide Nec Tarde” Reverso |
+| `a-coa-diagonalcrown-front.jpg` | `a-coa-diagonalcrown-back.jpg` | The “Fideliter” Herons Reverso |
+| `a-coa-mjmonogram-front.jpg` | `a-coa-mjmonogram-back.jpg` | The “MJ” Monogram Reverso |
+| `a-aeroclub-basel-front.jpg` | `a-aeroclub-basel-back.jpg` | The “Aéroclub Suisse de Bâle” Reverso |
+| `a-heidelberg-vineyard-front.jpg` | `a-heidelberg-vineyard-back.jpg` | The Heidelberg Vineyard Reverso |
+| `a-scherb-basel-front.jpg` | `a-scherb-basel-back.jpg` | The Scherb Family Reverso |
 | `ed-magritte-1-front.jpg` | `ed-magritte-1-back.jpg` | Reverso in tribute to René Magritte — Series 1, “La Trahison des images” |
 | `ed-magritte-2-front.jpg` | `ed-magritte-2-back.jpg` | Reverso in tribute to René Magritte — Series 2, “L’Oiseau de Ciel” |
 | `ed-juventus-front.jpg` | `ed-juventus-back.jpg` | Reverso Grande Taille “Juventus 100th” |
@@ -567,7 +604,7 @@ Claude Joray — the best single source for the calibre page:
 
 ---
 
-## Limited editions (116) — front/back
+## Limited editions (115) — front/back
 
 
 ### The First Complications (6)
@@ -630,11 +667,11 @@ Claude Joray — the best single source for the calibre page:
 
 | Front | Back | Edition | Run |
 |---|---|---|---|
-| `le-joaillerie-101-front.jpg` | `le-joaillerie-101-back.jpg` | Reverso Joaillerie, Calibre 101 | Very limited |
+| `le-reverso-101-lesfolies-front.jpg` | `le-reverso-101-lesfolies-back.jpg` | Reverso 101 “Les Folies” | 10 references — full set on its own page |
 | `le-grande-reverso-101-front.jpg` | `le-grande-reverso-101-back.jpg` | Grande Reverso 101, diamonds and platinum | Very limited |
 | `le-grande-reverso-101-artdeco-front.jpg` | `le-grande-reverso-101-artdeco-back.jpg` | Grande Reverso 101 Art Déco | 5 pieces |
-| `le-night-and-day-joaillerie-front.jpg` | `le-night-and-day-joaillerie-back.jpg` | Reverso Joaillerie “Night and Day” | Very limited |
 | `le-reverso-ring-front.jpg` | `le-reverso-ring-back.jpg` | The Reverso Ring Watch | Unique piece |
+| `le-tricolor-1935-front.jpg` | `le-tricolor-1935-back.jpg` | The Tri-Colour Gold Bracelet Reverso | Unique / very rare |
 | `le-diamond-sapphire-mop-front.jpg` | `le-diamond-sapphire-mop-back.jpg` | Reverso, diamond and sapphire-set, mother-of-pearl dial | Unknown |
 | `le-cordonnet-jewellery-front.jpg` | `le-cordonnet-jewellery-back.jpg` | Reverso One Cordonnet Jewellery | Limited |
 | `le-precious-flowers-front.jpg` | `le-precious-flowers-back.jpg` | Reverso One “Precious Flowers” | 10 pieces per reference |
@@ -707,13 +744,12 @@ Claude Joray — the best single source for the calibre page:
 | `ed-wakaya-front.jpg` | `ed-wakaya-back.jpg` | Grande Reverso 1931 Seconde Centrale “Wakaya” | Personal commission (David H. Gilmour) |
 | `ed-kuwait-55th-front.jpg` | `ed-kuwait-55th-back.jpg` | Grande Reverso 976 “55th Anniversary of Kuwait” | 55 pieces |
 
-### Special Dials & Precious Metals (21)
+### Special Dials & Precious Metals (20)
 
 | Front | Back | Edition | Run |
 |---|---|---|---|
 | `le-email-guilloche-front.jpg` | `le-email-guilloche-back.jpg` | Grande Reverso “Email”, enamel guilloché dial | 50 pieces (white gold) · 200 pieces (pink gold) |
 | `le-proto-zero-front.jpg` | `le-proto-zero-back.jpg` | “Proto Zero” — Blue Enamel Prototype | Unique prototype |
-| `le-tricolor-1935-front.jpg` | `le-tricolor-1935-back.jpg` | The Tri-Colour Gold Bracelet Reverso | Unique / very rare |
 | `ed-65th-anniversary-front.jpg` | `ed-65th-anniversary-back.jpg` | Reverso “65th Anniversary, 1931–1996” | 65 pieces |
 | `ed-theo-fennell-front.jpg` | `ed-theo-fennell-back.jpg` | Reverso “Theo Fennell” | 20 pieces |
 | `le-tribute-1931-500-front.jpg` | `le-tribute-1931-500-back.jpg` | Grande Reverso Ultra Thin “Tribute to 1931” | 500 pieces |
@@ -730,3 +766,40 @@ Claude Joray — the best single source for the calibre page:
 | `le-latitude-2-front.jpg` | `le-latitude-2-back.jpg` | Reverso Grande Taille “Latitude 2” | Unnumbered, unlimited |
 | `le-art-deco-pg-front.jpg` | `le-art-deco-pg-back.jpg` | Reverso Grande Taille “Art Deco” (pink gold) | Very small series |
 | `le-art-deco-wg-front.jpg` | `le-art-deco-wg-back.jpg` | Reverso Grande Taille “Art Deco” (white gold) | Very small series |
+
+---
+
+## Collector Stories — front/back
+
+These photos are supplied by the collector themselves, not sourced from auction houses, and live in their own subfolder — **`images/stories/`** — separate from every other photo on the site. Filenames follow the same front/back convention as everywhere else, keyed to each story's own id (from `reverso-stories.js`) rather than a model slug.
+
+### Mitch & Linda Katz (9 stories)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/mitch-101-front.jpg` | `images/stories/mitch-101-back.jpg` | Number One of Five | Grande Reverso 101 Art Déco |
+| `images/stories/mitch-linda-duoface-front.jpg` | `images/stories/mitch-linda-duoface-back.jpg` | The Watch Widow | Reverso Duoface |
+| `images/stories/mitch-chocolate-engraving-front.jpg` | `images/stories/mitch-chocolate-engraving-back.jpg` | The Imperfect Engraving | The Chocolate Reverso |
+| `images/stories/mitch-lint-front.jpg` | `images/stories/mitch-lint-back.jpg` | Number One — and the Piece of Lint | Grande Reverso Ultra Thin SQ |
+| `images/stories/mitch-designed-watch-front.jpg` | `images/stories/mitch-designed-watch-back.jpg` | The Watch I Designed, and the One I Bought | Grande Reverso 1931 Seconde Centrale |
+| `images/stories/mitch-goodbye-wave-front.jpg` | `images/stories/mitch-goodbye-wave-back.jpg` | Goodbye, Wave | Reverso Tribute Enamel — Hokusai, unique commission |
+| `images/stories/mitch-my-engraving-front.jpg` | `images/stories/mitch-my-engraving-back.jpg` | My Engraving | Reverso Tribute Small Seconds, burgundy |
+| `images/stories/mitch-scratch-front.jpg` | `images/stories/mitch-scratch-back.jpg` | The Scratch That Wasn't There | Reverso Tribute Nonantième |
+| `images/stories/mitch-repeater-front.jpg` | `images/stories/mitch-repeater-back.jpg` | Linda Said I Had to Buy It | Reverso Tribute Minute Repeater |
+
+### Randy Kamin (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/randy-kamin-first-reverso-front.jpg` | `images/stories/randy-kamin-first-reverso-back.jpg` | My Baby | Reverso |
+
+### Edi, Deni & Brion Shipoli (5 stories)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/shipoli-fagliano-front.jpg` | `images/stories/shipoli-fagliano-back.jpg` | The Reverso That Started It All | Reverso Tribute Duoface, Casa Fagliano |
+| `images/stories/shipoli-nonantieme-front.jpg` | `images/stories/shipoli-nonantieme-back.jpg` | The Most Beautiful Watch Ever Made | Reverso Tribute Nonantième |
+| `images/stories/shipoli-istanbul-front.jpg` | `images/stories/shipoli-istanbul-back.jpg` | Our Istanbul | Reverso Tribute Monoface, green dial |
+| `images/stories/shipoli-chronograph-front.jpg` | `images/stories/shipoli-chronograph-back.jpg` | The Call Before the Appointment | Reverso Tribute Chronograph, steel |
+| `images/stories/shipoli-geographic-front.jpg` | `images/stories/shipoli-geographic-back.jpg` | Our First Watches and Wonders | Reverso Tribute Geographic, steel |
+
