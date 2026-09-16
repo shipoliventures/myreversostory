@@ -133,6 +133,14 @@ window.addEventListener('load', function(){
 <script src="reverso-share.js"></script>
 <script>
 (function(){
+  /* Sharing is optional: if reverso-share.js is missing or fails to load, the
+     page must still render. Falls back to a no-op that emits no buttons. */
+  const RSHARE = window.ReversoShare || {
+    register:function(){}, buttonHTML:function(){ return ''; }, init:function(){},
+    open:function(){}, diagnose:function(){ console.warn('reverso-share.js did not load'); }
+  };
+  if(!window.ReversoShare) console.warn('[share] reverso-share.js did not load \u2014 share buttons disabled.');
+
   const CAM = '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>';
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
   function rich(s){ return String(s==null?'':s); }
@@ -152,7 +160,7 @@ window.addEventListener('load', function(){
 
   function archHTML(a){
     const key = 'u:' + a.slot;
-    ReversoShare.register(key, {
+    RSHARE.register(key, {
       kind: 'unique',
       title: a.name,
       eyebrow: [a.year, a.craft].filter(Boolean).join('  \u00b7  '),
@@ -171,7 +179,7 @@ window.addEventListener('load', function(){
         '<div class="arch-meta"><span><b>Craft:</b> ' + esc(a.craft) + '</span><span><b>Made for:</b> ' + esc(a.owner) + '</span></div>' +
         '<p class="arch-text">' + rich(a.text) + '</p>' +
         (a.src ? '<p class="mr-src">Source: ' + rich(a.src) + '</p>' : '') +
-        '<div class="arch-share">' + ReversoShare.buttonHTML(key, { compact: true }) + '</div>' +
+        '<div class="arch-share">' + RSHARE.buttonHTML(key, { compact: true }) + '</div>' +
       '</div>' +
     '</div>';
   }
@@ -179,7 +187,7 @@ window.addEventListener('load', function(){
   const R = window.RR;
   document.getElementById('grid-unique').innerHTML =
     R.ARCHIVE.filter(function(a){ return a.cat === 'unique'; }).map(archHTML).join('');
-  ReversoShare.init();
+  RSHARE.init();
   /* ---------- artistic series: clickable cards -> dedicated pages ---------- */
   const RS = window.RSERIES;
   function seriesCard(s){
@@ -236,7 +244,7 @@ window.addEventListener('load', function(){
     const front = s.front || s.img;
     let shareBtn = '';
     if(s.curated && s.storyId){
-      ReversoShare.register(s.storyId, {
+      RSHARE.register(s.storyId, {
         kind: 'story',
         title: s.titleLine,
         eyebrow: s.name,
@@ -246,7 +254,7 @@ window.addEventListener('load', function(){
         url: 'reverso-story.html?id=' + encodeURIComponent(s.storyId),
         credit: s.name
       });
-      shareBtn = ReversoShare.buttonHTML(s.storyId, { label: 'Share', compact: true })
+      shareBtn = RSHARE.buttonHTML(s.storyId, { label: 'Share', compact: true })
         .replace('class="rs-btn compact"', 'class="rs-btn compact rs-corner"');
     }
     return '<div class="story-stage reveal-scale">' + shareBtn +

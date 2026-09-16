@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<script>
+/* Enable scroll-reveal animation only if JS is alive, and force everything
+   visible if the observer never runs (older browsers, script failure). */
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible), .reveal-scale:not(.visible)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200);
+});
+</script>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+<div class="grain" style="filter:url(#noise);"></div>
+<div class="progress" id="progressBar"></div>
+
+<nav>
+  <a href="#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <ul class="navlinks">
+    <li><a href="reverso-history.html">History</a></li>
+    <li><a href="reverso-models.html">Models</a></li>
+    <li><a href="reverso-calibres.html">Calibres</a></li>
+    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-limited.html">Limited</a></li>
+    <li><a href="#submit">Share Yours</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">A collector's archive · since 1931</p>
+      <h1>Every Reverso has two sides.<br>One tells the time. <em>The other tells a story.</em></h1>
+      <p>The Reverso was built to turn its back on danger. Collectors turned that same blank steel into a canvas — initials, crests, enamel, engravings. This is where those second faces, and the stories behind them, are kept.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn solid">Explore the Collection</a>
+        <a href="#submit" class="btn">Share Your Story</a>
+      </div>
+    </div>
+    <div class="hero-watch-wrap">
+      <div class="stage" id="heroStage">
+        <!-- the shell: lugs + stepped gadroon trim, traced as faint fixed line art — this never moves -->
+        <div class="cradle-ghost" aria-hidden="true">
+          <svg viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a35e" stroke-width="1.1">
+            <g opacity="0.4">
+              <!-- lugs, with the U-notch between each pair, and spring-bar holes -->
+              <path d="M34,48 V22 a12,12 0 0 1 12,-12 h14 V48"/>
+              <path d="M166,48 V22 a12,12 0 0 1 -12,-12 h-14 V48"/>
+              <path d="M34,312 V338 a12,12 0 0 0 12,12 h14 V312"/>
+              <path d="M166,312 V338 a12,12 0 0 0 -12,12 h-14 V312"/>
+              <circle cx="59" cy="26" r="3.4"/>
+              <circle cx="141" cy="26" r="3.4"/>
+              <circle cx="59" cy="334" r="3.4"/>
+              <circle cx="141" cy="334" r="3.4"/>
+              <!-- fixed bridges connecting the lugs, just outside the swivel line -->
+              <rect x="30" y="38" width="140" height="10" rx="3"/>
+              <rect x="30" y="312" width="140" height="10" rx="3"/>
+            </g>
+          </svg>
+        </div>
+        <!-- the case: the only part that actually swivels, inside the fixed shell above -->
+        <div class="case-window">
+          <div class="case3d" id="heroCase">
+            <div class="face front">
+              <svg viewBox="0 0 160 264" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="dial" cx="50%" cy="42%" r="70%">
+                    <stop offset="0" stop-color="#20262e"/>
+                    <stop offset="1" stop-color="#12161b"/>
+                  </radialGradient>
+                </defs>
+                <rect x="0" y="0" width="160" height="264" rx="9" fill="url(#dial)" stroke="#c9a35e" stroke-width="1.2"/>
+                <g stroke="#c9a35e" stroke-width="0.7">
+                  <line x1="15" y1="15" x2="145" y2="15"/>
+                  <line x1="19" y1="21" x2="141" y2="21"/>
+                  <line x1="23" y1="27" x2="137" y2="27"/>
+                  <line x1="15" y1="249" x2="145" y2="249"/>
+                  <line x1="19" y1="243" x2="141" y2="243"/>
+                  <line x1="23" y1="237" x2="137" y2="237"/>
+                </g>
+                <g stroke="#c9a35e" stroke-width="0.5" opacity="0.5">
+                  <line x1="22" y1="48" x2="138" y2="216"/>
+                  <line x1="38" y1="40" x2="122" y2="224"/>
+                  <line x1="80" y1="34" x2="80" y2="230"/>
+                  <line x1="122" y1="40" x2="38" y2="224"/>
+                  <line x1="138" y1="48" x2="22" y2="216"/>
+                </g>
+                <circle cx="80" cy="132" r="60" fill="none" stroke="#c9a35e" stroke-width="1" opacity="0.7"/>
+                <g fill="#e6c78a">
+                  <rect x="76" y="58" width="8" height="14"/>
+                  <rect x="76" y="192" width="8" height="14"/>
+                  <rect x="20" y="128" width="14" height="8"/>
+                  <rect x="126" y="128" width="14" height="8"/>
+                </g>
+                <text x="80" y="100" text-anchor="middle" font-family="Cinzel, serif" font-size="6.6" letter-spacing="1.6" fill="#c9a35e">MY REVERSO STORY</text>
+                <!-- hour hand at 10 o'clock, minute hand at the 2 -->
+                <line x1="80" y1="132" x2="40.2" y2="109" stroke="#e6c78a" stroke-width="2.6" stroke-linecap="round"/>
+                <line x1="80" y1="132" x2="133.7" y2="101" stroke="#e6c78a" stroke-width="2.6" stroke-linecap="round"/>
+                <circle cx="80" cy="132" r="3.4" fill="#e6c78a"/>
+              </svg>
+            </div>
+            <div class="face back">
+              <svg viewBox="0 0 160 264" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="guilloche" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="0" y2="8" stroke="#2b323c" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect x="0" y="0" width="160" height="264" rx="9" fill="#181e25"/>
+                <rect x="24" y="34" width="112" height="196" fill="url(#guilloche)"/>
+                <rect x="0" y="0" width="160" height="264" rx="9" fill="none" stroke="#c9a35e" stroke-width="1.2"/>
+                <g stroke="#c9a35e" stroke-width="0.7">
+                  <line x1="15" y1="15" x2="145" y2="15"/>
+                  <line x1="19" y1="21" x2="141" y2="21"/>
+                  <line x1="23" y1="27" x2="137" y2="27"/>
+                  <line x1="15" y1="249" x2="145" y2="249"/>
+                  <line x1="19" y1="243" x2="141" y2="243"/>
+                  <line x1="23" y1="237" x2="137" y2="237"/>
+                </g>
+                <g font-family="'Cormorant Garamond', serif" font-style="italic" font-size="11.5" letter-spacing="0.3" text-anchor="middle">
+                  <g fill="#0a0d10" opacity="0.55">
+                    <text x="80.6" y="102.8">Traveling—</text>
+                    <text x="80.6" y="122.8">it leaves you speechless,</text>
+                    <text x="80.6" y="142.8">then turns you</text>
+                    <text x="80.6" y="162.8">into a storyteller</text>
+                  </g>
+                  <g fill="#e6c78a">
+                    <text x="80" y="102">Traveling—</text>
+                    <text x="80" y="122">it leaves you speechless,</text>
+                    <text x="80" y="142">then turns you</text>
+                    <text x="80" y="162">into a storyteller</text>
+                  </g>
+                </g>
+                <g stroke="#c9a35e" stroke-width="0.7" opacity="0.6">
+                  <line x1="64" y1="178" x2="96" y2="178"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="flip-hint">Click the case to turn it over — <b>front dial, back story.</b></p>
+    </div>
+  </div>
+</header>
+
+<section class="genesis" id="genesis">
+  <div class="wrap genesis-grid">
+    <div class="genesis-side reveal">
+      <p class="eyebrow">The Genesis</p>
+      <h2>Ninety-five years<br>of turning over.</h2>
+      <p class="lead">A cracked watch glass on an Indian polo ground started it all. What began as a fix for a sporting problem became one of the most personal — and most technically ambitious — watches ever made.</p>
+      <div class="stat-grid">
+        <div class="stat"><b data-count="1931">0</b><span>Patent Filed</span></div>
+        <div class="stat"><b data-count="180" data-suffix="°">0</b><span>The Turn</span></div>
+        <div class="stat"><b data-count="50" data-suffix="+">0</b><span>Calibres Housed</span></div>
+        <div class="stat"><b data-count="2" data-suffix="">0</b><span>Faces, One Watch</span></div>
+      </div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" stroke-width="0.7" opacity="0.5"/><path d="M7 8l10 8M17 8L7 16"/></svg></div>
+        <span class="tl-year">1930 – 1931 · The Challenge</span>
+        <h3>A Cracked Crystal in British India</h3>
+        <p>Travelling through India over the winter of 1930–31, Swiss businessman César de Trey fell in with a set of British army officers for whom polo was a way of life — and whose watch glasses rarely survived a match. One of them, freshly out a crystal, put the challenge to him directly: build something that could take the hit. De Trey brought the problem home to Jacques-David LeCoultre, who called on French designer René-Alfred Chauvot to solve it. Chauvot's answer was a case that slid free of its cradle on two spring-loaded studs and span a full 180 degrees, hiding the crystal behind a blank steel back. The patent — for "a watch capable of sliding in its support and being completely turned over" — was filed on the 4th of March, 1931. They named it Reverso, Latin for "I turn around."</p>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 4v16M6 8c0 4 12 4 12 8"/></svg></div>
+        <span class="tl-year">1936 · The Canvas Is Discovered</span>
+        <h3>The First Enamelled Case-Back</h3>
+        <p>The reverse plate was only ever engineered to survive impact — an anonymous slab of steel. Owners saw something else in it. The earliest documented enamelled Reverso dates to 1936, a yellow-gold case decorated with a portrait scene, and it marks the moment the "protective" back quietly became the more personal of the watch's two faces. Monograms, crests, and miniature enamels followed within a few years, well before the idea had a name.</p>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg></div>
+        <span class="tl-year">1937 · One House, One Name</span>
+        <h3>Jaeger and LeCoultre Formally Merge</h3>
+        <p>Edmond Jaeger's Paris workshop and the LeCoultre manufacture in Le Sentier had already been supplying each other for decades — the Reverso's case had come from exactly this partnership. In 1937 the two firms formally merged into a single maison, Jaeger-LeCoultre, giving the watch that made the union necessary a permanent home.</p>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7a5 5 0 100 10 5 5 0 000-10z"/><path d="M12 9v3l2 2"/></svg></div>
+        <span class="tl-year">1991 · The 60th Anniversary</span>
+        <h3>The First Complications Arrive</h3>
+        <p>For its 60th birthday, the Reverso grew up: a larger "Grande Taille" case, a display case-back, and — for the first time in the line's history — genuine complications on the dial side, starting with a power-reserve indicator and a date window. The limited "60ème" model is now considered the watch that turned a single design classic into an entire collection.</p>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></div>
+        <span class="tl-year">Today</span>
+        <h3>Still Turning</h3>
+        <p>Nearly a century on, the Reverso has stayed in continuous production, carried dozens of different calibres, and remained watchmaking's clearest example of one mechanical idea becoming an entire identity. In 2025, Jaeger-LeCoultre revisited its own origin story with the "1931 Polo Club" theme — and every case still leaves the workshop with a blank back, which means, by design, no two ever have to end up the same.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tl-more reveal">
+      <div class="deco-divider" style="margin:0 auto 26px;"><span></span><i></i><span></span></div>
+      <p class="tl-more-lede">War, silence, a forgotten box of cases, a watch with four faces, and countless stories — there's a lot more between 1931 and today.</p>
+      <a href="reverso-history.html" class="btn solid">Read the Full Story — 95 Years of the Reverso</a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Featured Stories</p>
+      <h2>Stories from the case back</h2>
+      <p>Every Reverso in this archive was engraved, enamelled, or otherwise personalized by a collector's own imagination, memory, or story. Click a case to read what's on the back and visit the collection for the whole archive.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-empty">Loading the collection…</div>
+    </div>
+    <div class="deco-divider" style="margin-top:56px;"><span></span><i></i><span></span></div>
+    <div class="gallery-cta">
+      <p class="gallery-foot" id="galleryCount"></p>
+      <a href="reverso-collection.html" class="btn solid">View the Whole Collection</a>
+    </div>
+  </div>
+</section>
+
+<section class="submit" id="submit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Add Your Watch</p>
+      <h2>Tell us what's on the back of yours</h2>
+      <p>Every submission is read by hand before it joins the collection, so nothing appears without a real person approving it first.</p>
+    </div>
+    <form id="storyForm" class="reveal">
+      <div class="field">
+        <label for="f-name">Your name or handle</label>
+        <input type="text" id="f-name" required maxlength="60" placeholder="e.g. Marcus R.">
+      </div>
+      <div class="field">
+        <label for="f-email">Your email <small>(private — never published, just for us to reach you)</small></label>
+        <input type="email" id="f-email" required maxlength="120" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="f-loc">City &amp; country <small>(optional)</small></label>
+        <input type="text" id="f-loc" maxlength="60" placeholder="e.g. Lisbon, Portugal">
+      </div>
+      <div class="field">
+        <label for="f-ref">Model / reference <small>(optional)</small></label>
+        <input type="text" id="f-ref" maxlength="60" placeholder="e.g. Grande Reverso Ultra Thin">
+      </div>
+      <div class="field full">
+        <label for="f-year">Year acquired or made <small>(optional)</small></label>
+        <input type="text" id="f-year" maxlength="20" placeholder="e.g. 1962 or 2019">
+      </div>
+      <div class="field">
+        <label for="f-front">Photo — front of the watch <small>(required)</small></label>
+        <div class="upload-box" id="frontBox" tabindex="0">
+          <input type="file" id="f-front" accept="image/*" required>
+          <span class="upload-hint">Click or drop a photo</span>
+          <img class="upload-preview" id="frontPreview" alt="Front preview" hidden>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-back">Photo — back of the watch <small>(required)</small></label>
+        <div class="upload-box" id="backBox" tabindex="0">
+          <input type="file" id="f-back" accept="image/*" required>
+          <span class="upload-hint">Click or drop a photo</span>
+          <img class="upload-preview" id="backPreview" alt="Back preview" hidden>
+        </div>
+      </div>
+      <div class="field full">
+        <label for="f-engrave">What's on the back? <small>(a short line — the engraving, enamel, or motif)</small></label>
+        <input type="text" id="f-engrave" maxlength="120" placeholder="e.g. My grandfather's initials, hand-engraved in 1958">
+      </div>
+      <div class="field full">
+        <label for="f-story">The story</label>
+        <textarea id="f-story" required maxlength="1200" placeholder="How did this watch come to you? Why does the back look the way it does?"></textarea>
+      </div>
+      <div class="form-msg" id="formMsg"></div>
+      <div class="form-foot">
+        <p class="form-note">By submitting, you agree your story and photos may be published on this page once reviewed. Nothing is auto-published, and your email is only used to reach you about this submission.</p>
+        <button type="submit" class="btn solid" id="submitBtn">Submit for Review</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <a href="#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
+</footer>
+
+<script src="reverso-data.js"></script>
+<script>
+(function(){
+  // reverso-data.js powers the story gallery and the submission form.
+  // If it is missing or failed to load, the rest of the page must still work,
+  // so we degrade gracefully instead of throwing.
+  const RD = window.ReversoData || null;
+  const hasStorage = RD ? RD.hasStorage : false;
+  if(!RD){
+    console.warn('reverso-data.js did not load — gallery and submissions disabled. ' +
+                 'Check that reverso-data.js sits in the same folder as this page.');
+  }
+
+  // ---------- hero swivel: the shell (lugs + gadroon trim) never moves, only the case inside it turns ----------
+  const heroStage = document.getElementById('heroStage');
+  heroStage.addEventListener('click', () => heroStage.classList.toggle('flipped'));
+  setTimeout(() => heroStage.classList.add('flipped'), 1800);
+  setTimeout(() => heroStage.classList.remove('flipped'), 3600);
+
+  // ---------- scroll progress ----------
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // ---------- reveal on scroll ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal, .reveal-scale, .tl-item').forEach(el => io.observe(el));
+
+  // ---------- animated stat count-up ----------
+  const counters = document.querySelectorAll('[data-count]');
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if(!en.isIntersecting) return;
+      const el = en.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => cio.observe(el));
+
+  // ---------- featured teaser: 3 random approved stories, refreshed on every visit ----------
+  async function renderFeatured(){
+    const grid = document.getElementById('galleryGrid');
+    if(!RD){
+      grid.innerHTML = '<div class="gallery-empty">Stories are temporarily unavailable.</div>';
+      document.getElementById('galleryCount').textContent = '';
+      return;
+    }
+    const index = await RD.loadIndex();
+    const approved = index.filter(s => s.status === 'approved');
+    document.getElementById('galleryCount').textContent = approved.length
+      ? 'Showing ' + Math.min(3, approved.length) + ' of ' + approved.length + (approved.length === 1 ? ' story in the collection' : ' stories in the collection')
+      : '';
+    if(!approved.length){
+      grid.innerHTML = '<div class="gallery-empty">No stories yet — be the first to share yours below.</div>';
+      return;
+    }
+    const shuffled = approved.slice().sort(() => Math.random() - 0.5).slice(0, 3);
+    const full = await RD.loadMany(shuffled.map(s => s.id));
+    grid.innerHTML = full.map(s => `
+      <div class="story-stage reveal-scale">
+        <div class="story-case">
+          <div class="story-face front">
+            ${s.front ? `<img src="${RD.escapeHtml(s.front)}" alt="Front of the Reverso belonging to ${RD.escapeHtml(s.name)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'noimg',innerHTML:'<span>No Photo Provided</span>'}))">`
+                      : `<div class="noimg"><span>No Photo Provided</span></div>`}
+            <div class="meta">
+              <h4>${RD.escapeHtml(s.name)}</h4>
+              <small>${RD.escapeHtml([s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso')}${s.location ? ' · ' + RD.escapeHtml(s.location) : ''}</small>
+            </div>
+          </div>
+          <div class="story-face back">
+            <div class="engraving">${RD.escapeHtml(s.engrave || 'On the back')}</div>
+            <p>${RD.escapeHtml(s.story)}</p>
+            <div class="sig">— ${RD.escapeHtml(s.name)}${s.location ? ', ' + RD.escapeHtml(s.location) : ''}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    grid.querySelectorAll('.story-stage').forEach(el => {
+      el.addEventListener('click', () => el.classList.toggle('flipped'));
+      io.observe(el);
+    });
+  }
+  renderFeatured();
+
+  // ---------- photo upload previews ----------
+  function wireUpload(boxId, inputId, previewId){
+    const box = document.getElementById(boxId);
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    box.addEventListener('click', () => input.click());
+    box.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); input.click(); } });
+    input.addEventListener('change', () => {
+      const file = input.files && input.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => { preview.src = e.target.result; preview.hidden = false; box.classList.add('has-image'); };
+      reader.readAsDataURL(file);
+    });
+    ['dragover','dragleave','drop'].forEach(evt => box.addEventListener(evt, (e) => e.preventDefault()));
+    box.addEventListener('drop', (e) => {
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if(file){ input.files = e.dataTransfer.files; input.dispatchEvent(new Event('change')); }
+    });
+  }
+  wireUpload('frontBox', 'f-front', 'frontPreview');
+  wireUpload('backBox', 'f-back', 'backPreview');
+
+  // ---------- submission form ----------
+  const form = document.getElementById('storyForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const story = document.getElementById('f-story').value.trim();
+    const frontFile = document.getElementById('f-front').files[0];
+    const backFile = document.getElementById('f-back').files[0];
+    if(!name || !email || !story || !frontFile || !backFile){
+      msg.textContent = 'Please fill in your name, email, story, and both photos before submitting.';
+      msg.className = 'form-msg show err';
+      return;
+    }
+    if(!RD){
+      msg.textContent = 'Submissions are temporarily unavailable — please try again later.';
+      msg.className = 'form-msg show err';
+      return;
+    }
+    if(!hasStorage){
+      msg.textContent = 'Story submission needs storage enabled for this page — please let the site owner know.';
+      msg.className = 'form-msg show err';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Uploading photos…';
+    try{
+      const [front, back] = await Promise.all([
+        RD.compressImageFile(frontFile),
+        RD.compressImageFile(backFile)
+      ]);
+      btn.textContent = 'Sending…';
+      const id = RD.newId();
+      const full = {
+        id, status: 'pending',
+        name, email,
+        location: document.getElementById('f-loc').value.trim(),
+        ref: document.getElementById('f-ref').value.trim(),
+        year: document.getElementById('f-year').value.trim(),
+        engrave: document.getElementById('f-engrave').value.trim(),
+        story, front, back,
+        submittedAt: Date.now()
+      };
+      const savedFull = await RD.saveSubmission(full);
+      const savedIndex = savedFull ? await RD.upsertIndexEntry(RD.lightweightFrom(full)) : null;
+      if(savedFull && savedIndex){
+        RD.notifyCurator(full);
+        form.reset();
+        document.getElementById('frontPreview').hidden = true;
+        document.getElementById('backPreview').hidden = true;
+        document.getElementById('frontBox').classList.remove('has-image');
+        document.getElementById('backBox').classList.remove('has-image');
+        msg.textContent = "Thank you — your story and photos have been sent to the archive's curators and will appear here once approved.";
+        msg.className = 'form-msg show ok';
+      } else {
+        msg.textContent = 'Something went wrong sending your story. Please try again in a moment.';
+        msg.className = 'form-msg show err';
+      }
+    }catch(err){
+      msg.textContent = 'Something went wrong processing your photos. Please try again with a smaller image if the problem continues.';
+      msg.className = 'form-msg show err';
+    }
+    btn.disabled = false; btn.textContent = 'Submit for Review';
+  });
+})();
+</script>
+</body>
+</html>

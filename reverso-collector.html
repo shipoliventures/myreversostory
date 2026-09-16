@@ -87,6 +87,14 @@ window.addEventListener('load', function(){
 <script src="reverso-share.js"></script>
 <script>
 (function(){
+  /* Sharing is optional: if reverso-share.js is missing or fails to load, the
+     page must still render. Falls back to a no-op that emits no buttons. */
+  const RSHARE = window.ReversoShare || {
+    register:function(){}, buttonHTML:function(){ return ''; }, init:function(){},
+    open:function(){}, diagnose:function(){ console.warn('reverso-share.js did not load'); }
+  };
+  if(!window.ReversoShare) console.warn('[share] reverso-share.js did not load \u2014 share buttons disabled.');
+
   const CAM = '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>';
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 
@@ -119,7 +127,7 @@ window.addEventListener('load', function(){
         '<img src="images/stories/' + esc(s.id) + '-' + side + '.jpg" alt="' + esc(s.watch) + ' ' + side + '" loading="lazy" onerror="this.remove()">' +
       '</div>';
     }
-    ReversoShare.register(s.id, {
+    RSHARE.register(s.id, {
       kind: 'story',
       title: s.title,
       eyebrow: C.name,
@@ -133,7 +141,7 @@ window.addEventListener('load', function(){
     });
     return '<div class="story-tile reveal-scale">' +
       '<div class="piece-stage"><span class="piece-tag">Front / Back</span>' +
-        ReversoShare.buttonHTML(s.id, { label: 'Share', compact: true }).replace('class="rs-btn compact"', 'class="rs-btn compact rs-corner"') +
+        RSHARE.buttonHTML(s.id, { label: 'Share', compact: true }).replace('class="rs-btn compact"', 'class="rs-btn compact rs-corner"') +
         '<div class="piece-case">' + face('front') + face('back') + '</div></div>' +
       '<div class="story-tile-body">' +
         '<div class="story-tile-title">' + esc(s.title) + '</div>' +
@@ -144,7 +152,7 @@ window.addEventListener('load', function(){
     '</div>';
   }).join('');
 
-  ReversoShare.init();
+  RSHARE.init();
 
   document.querySelectorAll('#cc-stories .piece-stage').forEach(function(el){
     el.addEventListener('click', function(){ el.classList.toggle('flipped'); });

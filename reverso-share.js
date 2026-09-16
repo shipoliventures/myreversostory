@@ -675,6 +675,10 @@ window.ReversoShare = (function () {
       b.classList.toggle('on', b.getAttribute('data-rs-format') === 'post');
     });
     document.getElementById('rsTitle').textContent = entry.title;
+    /* On a desktop the OS sheet only lists installed apps, so say what it's
+       actually good for rather than letting someone find out by trying it. */
+    var shareBtn = panel.querySelector('[data-rs-act="native"]');
+    if (shareBtn) shareBtn.textContent = isTouchDevice() ? 'Share card' : 'Send to phone\u2026';
     renderTargets(entry);
     panel.classList.add('on');
     document.body.classList.add('rs-locked');
@@ -689,13 +693,25 @@ window.ReversoShare = (function () {
     panelState.built = null;
   }
 
-  /* ---------- fast path: on mobile, skip the panel entirely ---------- */
+  /* The Web Share API exists on desktop Safari and Chrome too, so its presence
+     says nothing about whether the OS sheet is worth using. On a Mac that sheet
+     lists only installed apps — AirDrop, Mail, Notes — and none of the places
+     people actually post. Reserve it for touch devices, where it's the whole
+     point, and give everyone else the panel. */
+  function isTouchDevice() {
+    try {
+      var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      var touch = (navigator.maxTouchPoints || 0) > 0 || 'ontouchstart' in window;
+      return !!(coarse && touch);
+    } catch (e) { return false; }
+  }
+
+  /* ---------- fast path: on touch devices, skip the panel entirely ---------- */
   async function quickShare(key, btn) {
     var entry = ENTRIES[key];
     if (!entry) return;
 
-    // Desktop and anything without file sharing goes straight to the panel.
-    if (!(navigator.canShare && navigator.share)) return openPanel(key);
+    if (!isTouchDevice() || !(navigator.canShare && navigator.share)) return openPanel(key);
 
     var prev = btn ? btn.getAttribute('data-label') || btn.textContent : '';
     if (btn) { btn.classList.add('busy'); btn.disabled = true; }

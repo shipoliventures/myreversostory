@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limited Editions · My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<style>
+.le-controls{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:26px; }
+.le-controls input, .le-controls select{
+  background:var(--panel); border:1px solid var(--line); color:var(--ink);
+  padding:11px 14px; font-family:'Jost',sans-serif; font-size:12.5px; letter-spacing:.03em; }
+.le-controls input{ flex:1; min-width:220px; }
+.le-count{ font-family:'Jost',sans-serif; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-dim); margin-left:auto; }
+.le-cat{ border-top:1px solid var(--line); padding-top:26px; margin-top:44px; }
+.le-cat:first-of-type{ border-top:none; margin-top:0; }
+.le-cat-head{ display:flex; align-items:baseline; gap:14px; cursor:pointer; user-select:none; }
+.le-cat-head h2{ font-family:'Poiret One',cursive; font-size:30px; color:var(--ink); flex:1; }
+.le-cat-head .chev{ font-family:'Jost',sans-serif; font-size:15px; color:var(--brass); transition:transform .3s; }
+.le-cat.closed .le-cat-head .chev{ transform:rotate(-90deg); }
+.le-cat-years{ font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); }
+.le-card-link{ text-decoration:none; display:block; }
+.le-card-link:hover .le-name{ color:var(--brass-bright); }
+.le-golink{ font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); margin-top:10px; }
+.le-cat-count{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); }
+.le-cat-blurb{ color:var(--ink-dim); font-size:17.5px; margin:10px 0 24px; max-width:680px; }
+.le-cat-body{ }
+.le-cat.closed .le-cat-body, .le-cat.closed .le-cat-blurb{ display:none; }
+.le-showall{ display:block; margin:18px auto 0; }
+/* the hidden attribute must beat .le-grid{display:grid} */
+.le-grid[hidden]{ display:none; }
+.le-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.le-card{ border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column; }
+.le-card .piece-stage{ aspect-ratio:1/1; }
+.le-body{ padding:20px 22px 24px; display:flex; flex-direction:column; flex:1; }
+.le-name{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; color:var(--ink); line-height:1.25; }
+.le-ref{ font-family:'Jost',sans-serif; font-size:11.5px; color:var(--brass); margin-top:5px; }
+.le-specs{ font-family:'Jost',sans-serif; font-size:10.5px; color:var(--ink-dim); line-height:1.9;
+  margin:11px 0; padding:9px 0; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+.le-specs b{ color:var(--brass); letter-spacing:.06em; }
+.le-note{ color:var(--ink-dim); font-size:16px; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+.le-note.open{ display:block; -webkit-line-clamp:unset; overflow:visible; }
+.le-empty{ padding:50px; text-align:center; color:var(--ink-dim); font-family:'Jost',sans-serif;
+  border:1px dashed var(--line); grid-column:1/-1; }
+@media (max-width:1000px){ .le-cat{ border-top:1px solid var(--line); padding-top:26px; margin-top:44px; }
+/* the hidden attribute must beat .le-grid{display:grid} */
+.le-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){ .le-cat{ border-top:1px solid var(--line); padding-top:26px; margin-top:44px; }
+/* the hidden attribute must beat .le-grid{display:grid} */
+.le-grid{ grid-template-columns:1fr; } }
+</style>
+<script>
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load',function(){setTimeout(function(){
+  document.querySelectorAll('.reveal:not(.visible),.reveal-scale:not(.visible)').forEach(function(el){
+    var r=el.getBoundingClientRect(); if(r.top<window.innerHeight&&r.bottom>0) el.classList.add('visible');});},1200);});
+</script>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+<div class="grain" style="filter:url(#noise);"></div>
+<div class="progress" id="progressBar"></div>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <ul class="navlinks">
+    <li><a href="reverso-history.html">History</a></li>
+    <li><a href="reverso-models.html">Models</a></li>
+    <li><a href="reverso-calibres.html">Calibres</a></li>
+    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-limited.html">Limited</a></li>
+  </ul>
+</nav>
+
+<header class="history-hero">
+  <div class="wrap">
+    <p class="eyebrow">The Full List</p>
+    <h1>Every limited<br>edition we can trace.</h1>
+    <p class="lede">Anniversary series, market and retailer exclusives, special dials, boutique openings and the grand complications — whether or not the case-back was personalised. Sortable by any column, and built to keep growing.</p>
+    <a href="reverso-collection.html" class="back-link">← Back to the Archive</a>
+  </div>
+</header>
+
+<div class="subnav"><div class="subnav-inner" id="le-subnav"></div></div>
+
+<section class="chapter">
+  <div class="wrap">
+    <div class="le-controls reveal">
+      <input type="text" id="le-search" placeholder="Search name, reference, market…">
+      <select id="le-family"><option value="">All families</option></select>
+      <select id="le-back">
+        <option value="">Any case-back</option>
+        <option value="engraved">Engraved / enamelled back</option>
+        <option value="dial">Special dial only</option>
+      </select>
+      <select id="le-sort">
+        <option value="year">Sort: Year</option>
+        <option value="name">Sort: Name</option>
+        <option value="run">Sort: Run size</option>
+        <option value="family">Sort: Family</option>
+        <option value="market">Sort: Market</option>
+      </select>
+      <button type="button" class="tab" id="le-toggleall">Expand all</button>
+      <span class="le-count" id="le-count"></span>
+    </div>
+
+    <div class="reveal" id="le-cats"></div>
+
+    <p class="mr-src" style="margin-top:22px;">References, calibres, years, piece counts and other information are compiled from different open sources and may still be inaccurate and incomplete. Help us update the information correctly so we can have documented fact.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="end-cta reveal">
+    <p class="eyebrow" style="justify-content:center;">Keep It Growing</p>
+    <h2>This list is nowhere near finished.</h2>
+    <p>If you own or can document an edition that's missing, it belongs here.</p>
+    <a href="my-reverso-story.html#submit" class="btn solid">Get In Touch</a>
+  </div>
+</div>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
+</footer>
+
+<script src="reverso-limited.js"></script>
+<script>
+(function(){
+  const CAM = '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>';
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  function rich(s){ return String(s==null?'':s); }
+
+  const L = window.RLIMITED;
+  const ALL = L.EDITIONS.slice();
+  const host = document.getElementById('le-cats');
+  const famSel = document.getElementById('le-family');
+  const PREVIEW = 3;   // cards shown before "show all"
+
+  // the family dropdown now filters by category
+  famSel.innerHTML = '<option value="">All categories</option>' +
+    L.CATEGORIES.map(function(c){ return '<option value="'+esc(c.id)+'">'+esc(c.name)+'</option>'; }).join('');
+
+  function runNum(r){
+    const m = String(r||'').replace(/,/g,'').match(/\d+/);
+    return m ? parseInt(m[0],10) : Number.MAX_SAFE_INTEGER;
+  }
+
+  function flip(slot, label){
+    function face(side){
+      return '<div class="piece-face ' + side + '">' + CAM +
+        '<span class="fid">' + esc(slot) + '-' + side + '.jpg</span>' +
+        '<img src="images/' + esc(slot) + '-' + side + '.jpg" alt="' + esc(label) + ' ' + side + '" loading="lazy" onerror="this.remove()">' +
+      '</div>';
+    }
+    return '<div class="piece-stage le-flip"><span class="piece-tag">Front / Back</span>' +
+      '<div class="piece-case">' + face('front') + face('back') + '</div></div>';
+  }
+
+  function card(e){
+    const open = e.link ? '<a class="le-card-link" href="' + esc(e.link) + '">' : '';
+    const close = e.link ? '</a>' : '';
+    return '<div class="le-card">' + flip(e.slot, e.name) +
+      '<div class="le-body">' + open +
+        '<div class="le-name">' + esc(e.name) + '</div>' +
+        (e.ref && e.ref !== '\u2014' ? '<div class="le-ref">Ref. ' + esc(e.ref) + '</div>' : '') +
+        '<div class="le-specs">' +
+          '<b>Run:</b> ' + esc(e.run) + '<br>' +
+          '<b>Year:</b> ' + esc(e.year) + ' &nbsp; <b>Calibre:</b> ' + esc(e.cal) + '<br>' +
+          '<b>Material:</b> ' + esc(e.material) + '<br>' +
+          '<b>Market:</b> ' + esc(e.market) +
+        '</div>' +
+        '<p class="le-note">' + rich(e.note) + '</p>' + close +
+        (e.link ? '<a class="le-golink" href="' + esc(e.link) + '">See the full set \u2192</a>' : '') +
+      '</div></div>';
+  }
+
+  // a block of cards: first PREVIEW shown, rest behind a button
+  function cardBlock(list){
+    if(!list.length) return '';
+    const head = list.slice(0, PREVIEW).map(card).join('');
+    const rest = list.slice(PREVIEW);
+    let html = '<div class="le-grid">' + head + '</div>';
+    if(rest.length){
+      // no id here: the section already owns 'cat-<id>' for the chapter nav,
+      // and a duplicate id made getElementById return the section instead.
+      html += '<div class="le-grid le-more" hidden>' + rest.map(card).join('') + '</div>' +
+              '<button type="button" class="btn le-showall" data-count="' + list.length + '">' +
+              'Show all ' + list.length + ' \u2192</button>';
+    }
+    return html;
+  }
+
+  function render(){
+    const q  = document.getElementById('le-search').value.trim().toLowerCase();
+    const cf = famSel.value;
+    const bk = document.getElementById('le-back').value;
+    const sk = document.getElementById('le-sort').value;
+
+    let rows = ALL.filter(function(e){
+      if(cf && e.cat !== cf) return false;
+      if(bk && e.back !== bk) return false;
+      if(!q) return true;
+      return [e.name,e.ref,e.market,e.material,e.cal,e.family,e.note].join(' ').toLowerCase().indexOf(q) !== -1;
+    });
+    rows.sort(function(a,b){
+      if(sk === 'run') return runNum(a.run) - runNum(b.run);
+      return String(a[sk]||'').localeCompare(String(b[sk]||''), undefined, { numeric:true });
+    });
+
+    document.getElementById('le-count').textContent =
+      rows.length + (rows.length === 1 ? ' edition' : ' editions');
+
+    if(!rows.length){ host.innerHTML = '<div class="le-empty">Nothing matches those filters.</div>'; return; }
+
+    // when searching or filtering, collapse to a flat list — categories get in the way
+    const flat = !!(q || bk);
+    if(flat){ host.innerHTML = '<div class="le-grid">' + rows.map(card).join('') + '</div>'; wire(); return; }
+
+    host.innerHTML = L.CATEGORIES.map(function(c){
+      const inCat = rows.filter(function(e){ return e.cat === c.id; });
+      if(!inCat.length) return '';
+      const body = cardBlock(inCat);
+
+      return '<section class="le-cat" id="cat-' + esc(c.id) + '">' +
+        '<div class="le-cat-head">' +
+          '<div style="flex:1;"><div class="le-cat-years">' + esc(c.years || '') + '</div>' +
+          '<h2>' + esc(c.name) + '</h2></div>' +
+          '<span class="le-cat-count">' + inCat.length + '</span><span class="chev">\u25be</span></div>' +
+        '<p class="le-cat-blurb">' + rich(c.blurb) + '</p>' +
+        '<div class="le-cat-body">' + body + '</div>' +
+      '</section>';
+    }).join('');
+    wire();
+  }
+
+  function checkMore(el){
+    if(el.dataset.moreChecked) return;               // already handled
+    if(el.offsetWidth === 0){ return; }               // still hidden — check again once revealed
+    el.dataset.moreChecked = '1';
+    // scrollHeight is unreliable on elements using the -webkit-line-clamp
+    // trick (many browsers report it equal to clientHeight even when the
+    // text is visibly truncated), so measure a clone with the clamp
+    // removed instead of trusting el.scrollHeight directly.
+    const clone = el.cloneNode(true);
+    clone.style.cssText = 'position:absolute; visibility:hidden; pointer-events:none; height:auto; max-height:none; display:block; -webkit-line-clamp:unset; overflow:visible; width:' + el.clientWidth + 'px;';
+    el.parentNode.appendChild(clone);
+    const naturalHeight = clone.scrollHeight;
+    clone.remove();
+    if(naturalHeight - el.clientHeight < 4) return;
+    const btn = document.createElement('button');
+    btn.type='button'; btn.className='more-btn'; btn.textContent='More \u2192';
+    btn.addEventListener('click', function(){
+      const open = el.classList.toggle('open');
+      btn.textContent = open ? '\u2190 Less' : 'More \u2192';
+    });
+    el.parentNode.insertBefore(btn, el.nextSibling);
+  }
+
+  function wire(){
+    host.querySelectorAll('.le-flip').forEach(function(el){
+      el.addEventListener('click', function(){ el.classList.toggle('flipped'); });
+    });
+    host.querySelectorAll('.le-note').forEach(checkMore);
+    host.querySelectorAll('.le-cat-head').forEach(function(h){
+      h.addEventListener('click', function(){
+        const catEl = h.closest('.le-cat');
+        catEl.classList.toggle('closed');
+        // notes inside a category that starts (or was) closed have
+        // offsetWidth 0 at first pass — recheck now that it's visible
+        if(!catEl.classList.contains('closed')){
+          catEl.querySelectorAll('.le-note').forEach(checkMore);
+        }
+      });
+    });
+    host.querySelectorAll('.le-showall').forEach(function(b){
+      b.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        const t = b.previousElementSibling;          // the hidden .le-more grid
+        if(!t || !t.classList.contains('le-more')) return;
+        t.hidden = !t.hidden;
+        b.textContent = t.hidden
+          ? 'Show all ' + b.dataset.count + ' \u2192'
+          : '\u2190 Show fewer';
+        // cards in .le-more start hidden, so their notes were skipped by
+        // checkMore on the first pass — recheck now that they're revealed
+        if(!t.hidden){ t.querySelectorAll('.le-note').forEach(checkMore); }
+      });
+    });
+  }
+
+  // chapter nav across the top
+  document.getElementById('le-subnav').innerHTML = L.CATEGORIES.map(function(c){
+    const n = ALL.filter(function(e){ return e.cat === c.id; }).length;
+    return '<a href="#cat-' + esc(c.id) + '">' + esc(c.name) + ' <span style="opacity:.55">' + n + '</span></a>';
+  }).join('');
+  document.getElementById('le-subnav').addEventListener('click', function(ev){
+    const a = ev.target.closest('a'); if(!a) return;
+    const sec = document.querySelector(a.getAttribute('href'));
+    if(sec) sec.classList.remove('closed');   // opening a chapter you jumped to
+  });
+
+  // expand / collapse everything
+  var allOpen = false;
+  document.getElementById('le-toggleall').addEventListener('click', function(){
+    allOpen = !allOpen;
+    host.querySelectorAll('.le-cat').forEach(function(el){
+      el.classList.toggle('closed', !allOpen);
+      if(allOpen){ el.querySelectorAll('.le-note').forEach(checkMore); }
+    });
+    this.textContent = allOpen ? 'Collapse all' : 'Expand all';
+    this.classList.toggle('on', allOpen);
+  });
+
+  ['le-search','le-family','le-back','le-sort'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', render);
+  });
+  render();
+
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  });
+  const io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold:0.03 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

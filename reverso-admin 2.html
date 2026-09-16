@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curator Admin · My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<meta name="robots" content="noindex, nofollow">
+<script>
+/* Enable scroll-reveal animation only if JS is alive, and force everything
+   visible if the observer never runs (older browsers, script failure). */
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible), .reveal-scale:not(.visible)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200);
+});
+</script>
+</head>
+<body>
+
+<div class="progress" id="progressBar" style="display:none;"></div>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY <span style="color:var(--ink-dim); font-size:11px; letter-spacing:.1em;">· CURATOR</span></a>
+</nav>
+
+<header class="history-hero" style="padding-bottom:50px;">
+  <div class="wrap">
+    <p class="eyebrow">Private — Not Linked Publicly</p>
+    <h1>Curator admin</h1>
+    <p class="lede">Review new submissions, approve them into the collection, decline them, or flag one for follow-up.</p>
+  </div>
+</header>
+
+<section style="padding-top:0;">
+  <div class="wrap" style="max-width:900px;">
+
+    <div class="curator-gate" id="gate">
+      <input type="text" id="pass" placeholder="Enter curator passcode">
+      <button class="btn" id="goBtn">Sign In</button>
+      <span class="form-note" id="gateMsg"></span>
+    </div>
+
+    <div id="panel" style="display:none;">
+      <div class="admin-tabs" id="tabs">
+        <button class="tab-btn active" data-tab="pending">Pending <span id="countPending"></span></button>
+        <button class="tab-btn" data-tab="needs-info">Needs Info <span id="countNeeds"></span></button>
+        <button class="tab-btn" data-tab="approved">Approved <span id="countApproved"></span></button>
+        <button class="tab-btn" data-tab="declined">Declined <span id="countDeclined"></span></button>
+      </div>
+      <div class="pending-list" id="list" style="margin-top:30px;"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>This page is not linked from the public site and is excluded from search indexing, but it is not secured by real authentication — the passcode is a light deterrent, not a login system. Treat it accordingly.</p>
+</footer>
+
+<script src="reverso-data.js"></script>
+<script>
+(function(){
+  const RD = window.ReversoData;
+  const PASSCODE = 'REVERSO1931'; // change this — see note in the chat reply
+  let activeTab = 'pending';
+  let indexCache = [];
+
+  document.getElementById('goBtn').addEventListener('click', async () => {
+    const val = document.getElementById('pass').value;
+    if(val === PASSCODE){
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('panel').style.display = 'block';
+      await refresh();
+    } else {
+      const m = document.getElementById('gateMsg');
+      m.textContent = 'Incorrect passcode.';
+      m.style.color = '#e6c2c2';
+    }
+  });
+  document.getElementById('pass').addEventListener('keydown', (e) => { if(e.key === 'Enter') document.getElementById('goBtn').click(); });
+
+  document.getElementById('tabs').addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if(!btn) return;
+    activeTab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+    renderList();
+  });
+
+  function counts(){
+    const c = { pending:0, 'needs-info':0, approved:0, declined:0 };
+    indexCache.forEach(s => { if(c[s.status] !== undefined) c[s.status]++; });
+    document.getElementById('countPending').textContent = c.pending ? `(${c.pending})` : '';
+    document.getElementById('countNeeds').textContent = c['needs-info'] ? `(${c['needs-info']})` : '';
+    document.getElementById('countApproved').textContent = c.approved ? `(${c.approved})` : '';
+    document.getElementById('countDeclined').textContent = c.declined ? `(${c.declined})` : '';
+  }
+
+  async function refresh(){
+    indexCache = await RD.loadIndex();
+    counts();
+    renderList();
+  }
+
+  async function renderList(){
+    const wrap = document.getElementById('list');
+    const ids = indexCache.filter(s => s.status === activeTab).sort((a,b) => (b.submittedAt||0) - (a.submittedAt||0)).map(s => s.id);
+    if(!ids.length){
+      wrap.innerHTML = `<p class="form-note">Nothing in "${activeTab.replace('-',' ')}" right now.</p>`;
+      return;
+    }
+    wrap.innerHTML = '<p class="form-note">Loading…</p>';
+    const full = await RD.loadMany(ids);
+    wrap.innerHTML = full.map(s => `
+      <div class="pending-item admin-item" data-id="${s.id}">
+        <div class="admin-photos">
+          ${s.front ? `<img src="${RD.escapeHtml(s.front)}" alt="Front">` : `<div class="noimg small"><span>No front photo</span></div>`}
+          ${s.back ? `<img src="${RD.escapeHtml(s.back)}" alt="Back">` : `<div class="noimg small"><span>No back photo</span></div>`}
+        </div>
+        <div>
+          <h4>${RD.escapeHtml(s.name)}${s.location ? ' — ' + RD.escapeHtml(s.location) : ''}</h4>
+          <div class="pmeta">${RD.escapeHtml([s.ref, s.year].filter(Boolean).join(' · ') || 'No model given')}${s.engrave ? ' · ' + RD.escapeHtml(s.engrave) : ''}</div>
+          <p class="form-note" style="margin-bottom:8px;">Email: <b style="color:var(--ink);">${RD.escapeHtml(s.email || '—')}</b></p>
+          <p>${RD.escapeHtml(s.story)}</p>
+          ${s.curatorNote ? `<p class="form-note" style="margin-top:8px; color:#eecb8d;">Note to submitter: ${RD.escapeHtml(s.curatorNote)}</p>` : ''}
+          <p class="form-note" style="margin-top:8px;">Submitted ${new Date(s.submittedAt || 0).toLocaleDateString()}</p>
+        </div>
+        <div class="pending-actions">
+          ${activeTab !== 'approved' ? `<button class="approve" data-action="approve">Approve</button>` : ''}
+          ${activeTab !== 'declined' ? `<button class="reject" data-action="decline">Decline</button>` : ''}
+          ${activeTab !== 'needs-info' ? `<button data-action="needs-info">Request Info</button>` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    wrap.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.closest('.admin-item').dataset.id;
+        const action = btn.dataset.action;
+        const full = await RD.loadSubmission(id);
+        if(!full) return;
+        if(action === 'approve') full.status = 'approved';
+        else if(action === 'decline') full.status = 'declined';
+        else if(action === 'needs-info'){
+          const note = prompt('What should we ask the submitter? (This is saved on the record — email them directly using the address shown above.)');
+          if(note === null) return;
+          full.status = 'needs-info';
+          full.curatorNote = note;
+        }
+        await RD.saveSubmission(full);
+        await RD.upsertIndexEntry(RD.lightweightFrom(full));
+        await refresh();
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

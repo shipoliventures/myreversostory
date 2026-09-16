@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Check · My Reverso Story</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="reverso-styles.css">
+<style>
+  .ck-wrap{ max-width:1000px; margin:0 auto; padding:0 24px 80px; }
+  .ck-form{ display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-bottom:26px; }
+  .ck-field{ flex:1; min-width:180px; }
+  .ck-field label{ display:block; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--brass); margin-bottom:6px; }
+  .ck-field input{ width:100%; background:var(--panel); border:1px solid var(--line); color:var(--ink);
+    font-family:'Jost',sans-serif; font-size:14px; padding:11px 13px; }
+  .ck-field input:focus{ outline:2px solid var(--brass-bright); outline-offset:2px; }
+  .ck-tally{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); margin:30px 0; }
+  .ck-tally div{ background:var(--panel); padding:16px 18px; }
+  .ck-tally b{ display:block; font-family:'Jost',sans-serif; font-size:9.5px; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--brass); margin-bottom:5px; }
+  .ck-tally span{ font-family:'Cinzel',serif; font-size:26px; color:var(--ink); }
+  .ck-tally.bad span{ color:#e6c2c2; }
+  .ck-tally div.hot span{ color:#e6c2c2; }
+  .ck-block{ border:1px solid var(--line); background:var(--panel); padding:22px 24px; margin-bottom:22px; }
+  .ck-block h3{ font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--ink); margin-bottom:6px; }
+  .ck-block p.lede2{ color:var(--ink-dim); font-size:15.5px; line-height:1.6; margin-bottom:16px; }
+  table.ck{ width:100%; border-collapse:collapse; font-family:'Jost',sans-serif; font-size:12.5px; }
+  table.ck th{ text-align:left; color:var(--brass); font-size:9.5px; letter-spacing:.12em;
+    text-transform:uppercase; padding:6px 10px 6px 0; border-bottom:1px solid var(--line); font-weight:500; }
+  table.ck td{ padding:7px 10px 7px 0; color:var(--ink-dim); border-bottom:1px solid var(--line-soft);
+    word-break:break-all; }
+  table.ck td.good{ color:#c9e6c2; }
+  table.ck td.bad{ color:#e6c2c2; }
+  .ck-status{ font-family:'Jost',sans-serif; font-size:13px; color:var(--ink-dim); line-height:1.7; }
+  .ck-status.err{ color:#e6c2c2; }
+  details{ margin-top:12px; }
+  summary{ cursor:pointer; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--brass); padding:6px 0; }
+  .ck-missing-row{ display:flex; justify-content:space-between; gap:16px; padding:6px 0;
+    border-bottom:1px solid var(--line-soft); font-family:'Jost',sans-serif; font-size:12.5px; color:var(--ink-dim); }
+  .ck-missing-row b{ color:var(--ink); font-weight:500; }
+  code.fx{ display:block; background:var(--void); border:1px solid var(--line-soft); padding:10px 12px;
+    margin-top:8px; font-size:12px; color:var(--brass-bright); white-space:pre-wrap; word-break:break-all; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY <span style="color:var(--ink-dim); font-size:11px; letter-spacing:.1em;">· IMAGE CHECK</span></a>
+</nav>
+
+<header class="history-hero" style="padding-bottom:40px;">
+  <div class="wrap">
+    <p class="eyebrow">Private Tool — Not Linked Publicly</p>
+    <h1>Which photos<br>aren't loading?</h1>
+    <p class="lede">GitHub Pages treats filenames as case-sensitive; your Mac doesn't. A photo named <em>A-Balbo-front.jpg</em> sits happily in your folder, loads on your laptop, and returns nothing on the live site. This compares every filename the data files ask for against what's actually committed to the repository.</p>
+  </div>
+</header>
+
+<section style="padding-top:0;">
+  <div class="ck-wrap">
+
+    <div class="ck-form">
+      <div class="ck-field">
+        <label for="owner">GitHub username</label>
+        <input id="owner" type="text" placeholder="your-username" autocomplete="off">
+      </div>
+      <div class="ck-field">
+        <label for="repo">Repository name</label>
+        <input id="repo" type="text" placeholder="repository" autocomplete="off">
+      </div>
+      <div class="ck-field" style="max-width:150px;">
+        <label for="branch">Branch</label>
+        <input id="branch" type="text" value="main" autocomplete="off">
+      </div>
+      <button class="btn solid" id="runBtn" style="min-width:150px;">Check photos</button>
+    </div>
+
+    <p class="ck-status" id="status">Fill in your username and repository, then run the check. Nothing is changed — this only reads.</p>
+
+    <div id="results"></div>
+  </div>
+</section>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>A private maintenance tool. It reads the public file listing of the repository and compares it with the site's own data files. It never writes, renames or deletes anything.</p>
+</footer>
+
+<script src="reverso-reference.js"></script>
+<script src="reverso-series.js"></script>
+<script src="reverso-limited.js"></script>
+<script src="reverso-stories.js"></script>
+<script>
+(function(){
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  const $ = id => document.getElementById(id);
+
+  /* Prefill from the Pages URL when we're running on one: user.github.io/repo/ */
+  (function prefill(){
+    const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+    if(m){
+      $('owner').value = m[1];
+      const seg = location.pathname.split('/').filter(Boolean);
+      // project pages live under /repo/; user pages sit at the root
+      $('repo').value = seg.length ? seg[0] : (m[1] + '.github.io');
+    }
+  })();
+
+  /* ---------- what the data files ask for ---------- */
+  function buildExpected(){
+    const want = new Map();               // "dir/name" -> section label
+    const add = (dir, name, src) => {
+      const k = (dir ? dir + '/' : '') + name;
+      if(!want.has(k)) want.set(k, src);
+    };
+    const W = window;
+
+    if(W.RR){
+      (W.RR.ARCHIVE||[]).forEach(a => {
+        const lab = a.cat === 'unique' ? 'Archive · pièce unique' : 'Archive · artistic';
+        add('', a.slot + '-front.jpg', lab);
+        add('', a.slot + '-back.jpg', lab);
+      });
+      (W.RR.MODELS||[]).forEach(m => add('', m.slot + '.jpg', 'Models'));
+    }
+    if(W.RSERIES){
+      (W.RSERIES.SERIES||[]).forEach(s => {
+        add('', s.slug + '-cover.jpg', 'Series cover · ' + s.name);
+        (s.pieces||[]).forEach(p => {
+          add('', p.slot + '-front.jpg', 'Series · ' + s.name);
+          add('', p.slot + '-back.jpg', 'Series · ' + s.name);
+        });
+      });
+      (W.RSERIES.EDITIONS||[]).forEach(e => {
+        add('', e.slot + '-front.jpg', 'Archive · commemorative');
+        add('', e.slot + '-back.jpg', 'Archive · commemorative');
+      });
+    }
+    if(W.RLIMITED){
+      (W.RLIMITED.EDITIONS||[]).forEach(e => {
+        add('', e.slot + '-front.jpg', 'Limited editions');
+        add('', e.slot + '-back.jpg', 'Limited editions');
+      });
+    }
+    if(W.RSTORIES){
+      (W.RSTORIES.STORIES||[]).forEach(s => {
+        add('stories', s.id + '-front.jpg', 'Collector story');
+        add('stories', s.id + '-back.jpg', 'Collector story');
+      });
+    }
+    return want;
+  }
+
+  /* ---------- what's actually committed ---------- */
+  async function listFolder(owner, repo, branch, folder){
+    const url = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' +
+                encodeURIComponent(repo) + '/contents/' + folder +
+                '?ref=' + encodeURIComponent(branch);
+    const res = await fetch(url, { headers: { 'Accept':'application/vnd.github+json' } });
+    if(res.status === 404) return { missing:true, files:[] };
+    if(res.status === 403) throw new Error('GitHub rate limit reached (60 checks an hour without signing in). Wait a few minutes and try again.');
+    if(!res.ok) throw new Error('GitHub replied ' + res.status + ' for ' + folder + '. Check the username, repository and branch.');
+    const json = await res.json();
+    if(!Array.isArray(json)) throw new Error('Unexpected reply for ' + folder + '.');
+    return { missing:false, files: json.filter(f => f.type === 'file').map(f => f.name) };
+  }
+
+  function stemOf(n){ return n.toLowerCase().replace(/\.[^.]+$/, ''); }
+
+  async function run(){
+    const owner = $('owner').value.trim();
+    const repo = $('repo').value.trim();
+    const branch = $('branch').value.trim() || 'main';
+    const status = $('status');
+    const out = $('results');
+    out.innerHTML = '';
+
+    if(!owner || !repo){
+      status.className = 'ck-status err';
+      status.textContent = 'Enter your GitHub username and repository name first.';
+      return;
+    }
+    if(!window.RR || !window.RSERIES || !window.RLIMITED || !window.RSTORIES){
+      status.className = 'ck-status err';
+      status.textContent = 'The data files did not load. Put this page in the same folder as reverso-reference.js and the other data files.';
+      return;
+    }
+
+    status.className = 'ck-status';
+    status.textContent = 'Reading the repository…';
+    $('runBtn').disabled = true;
+
+    let root, stories;
+    try{
+      root = await listFolder(owner, repo, branch, 'images');
+      stories = await listFolder(owner, repo, branch, 'images/stories');
+    }catch(err){
+      status.className = 'ck-status err';
+      status.textContent = err.message;
+      $('runBtn').disabled = false;
+      return;
+    }
+
+    if(root.missing){
+      status.className = 'ck-status err';
+      status.textContent = 'No images folder found in ' + owner + '/' + repo + ' on branch "' + branch + '". If your default branch is called master, change it above.';
+      $('runBtn').disabled = false;
+      return;
+    }
+
+    const onDisk = root.files.concat(stories.files.map(f => 'stories/' + f));
+    const exact = new Set(onDisk);
+    const byLower = new Map(), byStem = new Map();
+    onDisk.forEach(f => {
+      const l = f.toLowerCase();
+      if(!byLower.has(l)) byLower.set(l, []);
+      byLower.get(l).push(f);
+      const s = stemOf(f);
+      if(!byStem.has(s)) byStem.set(s, []);
+      byStem.get(s).push(f);
+    });
+
+    const want = buildExpected();
+    const caseBad = [], extBad = [], missing = [];
+    let ok = 0;
+
+    want.forEach((source, name) => {
+      if(exact.has(name)){ ok++; return; }
+      const lower = byLower.get(name.toLowerCase());
+      if(lower && lower.length){ caseBad.push({ want:name, found:lower[0], source }); return; }
+      const stem = byStem.get(stemOf(name));
+      if(stem && stem.length){ extBad.push({ want:name, found:stem[0], source }); return; }
+      missing.push({ want:name, source });
+    });
+
+    const referenced = new Set([...want.keys()].map(s => s.toLowerCase()));
+    const orphans = onDisk.filter(f => !referenced.has(f.toLowerCase()));
+    const breaking = caseBad.length + extBad.length;
+
+    status.className = 'ck-status';
+    status.textContent = 'Checked ' + want.size + ' filenames against ' + onDisk.length +
+      ' files committed in ' + owner + '/' + repo + '.';
+    $('runBtn').disabled = false;
+
+    /* ---------- render ---------- */
+    let html = '<div class="ck-tally">' +
+      '<div><b>Expected</b><span>' + want.size + '</span></div>' +
+      '<div><b>In the repo</b><span>' + onDisk.length + '</span></div>' +
+      '<div><b>Matched</b><span>' + ok + '</span></div>' +
+      '<div class="' + (caseBad.length ? 'hot' : '') + '"><b>Wrong capitals</b><span>' + caseBad.length + '</span></div>' +
+      '<div class="' + (extBad.length ? 'hot' : '') + '"><b>Wrong extension</b><span>' + extBad.length + '</span></div>' +
+      '<div><b>Not uploaded</b><span>' + missing.length + '</span></div>' +
+    '</div>';
+
+    if(breaking === 0){
+      html += '<div class="ck-block"><h3>No filename problems</h3>' +
+        '<p class="lede2">Every photo that is committed is named exactly as the data files expect. Anything not appearing on the site simply has not been uploaded yet — see the list further down.</p></div>';
+    }
+
+    if(caseBad.length){
+      html += '<div class="ck-block"><h3>Wrong capitalisation — ' + caseBad.length + ' file' + (caseBad.length===1?'':'s') + '</h3>' +
+        '<p class="lede2">These are committed and look right, but the capitals don\u2019t match what the site asks for. They load on your Mac and fail on the live site. Rename them on github.com (not in GitHub Desktop \u2014 see the note below each one).</p>' +
+        '<table class="ck"><tr><th>Committed as</th><th>Needs to be</th><th>Section</th></tr>' +
+        caseBad.map(m => '<tr><td class="bad">' + esc(m.found) + '</td><td class="good">' +
+          esc(m.want) + '</td><td>' + esc(m.source) + '</td></tr>').join('') +
+        '</table>' +
+        '<code class="fx">On github.com: open images/' + esc(caseBad[0].found) + ' \u2192 pencil icon \u2192 change the name in the box at the top to ' + esc(caseBad[0].want.replace('stories/','')) + ' \u2192 Commit changes.\nDoing this in Finder or GitHub Desktop will NOT work \u2014 macOS ignores capitalisation, so Git sees no change at all.</code>' +
+        '</div>';
+    }
+
+    if(extBad.length){
+      html += '<div class="ck-block"><h3>Wrong file type — ' + extBad.length + ' file' + (extBad.length===1?'':'s') + '</h3>' +
+        '<p class="lede2">The name matches but the extension doesn\u2019t. These fail everywhere, not just on GitHub. Either convert the file to .jpg, or tell me and I\u2019ll change the data file to expect what you actually have.</p>' +
+        '<table class="ck"><tr><th>Committed as</th><th>Site expects</th><th>Section</th></tr>' +
+        extBad.map(m => '<tr><td class="bad">' + esc(m.found) + '</td><td class="good">' +
+          esc(m.want) + '</td><td>' + esc(m.source) + '</td></tr>').join('') +
+        '</table></div>';
+    }
+
+    if(missing.length){
+      const groups = new Map();
+      missing.forEach(m => {
+        if(!groups.has(m.source)) groups.set(m.source, []);
+        groups.get(m.source).push(m.want);
+      });
+      const sorted = [...groups.entries()].sort((a,b) => b[1].length - a[1].length);
+      html += '<div class="ck-block"><h3>Not uploaded yet — ' + missing.length + '</h3>' +
+        '<p class="lede2">These are photo slots the site has room for but no file exists. Entirely normal while the archive is still being filled \u2014 they show the placeholder rather than breaking anything.</p>' +
+        sorted.map(([src, list]) =>
+          '<details><summary>' + esc(src) + ' \u2014 ' + list.length + '</summary>' +
+          list.map(f => '<div class="ck-missing-row"><b>' + esc(f) + '</b></div>').join('') +
+          '</details>').join('') +
+        '</div>';
+    }
+
+    if(orphans.length){
+      html += '<div class="ck-block"><h3>In the folder, used by nothing — ' + orphans.length + '</h3>' +
+        '<p class="lede2">Committed photos that no entry points at. Some of these may be the missing ones above under a slightly different name \u2014 worth a look before uploading anything again.</p>' +
+        '<details><summary>Show all ' + orphans.length + '</summary>' +
+        orphans.map(f => '<div class="ck-missing-row"><b>' + esc(f) + '</b></div>').join('') +
+        '</details></div>';
+    }
+
+    out.innerHTML = html;
+  }
+
+  $('runBtn').addEventListener('click', run);
+  ['owner','repo','branch'].forEach(id => {
+    $(id).addEventListener('keydown', e => { if(e.key === 'Enter') run(); });
+  });
+})();
+</script>
+</body>
+</html>
