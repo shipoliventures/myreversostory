@@ -803,3 +803,29 @@ These photos are supplied by the collector themselves, not sourced from auction 
 | `images/stories/shipoli-chronograph-front.jpg` | `images/stories/shipoli-chronograph-back.jpg` | The Call Before the Appointment | Reverso Tribute Chronograph, steel |
 | `images/stories/shipoli-geographic-front.jpg` | `images/stories/shipoli-geographic-back.jpg` | Our First Watches and Wonders | Reverso Tribute Geographic, steel |
 
+### Sarp Vahabi (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/sarp-titulescu-front.jpg` | `images/stories/sarp-titulescu-back.jpg` | The Diplomat’s Reverso | Reverso monoface, steel — dial signed Golay Fils & Stahl, reverse engraved Titulescu 29·X·934 |
+
+### Roni Madhvani (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/roni-jalaram-front.jpg` | `images/stories/roni-jalaram-back.jpg` | The Reverso of Belief | Reverso with enamel and engraved portrait of Jalaram Bapa |
+
+### Farhan Hussain (2 stories)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/farhan-daughter-front.jpg` | `images/stories/farhan-daughter-back.jpg` | My Daughter’s Reverso | Reverso with lacquered lettering, 2022 |
+| `images/stories/farhan-son-front.jpg` | `images/stories/farhan-son-back.jpg` | My Son’s Reverso | Reverso, black dial, 2017 — initials engraved 2023 |
+
+### Robin Tong Lin Wong (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/robin-nonantieme-front.jpg` | `images/stories/robin-nonantieme-back.jpg` | A Reverso for a Milestone | Reverso Tribute Nonantième, Ref. Q711252J |
+
+

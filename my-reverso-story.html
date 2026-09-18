@@ -243,31 +243,38 @@ window.addEventListener('load', function(){
       <h2>Tell us what's on the back of yours</h2>
       <p>Every submission is read by hand before it joins the collection, so nothing appears without a real person approving it first.</p>
     </div>
-    <form id="storyForm" class="reveal">
+    <form id="storyForm" class="reveal" method="POST" enctype="multipart/form-data">
+      <!-- FormSubmit control fields. _next is filled in by script so it always
+           returns to this page, wherever the site is hosted. -->
+      <input type="hidden" name="_subject" value="New Reverso story submission">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" id="f-next" value="">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field">
         <label for="f-name">Your name or handle</label>
-        <input type="text" id="f-name" required maxlength="60" placeholder="e.g. Marcus R.">
+        <input type="text" id="f-name" name="Name" required maxlength="60" placeholder="e.g. Marcus R.">
       </div>
       <div class="field">
         <label for="f-email">Your email <small>(private — never published, just for us to reach you)</small></label>
-        <input type="email" id="f-email" required maxlength="120" placeholder="you@example.com">
+        <input type="email" id="f-email" name="Email" required maxlength="120" placeholder="you@example.com">
       </div>
       <div class="field">
         <label for="f-loc">City &amp; country <small>(optional)</small></label>
-        <input type="text" id="f-loc" maxlength="60" placeholder="e.g. Lisbon, Portugal">
+        <input type="text" id="f-loc" name="City and country" maxlength="60" placeholder="e.g. Lisbon, Portugal">
       </div>
       <div class="field">
         <label for="f-ref">Model / reference <small>(optional)</small></label>
-        <input type="text" id="f-ref" maxlength="60" placeholder="e.g. Grande Reverso Ultra Thin">
+        <input type="text" id="f-ref" name="Model or reference" maxlength="60" placeholder="e.g. Grande Reverso Ultra Thin">
       </div>
       <div class="field full">
         <label for="f-year">Year acquired or made <small>(optional)</small></label>
-        <input type="text" id="f-year" maxlength="20" placeholder="e.g. 1962 or 2019">
+        <input type="text" id="f-year" name="Year" maxlength="20" placeholder="e.g. 1962 or 2019">
       </div>
       <div class="field">
         <label for="f-front">Photo — front of the watch <small>(required)</small></label>
         <div class="upload-box" id="frontBox" tabindex="0">
-          <input type="file" id="f-front" accept="image/*" required>
+          <input type="file" id="f-front" name="attachment" accept="image/*" required>
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="frontPreview" alt="Front preview" hidden>
         </div>
@@ -275,18 +282,18 @@ window.addEventListener('load', function(){
       <div class="field">
         <label for="f-back">Photo — back of the watch <small>(required)</small></label>
         <div class="upload-box" id="backBox" tabindex="0">
-          <input type="file" id="f-back" accept="image/*" required>
+          <input type="file" id="f-back" name="attachment" accept="image/*" required>
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="backPreview" alt="Back preview" hidden>
         </div>
       </div>
       <div class="field full">
         <label for="f-engrave">What's on the back? <small>(a short line — the engraving, enamel, or motif)</small></label>
-        <input type="text" id="f-engrave" maxlength="120" placeholder="e.g. My grandfather's initials, hand-engraved in 1958">
+        <input type="text" id="f-engrave" name="What is on the back" maxlength="120" placeholder="e.g. My grandfather's initials, hand-engraved in 1958">
       </div>
       <div class="field full">
         <label for="f-story">The story</label>
-        <textarea id="f-story" required maxlength="1200" placeholder="How did this watch come to you? Why does the back look the way it does?"></textarea>
+        <textarea id="f-story" name="The story" required maxlength="1200" placeholder="How did this watch come to you? Why does the back look the way it does?"></textarea>
       </div>
       <div class="form-msg" id="formMsg"></div>
       <div class="form-foot">
@@ -454,69 +461,125 @@ window.addEventListener('load', function(){
   wireUpload('backBox', 'f-back', 'backPreview');
 
   // ---------- submission form ----------
+  // Submissions are emailed straight to the curator by FormSubmit; nothing is
+  // stored in the browser and nothing is auto-published. Photos ride along as
+  // real email attachments.
+  //
+  // TO CHANGE THE DESTINATION ADDRESS: edit FORM_ENDPOINT below.
+  //   - While testing, the plain address works:  'info@shipoliventures.com'
+  //   - After FormSubmit emails you the activation link, replace it with the
+  //     random alias they give you (e.g. 'xxxxxxxxxxxxxxxx'). The alias keeps
+  //     the address out of the page source, where spam bots harvest it.
+  const FORM_ENDPOINT = 'info@shipoliventures.com';
+
+  // FormSubmit caps one submission at 10 MB across all attachments, and phone
+  // photos routinely exceed that on their own, so both are downscaled first.
+  // 1800px / q0.85 lands well inside the cap and is still larger than the
+  // ~1200px the photo guide asks for, so nothing useful is thrown away.
+  const PHOTO_MAX_DIM = 1800;
+  const PHOTO_QUALITY = 0.85;
+  const TOTAL_LIMIT   = 9.0 * 1024 * 1024;   // leave headroom under FormSubmit's 10 MB
+
   const form = document.getElementById('storyForm');
-  const msg = document.getElementById('formMsg');
+  const msg  = document.getElementById('formMsg');
+
+  form.action = 'https://formsubmit.co/' + FORM_ENDPOINT;
+
+  // Come back to this page after FormSubmit accepts the submission.
+  const backHere = location.origin + location.pathname + '?sent=1#submit';
+  document.getElementById('f-next').value = backHere;
+
+  // Returning from a successful submission.
+  if(new URLSearchParams(location.search).get('sent') === '1'){
+    msg.textContent = 'Thank you \u2014 your story and photos are on their way to the archive\u2019s curators. We read every submission by hand and will be in touch.';
+    msg.className = 'form-msg show ok';
+    history.replaceState(null, '', location.pathname + '#submit');
+  }
+
+  function shrink(file){
+    return new Promise((resolve) => {
+      if(!file || !/^image\//.test(file.type)) return resolve(file);
+      const reader = new FileReader();
+      reader.onerror = () => resolve(file);          // unreadable — send the original
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onerror = () => resolve(file);
+        img.onload = () => {
+          let w = img.width, h = img.height;
+          if(w > h){ if(w > PHOTO_MAX_DIM){ h = Math.round(h * PHOTO_MAX_DIM / w); w = PHOTO_MAX_DIM; } }
+          else     { if(h > PHOTO_MAX_DIM){ w = Math.round(w * PHOTO_MAX_DIM / h); h = PHOTO_MAX_DIM; } }
+          try{
+            const c = document.createElement('canvas');
+            c.width = w; c.height = h;
+            c.getContext('2d').drawImage(img, 0, 0, w, h);
+            c.toBlob((blob) => {
+              if(!blob || blob.size >= file.size) return resolve(file);   // no gain
+              const base = (file.name || 'photo').replace(/\.[^.]+$/, '');
+              resolve(new File([blob], base + '.jpg', { type: 'image/jpeg' }));
+            }, 'image/jpeg', PHOTO_QUALITY);
+          }catch(err){ resolve(file); }
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Swap a processed File back into its <input type="file"> so the native
+  // multipart POST carries the smaller version.
+  function setFile(input, file){
+    try{
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+      return true;
+    }catch(err){ return false; }   // very old browser — the original still submits
+  }
+
+  let sending = false;
   form.addEventListener('submit', async (e) => {
+    if(sending) return;                 // second pass: let the native POST through
     e.preventDefault();
+
     const btn = document.getElementById('submitBtn');
-    const name = document.getElementById('f-name').value.trim();
+    const name  = document.getElementById('f-name').value.trim();
     const email = document.getElementById('f-email').value.trim();
     const story = document.getElementById('f-story').value.trim();
-    const frontFile = document.getElementById('f-front').files[0];
-    const backFile = document.getElementById('f-back').files[0];
+    const frontInput = document.getElementById('f-front');
+    const backInput  = document.getElementById('f-back');
+    const frontFile = frontInput.files[0];
+    const backFile  = backInput.files[0];
+
     if(!name || !email || !story || !frontFile || !backFile){
       msg.textContent = 'Please fill in your name, email, story, and both photos before submitting.';
       msg.className = 'form-msg show err';
       return;
     }
-    if(!RD){
-      msg.textContent = 'Submissions are temporarily unavailable — please try again later.';
-      msg.className = 'form-msg show err';
-      return;
-    }
-    if(!hasStorage){
-      msg.textContent = 'Story submission needs storage enabled for this page — please let the site owner know.';
-      msg.className = 'form-msg show err';
-      return;
-    }
-    btn.disabled = true; btn.textContent = 'Uploading photos…';
+
+    btn.disabled = true; btn.textContent = 'Preparing photos\u2026';
     try{
-      const [front, back] = await Promise.all([
-        RD.compressImageFile(frontFile),
-        RD.compressImageFile(backFile)
-      ]);
-      btn.textContent = 'Sending…';
-      const id = RD.newId();
-      const full = {
-        id, status: 'pending',
-        name, email,
-        location: document.getElementById('f-loc').value.trim(),
-        ref: document.getElementById('f-ref').value.trim(),
-        year: document.getElementById('f-year').value.trim(),
-        engrave: document.getElementById('f-engrave').value.trim(),
-        story, front, back,
-        submittedAt: Date.now()
-      };
-      const savedFull = await RD.saveSubmission(full);
-      const savedIndex = savedFull ? await RD.upsertIndexEntry(RD.lightweightFrom(full)) : null;
-      if(savedFull && savedIndex){
-        RD.notifyCurator(full);
-        form.reset();
-        document.getElementById('frontPreview').hidden = true;
-        document.getElementById('backPreview').hidden = true;
-        document.getElementById('frontBox').classList.remove('has-image');
-        document.getElementById('backBox').classList.remove('has-image');
-        msg.textContent = "Thank you — your story and photos have been sent to the archive's curators and will appear here once approved.";
-        msg.className = 'form-msg show ok';
-      } else {
-        msg.textContent = 'Something went wrong sending your story. Please try again in a moment.';
+      const [front, back] = await Promise.all([shrink(frontFile), shrink(backFile)]);
+
+      if(front.size + back.size > TOTAL_LIMIT){
+        msg.textContent = 'Those photos are too large to email even after resizing. Please try images under about 4 MB each.';
         msg.className = 'form-msg show err';
+        btn.disabled = false; btn.textContent = 'Submit for Review';
+        return;
       }
+
+      setFile(frontInput, front);
+      setFile(backInput, back);
+
+      btn.textContent = 'Sending\u2026';
+      msg.textContent = '';
+      msg.className = 'form-msg';
+      sending = true;
+      form.submit();                    // native multipart POST to FormSubmit
     }catch(err){
-      msg.textContent = 'Something went wrong processing your photos. Please try again with a smaller image if the problem continues.';
+      msg.textContent = 'Something went wrong preparing your photos. Please try again, or use a smaller image if the problem continues.';
       msg.className = 'form-msg show err';
+      btn.disabled = false; btn.textContent = 'Submit for Review';
     }
-    btn.disabled = false; btn.textContent = 'Submit for Review';
   });
 })();
 </script>

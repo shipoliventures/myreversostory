@@ -715,6 +715,15 @@ window.ReversoShare = (function () {
 
     var prev = btn ? btn.getAttribute('data-label') || btn.textContent : '';
     if (btn) { btn.classList.add('busy'); btn.disabled = true; }
+
+    /* Instagram (and Threads, and a few others) accept the image but silently
+       discard the text. We can't know which app gets picked, so put the caption
+       on the clipboard before the sheet opens — it costs nothing for the apps
+       that keep the text, and saves a round trip for the ones that don't.
+       Must happen inside the click gesture, which is where we still are. */
+    var captionReady = false;
+    try { captionReady = await copyText(captionFor(entry, 'instagram')); } catch (e) {}
+
     try {
       var built = await buildFile(entry, 'post');
       if (canShareFiles([built.file])) {
@@ -723,6 +732,7 @@ window.ReversoShare = (function () {
           title: entry.title,
           text: captionFor(entry, 'generic')
         });
+        if (captionReady) toast('Shared. The caption is on your clipboard \u2014 paste it if the app didn\u2019t carry the text over.');
       } else {
         openPanel(key);
       }

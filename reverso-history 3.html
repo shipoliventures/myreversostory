@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Story · My Reverso Story</title>
+<link rel="stylesheet" href="reverso-styles.css">
+<style>
+/* counter */
+.count-row{ display:flex; gap:50px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
+.count-item b{ font-family:'Cinzel',serif; font-size:38px; color:var(--brass-bright); display:block; }
+.count-item span{ font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); }
+</style>
+<script>
+/* Enable scroll-reveal animation only if JS is alive, and force everything
+   visible if the observer never runs (older browsers, script failure). */
+document.documentElement.classList.add('js-anim');
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible), .reveal-scale:not(.visible)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200);
+});
+</script>
+</head>
+<body>
+
+<svg class="grain" width="0" height="0">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+</svg>
+<div class="grain" style="filter:url(#noise);"></div>
+<div class="progress" id="progressBar"></div>
+
+<nav>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <ul class="navlinks">
+    <li><a href="reverso-history.html">History</a></li>
+    <li><a href="reverso-models.html">Models</a></li>
+    <li><a href="reverso-calibres.html">Calibres</a></li>
+    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-limited.html">Limited</a></li>
+  </ul>
+</nav>
+
+<header class="history-hero">
+  <div class="wrap">
+    <p class="eyebrow">History &amp; Heritage</p>
+    <h1>It began because<br>something broke.</h1>
+    <p class="lede">Ninety-five years of one idea: that a watch could turn its back on the world. What follows is the whole arc — the polo field, the patent, the decades of silence, the drawer full of forgotten cases, and the four-faced watch at the end of it.</p>
+    <a href="my-reverso-story.html#genesis" class="back-link">← Back to My Reverso Story</a>
+  </div>
+</header>
+
+<!-- ============ 1930 ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1930</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">The Winter of 1930–31 · British India</p>
+    <h2>A cracked crystal,<br>and a dare.</h2>
+    <p>César de Trey sold false teeth. Born in Switzerland in 1876, he had worked in America before building a substantial business in Britain supplying dentists with everything from dentures to X-ray apparatus. He left the dental trade in 1927 and moved into watch distribution — good timing, since by 1930 wristwatches accounted for half of all Swiss watch exports, up from a quarter a decade earlier. His first venture distributed Movado's Ermeto purse watch, whose case wound the movement as it opened and closed. He named the company <em>Hermetica</em>, after his preoccupation: protecting the most fragile part of a watch, its glass.</p>
+    <p>Travelling in India in 1930, he fell in among British army officers for whom polo was not a pastime but a way of life, and whose watch crystals rarely survived a match.</p>
+    <p>Mineral glass was standard then. Acrylic wouldn't be widely used until the 1940s. So the glass didn't chip — it shattered. Knowing he had moved from dentures into watches, the officers asked whether a watch could be made that might be covered, or even turned over, to protect the glass during a game.</p>
+    <p>The horological historian Manfred Fritz records the moment plainly: the words <em>turn over</em> stuck in their Swiss guest's mind “like an arrow in its target.” De Trey registered the name Reverso himself, soon afterwards.</p>
+    <div class="h-pull">There had to be a better mousetrap.</div>
+  </div></div>
+</section>
+
+<!-- ============ 1931 ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1931</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">4 March 1931, 1:15 pm · INPI, Paris</p>
+    <h2>“A watch capable of sliding in its support<br>and being completely turned over.”</h2>
+    <p>De Trey took the problem to Gustave Delage — a celebrated naval pilot turned businessman, and a partner in the Paris firm of Edmond Jaeger, which made instruments for aircraft and cars and had worked with LeCoultre in Le Sentier for years. Jaeger contracted a French designer, René-Alfred Chauvot, who invented the actual slide-and-flip mechanism. De Trey moved fast: the patent was filed within weeks of that meeting.</p>
+    <p>Chauvot's patent was registered in Paris on 4 March 1931 as French patent 712,868; a Swiss patent, 159,982, followed a year later. To sell it, de Trey and Jacques-David LeCoultre founded a distribution company in Lausanne, Spécialités Horlogères. In June 1937 that company would become the sales arm of a newly merged manufacture — Jaeger-LeCoultre.</p>
+    <p>They named the watch <em>Reverso</em>. Latin: <em>I turn around</em>.</p>
+    <div class="h-pull">Chauvot's original drawings show a <em>square</em> case with a square dial. Seventy-five years later those same drawings would be pulled from the archive, overscaled, and turned into the Reverso Squadra.</div>
+    <p>Between the patent and the first production watches the case grew longer, and a trio of <em>godrons</em> — the stepped gadroon ribs — was added top and bottom, elongating the proportions toward something close to the Golden Section and drawing the eye to the large plane of the glass. Many early models dropped numerals altogether for baton indices and sword hands. Visiting the factory, the regional prefect of the Jura compared these watches to <em>“Greek statues”</em>.</p>
+  </div></div>
+</section>
+
+<!-- ============ borrowed movement ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1931–33</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">The Awkward Secret</p>
+    <h2>The first Reversos ran on<br>somebody else's movement.</h2>
+    <p>Here is the detail that rarely makes the brochures. Jaeger-LeCoultre was a movement manufacturer <em>par excellence</em> — and it had nothing that fitted. Its round calibres were too small for Chauvot's rectangle; the famous Duoplan was too thick.</p>
+    <p>So the earliest Reversos were fitted with the Tavannes calibre 064, often signed “Lisica”, in cases built by the Geneva maker A.E. Wenger. Only final assembly happened at Le Sentier. It is why the very first dials say nothing but <em>Reverso</em> — no Jaeger, no LeCoultre, because there was no LeCoultre movement inside to claim.</p>
+    <p>In 1932 came a second tier, the <em>De Luxe</em>, fitted with a synthetic sapphire crystal — among the earliest known uses of sapphire in a commercial wristwatch. The watch invented because glass shattered had begun solving the problem at the source.</p>
+    <div class="h-pull">Only from 1933 did LeCoultre have its own rectangular movement — and it arrived as two at once: the calibre 410 with small seconds, and the 411 with a sweeping centre seconds.</div>
+  </div></div>
+</section>
+
+<!-- ============ canvas ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1933–1949</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">The Unplanned Consequence</p>
+    <h2>Nobody designed the back<br>to be beautiful.</h2>
+    <p>The reverse plate existed for one reason: to be hit. It was flat, anonymous steel, engineered to absorb a mallet. And then owners looked at it and saw something else entirely.</p>
+    <p>By 1933 a Reverso was engraved to commemorate Italo Balbo's transatlantic formation flight to the Chicago World's Fair. In 1934 a Danish prince serving in the French Foreign Legion wrote from Algiers to say his had survived southern Morocco. In 1935 one was engraved with a map reading MEXICO–NEW YORK for Amelia Earhart. In 1936 came the first documented enamel: the portrait of an Indian woman, believed to be a maharani, whose name has never been recovered.</p>
+    <p>In 1937 a Reverso was engraved with a crown, EDWARD VIII, and the date of a coronation that never took place.</p>
+    <div class="h-pull">The armour had become a canvas. Nobody planned it; everybody adopted it.</div>
+    <p style="margin-top:26px;"><a href="reverso-collection.html" class="btn">See the Archive of Engraved Pieces</a></p>
+  </div></div>
+</section>
+
+<!-- ============ silence ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1948–1972</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">The Long Silence</p>
+    <h2>Then it simply<br>stopped.</h2>
+    <p>Production of the vintage Reverso ran to roughly 1947–48 and then ended. Postwar taste turned to round, tool-inspired watches; the Art Deco rectangle that had defined a decade began to look like a relic of one. For more than twenty years the Reverso was out of the catalogue entirely.</p>
+    <p>Then in 1969 the first commercial quartz wristwatch arrived, and Swiss mechanical watchmaking entered the deepest crisis of its century. A forgotten rectangular dress watch from the 1930s was about as far from anyone's priorities as a product could be.</p>
+    <div class="count-row">
+      <div class="count-item"><b data-count="24">0</b><span>Years out of production</span></div>
+      <div class="count-item"><b data-count="0">0</b><span>Reversos in the catalogue</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ corvo ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1972</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">A Drawer in Le Sentier</p>
+    <h2>Two hundred empty cases,<br>and one stubborn Italian.</h2>
+    <p>It started with a phone call. Léon Constantin, just back from Milan, rang the general manager's office to ask how many Reversos were still in stock. The manager was out; a secretary took the message. The answer came back the same day: 200 steel cases, no movements.</p>
+    <p>Days later Giorgio Corvo called from Milan. Corvo was Jaeger-LeCoultre's sole representative for Italy — then the most trend-setting watch market in the world, where what sold in Milan, Rome or Turin sold everywhere. His message was one line: <em>I'll take them all.</em></p>
+    <p>Le Sentier could not believe it. They rang his Milan office <strong>three times</strong> to confirm the order was serious. Each time he said yes. Then they tried to talk him out of it: the 9- and 11-line movements were long out of production, and in 1972 — with quartz arriving from Japan and the whole Swiss industry reeling — restarting anything was unthinkable.</p>
+    <p>So Corvo solved it himself. He took the oval calibre 840 from the Ovetto, had a Milanese watchmaker build a spacer to seat the oval movement inside the rectangular case, and brought the result back to Switzerland as a demonstration that it could be done.</p>
+    <div class="h-pull">They agreed — on the condition that this was the end of it. “We do this 200 pieces, but then we don't want to hear about this any more.”</div>
+    <p>A new dial was drawn for the run, in white or grey, signed LeCoultre: one hundred of each. They sold out in a month.</p>
+  </div></div>
+</section>
+
+<!-- ============ rebuild ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1975–1985</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">Rebuilt From the Case Outward</p>
+    <h2>It looked untouched.<br>It was entirely new.</h2>
+    <p>Back in the catalogue from 1975, the Reverso got a full relaunch in 1982–83 for the manufacture's 150th anniversary: the squarer, mostly quartz <em>Reverso II</em>, notable for being almost the only Reverso ever made without the three-line gadroon motif. Buyers wanted the rectangle back, and said so.</p>
+    <p>The real work was happening elsewhere. Engineer Daniel Wild spent five years re-engineering the case to modern standards without altering its silhouette by a millimetre — not a facelift so much as, in Foulkes' phrase, multiple major organ transplantation that left the watch mechanically unrecognisable and visually unchanged.</p>
+    <p>The critical change was the guidance system. Technical designer Christophe Crétin: <em>“Instead of having a simple pin in a groove, it was replaced by a skid system: a skate with an eagle tail shape, which returns inside the cradle, where it cannot be disengaged.”</em> Inside, a “guard ring” — effectively a second case — now held the movement, screwed to the case top by four sealed beryllium screws with a flat seal compressed between. That is how a watch whose whole purpose was to come loose from its cradle became water-resistant.</p>
+    <p>It also had to be built in-house. The investment, skill and tooling required were beyond outside suppliers, and since the Reverso is rectangular, JLC needed milling machines when the market sold mainly CNC lathes — so they commissioned CNC machines built specifically for the Reverso from a firm in La Chaux-de-Fonds.</p>
+    <div class="count-row">
+      <div class="count-item"><b data-count="30" data-suffix="≈">0</b><span>Parts, 1931 case</span></div>
+      <div class="count-item"><b data-count="50" data-suffix="+">0</b><span>Parts, 1985 case</span></div>
+      <div class="count-item"><b data-count="0" data-suffix="mm">0</b><span>Change in silhouette</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ complications ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">1991–2000</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">Six Watches, 500 Pieces Each</p>
+    <h2>The decade the back<br>started doing things.</h2>
+    <p>The 60ème of 1991 was the hinge. It brought the first complication — power reserve and date — and, after sixty years of blank steel, the first sapphire display back. It also opened a series: roughly one new complication every two years, each in a 500-piece limited edition.</p>
+    <p>Tourbillon in 1993. Minute repeater in 1994 — the world's first rectangular repeater movement, because gongs want to be circles and almost nobody else would take the problem on. Retrograde chronograph in 1996. Géographique world time in 1998. Perpetual calendar in 2000.</p>
+    <p>And in 1994, the one that changed the definition of the watch: the <em>Duoface</em>. A second dial on the back showing a second time zone, driven by the same single movement as the front. The reverse was no longer decoration or armour. It was a display.</p>
+    <div class="h-pull">Local time on one face. Home time on the other. One gear train doing both.</div>
+    <p style="margin-top:26px;"><a href="reverso-calibres.html" class="btn">Explore the Calibres</a></p>
+  </div></div>
+</section>
+
+<!-- ============ impossible ============ -->
+<section class="h-scene reveal">
+  <div class="h-year">2006–2021</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">Three Faces, Then Four</p>
+    <h2>Because nobody<br>had done it.</h2>
+    <p>For its 75th birthday in 2006, the Reverso became the first watch in history with three dials driven by a single movement — front, back, and a third display set into the cradle itself. The Grande Complication à Triptyque showed civil, sidereal and perpetual time at once, with a tourbillon and an equation of time. Seventy-five pieces. Six patents.</p>
+    <p>In 2008 the Gyrotourbillon 2 put a spherical, multi-axis tourbillon into the rectangle — inner carriage turning once every 18.75 seconds, outer once a minute — and became the first wristwatch to run a cylindrical hairspring. It took first <em>and</em> second place at the 2009 International Chronometry Competition.</p>
+    <p>Then in 2021, for the 90th: the Hybris Mechanica Calibre 185 Quadriptyque. Four functioning display faces — a world first — carrying eleven complications, including three separate lunar cycles displayed inside the cradle. Twelve patents.</p>
+    <div class="count-row">
+      <div class="count-item"><b data-count="4">0</b><span>Display faces</span></div>
+      <div class="count-item"><b data-count="11">0</b><span>Complications</span></div>
+      <div class="count-item"><b data-count="12">0</b><span>Patents</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ today ============ -->
+<section class="h-scene reveal" style="border-bottom:none;">
+  <div class="h-year">Today</div>
+  <div class="wrap"><div class="h-body">
+    <p class="h-kicker">Still Turning</p>
+    <h2>Every case still leaves<br>the workshop blank.</h2>
+    <p>In 2016 the collection was rationalised into three families — Classic, Tribute and One — and almost everything sold today descends from that reset. In 2025 Jaeger-LeCoultre returned to its own origin story with a “1931 Polo Club” theme, brought world time back to the Reverso for the first time since 1998, and built an entirely new minute-repeater movement earning seven patents. In 2026 it completed an eight-watch cycle of Hokusai waterfalls in grand feu enamel, roughly a hundred hours of work apiece.</p>
+    <p>Ninety-five years, around fifty calibres, and one unchanged proposition. The front of the watch is made in Switzerland. The back is still, deliberately, left for you.</p>
+    <div class="deco-divider" style="margin:40px auto;"><span></span><i></i><span></span></div>
+    <p style="margin-top:8px;">
+      <a href="reverso-models.html" class="btn">The Models</a>
+      <a href="my-reverso-story.html#submit" class="btn solid" style="margin-left:10px;">Share Your Story</a>
+    </p>
+  </div></div>
+</section>
+
+<footer>
+  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  });
+
+  const io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold:0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // count-up
+  const cio = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+      (function tick(now){
+        const p = Math.min(1, (now - start) / 1300);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = (suffix === '\u2248' ? '\u2248' : '') + Math.round(target * eased) + (suffix === '\u2248' ? '' : suffix);
+        if(p < 1) requestAnimationFrame(tick);
+      })(start);
+      cio.unobserve(el);
+    });
+  }, { threshold:0.5 });
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+})();
+</script>
+</body>
+</html>
