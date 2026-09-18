@@ -250,6 +250,7 @@ window.addEventListener('load', function(){
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_next" id="f-next" value="">
+      <input type="hidden" name="_url" id="f-url" value="">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field">
         <label for="f-name">Your name or handle</label>
@@ -274,7 +275,7 @@ window.addEventListener('load', function(){
       <div class="field">
         <label for="f-front">Photo — front of the watch <small>(required)</small></label>
         <div class="upload-box" id="frontBox" tabindex="0">
-          <input type="file" id="f-front" name="attachment" accept="image/*" required>
+          <input type="file" id="f-front" name="Photo - Front" accept="image/*" required>
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="frontPreview" alt="Front preview" hidden>
         </div>
@@ -282,7 +283,7 @@ window.addEventListener('load', function(){
       <div class="field">
         <label for="f-back">Photo — back of the watch <small>(required)</small></label>
         <div class="upload-box" id="backBox" tabindex="0">
-          <input type="file" id="f-back" name="attachment" accept="image/*" required>
+          <input type="file" id="f-back" name="Photo - Back" accept="image/*" required>
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="backPreview" alt="Back preview" hidden>
         </div>
@@ -488,6 +489,10 @@ window.addEventListener('load', function(){
   // Come back to this page after FormSubmit accepts the submission.
   const backHere = location.origin + location.pathname + '?sent=1#submit';
   document.getElementById('f-next').value = backHere;
+  // FormSubmit's own docs: some browsers' referrer policy strips the path from
+  // the page it thinks you submitted from, so its own fallback screens land on
+  // the bare domain instead of this page. _url pins the exact address.
+  document.getElementById('f-url').value = location.origin + location.pathname;
 
   // Returning from a successful submission.
   if(new URLSearchParams(location.search).get('sent') === '1'){
