@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('reverso:theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Collector Spotlight · My Reverso Story</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="reverso-styles.css">
+<script src="reverso-nav.js"></script>
+<script src="reverso-theme.js"></script>
 <style>
 .story-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
 .story-tile{ display:block; border:1px solid var(--line); background:var(--panel); transition:border-color .3s ease, transform .3s ease; }
@@ -34,6 +38,7 @@ window.addEventListener('load', function(){
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <svg class="grain" width="0" height="0">
   <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
@@ -42,17 +47,26 @@ window.addEventListener('load', function(){
 <div class="progress" id="progressBar"></div>
 
 <nav>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
-  <ul class="navlinks">
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
+  <div class="nav-right">
+    <button class="theme-toggle" aria-label="Switch to light theme" type="button">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navlinks">
     <li><a href="reverso-history.html">History</a></li>
     <li><a href="reverso-models.html">Models</a></li>
     <li><a href="reverso-calibres.html">Calibres</a></li>
     <li><a href="reverso-collection.html">Archive</a></li>
     <li><a href="reverso-limited.html">Limited</a></li>
-  </ul>
+    </ul>
+  </div>
 </nav>
 
-<header class="history-hero">
+<header class="history-hero" id="main-content">
   <div class="wrap">
     <p class="eyebrow">Collector Spotlight</p>
     <h1 id="cc-name">Collector</h1>
@@ -79,7 +93,7 @@ window.addEventListener('load', function(){
 </div>
 
 <footer>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
   <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
 </footer>
 
@@ -147,7 +161,7 @@ window.addEventListener('load', function(){
         '<div class="story-tile-title">' + esc(s.title) + '</div>' +
         '<div class="story-tile-watch">' + esc(s.watch) + '</div>' +
         '<p class="story-tile-hook">' + esc(s.hook) + '</p>' +
-        '<a class="story-tile-more" href="reverso-story.html?id=' + esc(s.id) + '">Read the Full Story \u2192</a>' +
+        '<a class="story-tile-more" href="reverso-story.html?id=' + esc(s.id) + '">Read the Full Story</a>' +
       '</div>' +
     '</div>';
   }).join('');

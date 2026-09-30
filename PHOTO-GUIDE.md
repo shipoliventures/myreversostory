@@ -771,20 +771,21 @@ Claude Joray — the best single source for the calibre page:
 
 ## Collector Stories — front/back
 
-These photos are supplied by the collector themselves, not sourced from auction houses, and live in their own subfolder — **`images/stories/`** — separate from every other photo on the site. Filenames follow the same front/back convention as everywhere else, keyed to each story's own id (from `reverso-stories.js`) rather than a model slug.
+These photos are supplied by the collector themselves, not sourced from auction houses, and live in their own subfolder — **`images/stories/`** — separate from every other photo on the site. Filenames follow the same front/back convention as everywhere else, keyed to each story’s own id (from `reverso-stories.js`) rather than a model slug.
 
-### Mitch & Linda Katz (9 stories)
+### Mitch & Linda Katz (10 stories)
 
 | Front | Back | Story | Watch |
 |---|---|---|---|
 | `images/stories/mitch-101-front.jpg` | `images/stories/mitch-101-back.jpg` | Number One of Five | Grande Reverso 101 Art Déco |
 | `images/stories/mitch-linda-duoface-front.jpg` | `images/stories/mitch-linda-duoface-back.jpg` | The Watch Widow | Reverso Duoface |
+| `images/stories/mitch-linda-second-front.jpg` | `images/stories/mitch-linda-second-back.jpg` | Linda’s Second Reverso | Reverso Duetto, rose gold |
 | `images/stories/mitch-chocolate-engraving-front.jpg` | `images/stories/mitch-chocolate-engraving-back.jpg` | The Imperfect Engraving | The Chocolate Reverso |
 | `images/stories/mitch-lint-front.jpg` | `images/stories/mitch-lint-back.jpg` | Number One — and the Piece of Lint | Grande Reverso Ultra Thin SQ |
 | `images/stories/mitch-designed-watch-front.jpg` | `images/stories/mitch-designed-watch-back.jpg` | The Watch I Designed, and the One I Bought | Grande Reverso 1931 Seconde Centrale |
 | `images/stories/mitch-goodbye-wave-front.jpg` | `images/stories/mitch-goodbye-wave-back.jpg` | Goodbye, Wave | Reverso Tribute Enamel — Hokusai, unique commission |
 | `images/stories/mitch-my-engraving-front.jpg` | `images/stories/mitch-my-engraving-back.jpg` | My Engraving | Reverso Tribute Small Seconds, burgundy |
-| `images/stories/mitch-scratch-front.jpg` | `images/stories/mitch-scratch-back.jpg` | The Scratch That Wasn't There | Reverso Tribute Nonantième |
+| `images/stories/mitch-scratch-front.jpg` | `images/stories/mitch-scratch-back.jpg` | The Scratch That Wasn’t There | Reverso Tribute Nonantième |
 | `images/stories/mitch-repeater-front.jpg` | `images/stories/mitch-repeater-back.jpg` | Linda Said I Had to Buy It | Reverso Tribute Minute Repeater |
 
 ### Randy Kamin (1 story)
@@ -807,7 +808,7 @@ These photos are supplied by the collector themselves, not sourced from auction 
 
 | Front | Back | Story | Watch |
 |---|---|---|---|
-| `images/stories/sarp-titulescu-front.jpg` | `images/stories/sarp-titulescu-back.jpg` | The Diplomat’s Reverso | Reverso monoface, steel — dial signed Golay Fils & Stahl, reverse engraved Titulescu 29·X·934 |
+| `images/stories/sarp-titulescu-front.jpg` | `images/stories/sarp-titulescu-back.jpg` | The Diplomat’s Reverso | Reverso monoface, steel — dial signed Golay Fils & Stahl |
 
 ### Roni Madhvani (1 story)
 
@@ -819,13 +820,42 @@ These photos are supplied by the collector themselves, not sourced from auction 
 
 | Front | Back | Story | Watch |
 |---|---|---|---|
-| `images/stories/farhan-daughter-front.jpg` | `images/stories/farhan-daughter-back.jpg` | My Daughter’s Reverso | Reverso with lacquered lettering, 2022 |
-| `images/stories/farhan-son-front.jpg` | `images/stories/farhan-son-back.jpg` | My Son’s Reverso | Reverso, black dial, 2017 — initials engraved 2023 |
+| `images/stories/farhan-daughter-front.jpg` | `images/stories/farhan-daughter-back.jpg` | My Daughter’s Reverso | Reverso with lacquered lettering |
+| `images/stories/farhan-son-front.jpg` | `images/stories/farhan-son-back.jpg` | My Son’s Reverso | Reverso, black dial |
 
 ### Robin Tong Lin Wong (1 story)
 
 | Front | Back | Story | Watch |
 |---|---|---|---|
-| `images/stories/robin-nonantieme-front.jpg` | `images/stories/robin-nonantieme-back.jpg` | A Reverso for a Milestone | Reverso Tribute Nonantième, Ref. Q711252J |
+| `images/stories/robin-nonantieme-front.jpg` | `images/stories/robin-nonantieme-back.jpg` | A Reverso for a Milestone | Reverso Tribute Nonantième |
 
+### @decowatches (2 stories)
 
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/decowatches-son-front.jpg` | `images/stories/decowatches-son-back.jpg` | My Son’s Reverso | Reverso Classic, 45.6mm |
+| `images/stories/decowatches-gibson-front.jpg` | `images/stories/decowatches-gibson-back.jpg` | The Gibson Guitar Reverso | Reverso Tribute, 40.1mm |
+
+### A DC Watch Enthusiast (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/george-mason-flower-front.jpg` | `images/stories/george-mason-flower-back.jpg` | George Mason Flower | Reverso, green dial |
+
+### Paul Stewart (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/paul-stewart-portrait-front.jpg` | `images/stories/paul-stewart-portrait-back.jpg` | A Portrait from the Family | Reverso Tribute Monoface Small Seconds |
+
+### Taylor Wos (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/taylor-wos-wisdom-front.jpg` | `images/stories/taylor-wos-wisdom-back.jpg` | Wisdom | Reverso |
+
+### Rashawn Smith (1 story)
+
+| Front | Back | Story | Watch |
+|---|---|---|---|
+| `images/stories/rashawn-smith-astonmartin-front.jpg` | `images/stories/rashawn-smith-astonmartin-back.jpg` | The Aston Martin Reverso | Reverso, Jaeger-LeCoultre × Aston Martin |

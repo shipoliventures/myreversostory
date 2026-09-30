@@ -269,13 +269,22 @@ window.ReversoShare = (function () {
   }
 
   /* ---------- the card ---------- */
+  var crestCache = null;
+  function loadCrest() {
+    // The crest is one fixed asset shared by every card, unlike the per-entry
+    // photos — load it once and reuse the same decoded image on every call
+    // rather than re-fetching it for each card generated in a session.
+    if (!crestCache) crestCache = loadImage('reverso-crest-dark.png');
+    return crestCache;
+  }
+
   async function buildCanvas(entry, formatKey) {
     var F = FORMATS[formatKey] || FORMATS.post;
     var W = F.w, H = F.h;
 
     await fontsReady();
-    var pair = await Promise.all([loadImage(entry.front), loadImage(entry.back)]);
-    var front = pair[0], back = pair[1];
+    var pair = await Promise.all([loadImage(entry.front), loadImage(entry.back), loadCrest()]);
+    var front = pair[0], back = pair[1], crest = pair[2];
 
     var cv = document.createElement('canvas');
     cv.width = W; cv.height = H;
@@ -406,8 +415,16 @@ window.ReversoShare = (function () {
     ctx.beginPath(); ctx.moveTo(M, footerY - 34); ctx.lineTo(W - M, footerY - 34); ctx.stroke();
 
     ctx.fillStyle = T.ink;
-    ctx.font = '600 25px Cinzel, serif';
-    var brandW = tracked(ctx, 'MY REVERSO STORY', M, footerY, 3.4);
+    var brandW;
+    if (crest) {
+      var crestH = 34, crestW = crestH * (crest.width / crest.height);
+      ctx.drawImage(crest, M, footerY - crestH + 6, crestW, crestH);
+      ctx.font = '600 25px Cinzel, serif';
+      brandW = crestW + 12 + tracked(ctx, 'MY REVERSO STORY', M + crestW + 12, footerY, 3.4);
+    } else {
+      ctx.font = '600 25px Cinzel, serif';
+      brandW = tracked(ctx, 'MY REVERSO STORY', M, footerY, 3.4);
+    }
 
     if (entry.credit) {
       ctx.fillStyle = 'rgba(167,159,143,0.75)';
@@ -515,6 +532,11 @@ window.ReversoShare = (function () {
     if (!toastEl) {
       toastEl = document.createElement('div');
       toastEl.className = 'rs-toast';
+      // aria-live so a screen reader announces this the moment the text
+      // changes, without moving focus away from whatever the person was
+      // doing (share panel, card, wherever the tap happened).
+      toastEl.setAttribute('role', 'status');
+      toastEl.setAttribute('aria-live', 'polite');
       document.body.appendChild(toastEl);
     }
     toastEl.textContent = msg;

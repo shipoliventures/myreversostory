@@ -12,9 +12,55 @@
   --line: rgba(201,163,94,.28);
   --line-soft: rgba(201,163,94,.14);
   --steel: #333d49;
+  /* status colors (approve/success, decline/error, "limited" badge) */
+  --ok-line:#4c7a45;
+  --ok-text:#c9e6c2;
+  --err-line:#7a4545;
+  --err-text:#e6c2c2;
+  /* the diagonal "no photo yet" placeholder stripe */
+  --stripe-a:#232c37;
+  --stripe-b:#1c232c;
+}
+
+/* ----------------------------------------------------------
+   Light theme — same warm brass-and-ink identity, inverted.
+   Not a generic white flip: void becomes a warm parchment
+   rather than pure white, and brass deepens into an antique
+   bronze so it still reads clearly against a light ground.
+   Contrast checked to the same bar as the dark palette above
+   (every text/background pairing clears WCAG AA with margin,
+   most well past it — see the design notes for exact ratios).
+   ---------------------------------------------------------- */
+:root[data-theme="light"]{
+  --void:#f3ede0;
+  --panel:#fbf7ee;
+  --panel-2:#ece3d0;
+  --ink:#2a2318;
+  --ink-dim:#635740;
+  --brass:#7d5820;
+  --brass-bright:#8a5818;
+  --burgundy:#7d3234;
+  --line: rgba(125,88,32,.35);
+  --line-soft: rgba(125,88,32,.16);
+  --steel:#c3c9d1;
+  --ok-line:#3f6b39;
+  --ok-text:#2f5c2b;
+  --err-line:#8a4a4a;
+  --err-text:#7d3234;
+  --stripe-a:#f0e9da;
+  --stripe-b:#e5dcc5;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
+html{
+  scroll-behavior:smooth;
+  /* Nav is position:fixed and covers the top of the viewport, so any jump
+     to an in-page anchor — the skip link, #gallery, #submit, or the era/
+     chapter links the subnav builds at runtime — needs this offset or the
+     target heading lands tucked up underneath it. 62px matches the value
+     .subnav already uses for its own sticky offset below the nav; the
+     margin on top covers the nav's translucent gradient tail. */
+  scroll-padding-top:90px;
+}
 body{
   background:var(--void);
   color:var(--ink);
@@ -32,7 +78,7 @@ body{
   position:fixed; inset:0; z-index:999; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
 }
 /* scroll progress hairline */
-.progress{ position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--brass),var(--brass-bright)); z-index:1001; width:0%; transition:width .1s linear; }
+.progress{ position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--brass),var(--brass-bright)); z-index:1700; width:0%; transition:width .1s linear; }
 
 h1,h2,h3{ font-family:'Poiret One', cursive; font-weight:400; letter-spacing:.02em; }
 .eyebrow{
@@ -99,23 +145,43 @@ section{ padding:130px 0; position:relative; }
 
 /* ---------- nav ---------- */
 nav{
-  position:fixed; top:0; left:0; right:0; z-index:100;
+  /* Fixed + a z-index makes this element its own stacking context, which
+     caps EVERYTHING inside it — including .navlinks' own higher z-index —
+     at this value relative to siblings elsewhere on the page. Left at 100,
+     the mobile scrim (z-index:1400, a direct child of body) legitimately
+     stacks above the whole nav and silently intercepts taps on the open
+     panel's links, even though the panel still looks correct on screen. */
+  position:fixed; top:0; left:0; right:0; z-index:1600;
   display:flex; align-items:center; justify-content:space-between;
   padding:20px 32px;
-  background:linear-gradient(to bottom, rgba(11,14,18,.92), rgba(11,14,18,0));
+  background:linear-gradient(to bottom, color-mix(in srgb, var(--void) 92%, transparent), transparent);
   backdrop-filter:blur(2px);
 }
-.brand{ font-family:'Cinzel', serif; letter-spacing:.14em; font-size:15px; color:var(--ink); text-decoration:none; }
+.brand{ display:inline-flex; align-items:center; gap:10px; font-family:'Cinzel', serif; letter-spacing:.14em; font-size:15px; color:var(--ink); text-decoration:none; }
+.brand-mark{ height:30px; width:auto; display:block; }
+.brand-mark.for-light{ display:none; }
+:root[data-theme="light"] .brand-mark.for-dark{ display:none; }
+:root[data-theme="light"] .brand-mark.for-light{ display:block; }
+footer .brand-mark{ height:44px; }
 .brand b{ color:var(--brass-bright); font-weight:600; }
 .navlinks{ display:flex; gap:34px; list-style:none; }
 .navlinks a{ font-family:'Jost',sans-serif; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); text-decoration:none; position:relative; padding-bottom:4px; transition:color .3s; }
 .navlinks a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--brass-bright); transition:width .35s ease; }
 .navlinks a:hover{ color:var(--brass-bright); }
 .navlinks a:hover::after{ width:100%; }
+/* The current page's own nav link stays marked regardless of mouse position —
+   a hover state alone would vanish the moment the pointer moves away. */
+.navlinks a.current{ color:var(--brass-bright); }
+.navlinks a.current::after{ width:100%; }
 
 /* ---------- hero ---------- */
 .hero{
-  min-height:100vh; display:flex; align-items:center;
+  /* 100vh on mobile includes the address bar's space, which appears and
+     disappears as the page scrolls, making the hero resize under you.
+     dvh tracks the actual visible viewport; kept as a fallback since
+     older browsers don't support dvh and would otherwise get no height
+     rule at all. */
+  min-height:100vh; min-height:100dvh; display:flex; align-items:center;
   padding-top:120px; padding-bottom:80px;
   background:
     radial-gradient(ellipse at 50% -10%, rgba(201,163,94,.10), transparent 55%),
@@ -216,11 +282,11 @@ nav{
 .story-face.front img{ width:100%; height:66%; object-fit:cover; display:block; filter:saturate(.92) contrast(1.02); transition:transform .8s ease; }
 .story-stage:hover .story-face.front img{ transform:scale(1.06); }
 .story-face.front .noimg{ width:100%; height:66%; background:
-    repeating-linear-gradient(135deg, #232c37, #232c37 10px, #1c232c 10px, #1c232c 20px);
+    repeating-linear-gradient(135deg, var(--stripe-a), var(--stripe-a) 10px, var(--stripe-b) 10px, var(--stripe-b) 20px);
   display:flex; align-items:center; justify-content:center; }
 .story-face.front .noimg span{ font-family:'Cinzel',serif; font-size:12px; letter-spacing:.2em; color:var(--ink-dim); text-transform:uppercase; }
 .story-face.front .meta{ padding:18px 20px; flex:1; display:flex; flex-direction:column; justify-content:center; }
-.story-face.front .meta h4{ font-family:'Cormorant Garamond'; font-weight:600; font-size:22px; color:var(--ink); }
+.story-face.front .meta h3{ font-family:'Cormorant Garamond'; font-weight:600; font-size:22px; color:var(--ink); }
 .story-face.front .meta small{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--brass); text-transform:uppercase; display:block; margin-top:6px;}
 .story-face.back{
   transform:rotateY(180deg);
@@ -252,18 +318,44 @@ input[type=text], input[type=email], input[type=url], input[type=number], textar
   transition:border-color .3s ease, box-shadow .3s ease;
 }
 input:focus, textarea:focus{ border-color:var(--brass); box-shadow:0 0 0 3px rgba(201,163,94,.12); }
+/* aria-invalid is the semantic signal a screen reader picks up; tying the
+   visual state to that same attribute keeps the two from ever drifting
+   out of sync with each other. */
+input[aria-invalid="true"], textarea[aria-invalid="true"]{ border-color:var(--err-line); }
+input[aria-invalid="true"]:focus, textarea[aria-invalid="true"]:focus{ box-shadow:0 0 0 3px rgba(122,69,69,.15); }
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus{
   -webkit-text-fill-color: var(--ink);
   -webkit-box-shadow: 0 0 0 1000px var(--void) inset;
   transition: background-color 9999s ease-in-out 0s;
 }
 textarea{ resize:vertical; min-height:110px; font-size:17px; }
+.field-error{
+  font-family:'Jost',sans-serif; font-size:12.5px; color:var(--err-text); line-height:1.5;
+}
 .form-foot{ grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; margin-top:6px; flex-wrap:wrap; gap:16px; }
 .form-note{ font-family:'Jost',sans-serif; font-size:13px; color:var(--ink-dim); max-width:380px; }
 .form-msg{ font-family:'Jost',sans-serif; font-size:14px; padding:14px 16px; border:1px solid var(--line); grid-column:1/-1; display:none; }
 .form-msg.show{ display:block; }
-.form-msg.ok{ color:#c9e6c2; border-color:#4c7a45; background:rgba(76,122,69,.12); }
-.form-msg.err{ color:#e6c2c2; border-color:#7a4545; background:rgba(122,69,69,.12); }
+.form-msg.ok{ color:var(--ok-text); border-color:var(--ok-line); background:rgba(76,122,69,.12); }
+.form-msg.err{ color:var(--err-text); border-color:var(--err-line); background:rgba(122,69,69,.12); }
+
+/* ---------- error summary: appears once, after a failed submit, and
+   takes keyboard focus so the person lands directly on the problem
+   list instead of having to go hunting for what they missed ---------- */
+.error-summary{
+  grid-column:1/-1; border:1px solid var(--err-line); background:rgba(122,69,69,.1);
+  padding:18px 20px; margin-bottom:4px;
+}
+.error-summary:focus{ outline:2px solid var(--err-line); outline-offset:3px; }
+.error-summary h3{
+  font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; color:var(--err-text); margin-bottom:8px;
+}
+.error-summary ul{ list-style:none; display:flex; flex-direction:column; gap:6px; }
+.error-summary a{
+  font-family:'Jost',sans-serif; font-size:13.5px; color:var(--err-text); text-decoration:underline;
+  text-underline-offset:2px;
+}
+.error-summary a:hover{ color:var(--ink); }
 
 /* ---------- photo upload boxes ---------- */
 .upload-box{
@@ -272,6 +364,7 @@ textarea{ resize:vertical; min-height:110px; font-size:17px; }
   cursor:pointer; overflow:hidden; transition:border-color .3s ease;
 }
 .upload-box:hover, .upload-box:focus-visible{ border-color:var(--brass); outline:none; }
+.upload-box.has-error{ border-style:solid; border-color:var(--err-line); }
 .upload-box input[type=file]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
 .upload-hint{ font-family:'Jost',sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-dim); text-align:center; padding:0 14px; pointer-events:none; }
 .upload-box.has-image .upload-hint{ display:none; }
@@ -308,10 +401,10 @@ textarea{ resize:vertical; min-height:110px; font-size:17px; }
 .pending-item p{ color:var(--ink-dim); font-size:17px; }
 .pending-actions{ display:flex; gap:10px; flex-direction:column; }
 .pending-actions button{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:9px 16px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; transition:background .25s, color .25s; }
-.pending-actions button.approve{ border-color:#4c7a45; color:#c9e6c2; }
-.pending-actions button.approve:hover{ background:#4c7a45; color:var(--void); }
-.pending-actions button.reject{ border-color:#7a4545; color:#e6c2c2; }
-.pending-actions button.reject:hover{ background:#7a4545; color:var(--void); }
+.pending-actions button.approve{ border-color:var(--ok-line); color:var(--ok-text); }
+.pending-actions button.approve:hover{ background:var(--ok-line); color:var(--void); }
+.pending-actions button.reject{ border-color:var(--err-line); color:var(--err-text); }
+.pending-actions button.reject:hover{ background:var(--err-line); color:var(--void); }
 
 /* ---------- admin panel ---------- */
 .admin-tabs{ display:flex; gap:10px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:4px; }
@@ -325,7 +418,7 @@ textarea{ resize:vertical; min-height:110px; font-size:17px; }
 .admin-item{ grid-template-columns:140px 1fr auto; }
 .admin-photos{ display:flex; flex-direction:column; gap:8px; width:140px; }
 .admin-photos img{ width:140px; height:90px; object-fit:cover; border:1px solid var(--line); }
-.noimg.small{ width:140px; height:90px; background:repeating-linear-gradient(135deg, #232c37, #232c37 8px, #1c232c 8px, #1c232c 16px); display:flex; align-items:center; justify-content:center; border:1px solid var(--line); }
+.noimg.small{ width:140px; height:90px; background:repeating-linear-gradient(135deg, var(--stripe-a), var(--stripe-a) 8px, var(--stripe-b) 8px, var(--stripe-b) 16px); display:flex; align-items:center; justify-content:center; border:1px solid var(--line); }
 .noimg.small span{ font-family:'Jost',sans-serif; font-size:9px; letter-spacing:.08em; color:var(--ink-dim); text-transform:uppercase; text-align:center; padding:0 8px; }
 @media (max-width: 700px){
   .admin-item{ grid-template-columns:1fr; }
@@ -335,7 +428,15 @@ textarea{ resize:vertical; min-height:110px; font-size:17px; }
 
 /* ---------- footer ---------- */
 footer{ padding:60px 32px 46px; text-align:center; border-top:1px solid var(--line); background:var(--void); }
-footer .brand{ display:block; margin-bottom:10px; }
+footer .brand{ display:inline-flex; margin-bottom:10px; }
+
+/* The homepage footer gets a genuinely large, stacked version of the mark —
+   every other page keeps the small inline one above. Stacked rather than
+   inline because a mark this size sitting beside 15px text would just look
+   like a mistake; on its own above the wordmark it reads as intentional. */
+.home-footer .brand{ flex-direction:column; gap:16px; margin-bottom:22px; }
+.home-footer .brand-mark{ height:150px; }
+.home-footer .brand-word{ font-size:19px; }
 footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); letter-spacing:.03em; max-width:520px; margin:6px auto 0; }
 
 @media (max-width: 920px){
@@ -399,7 +500,7 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
 .notable-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:20px; }
 .notable-card{ border:1px dashed var(--line); background:var(--panel-2); text-align:center; padding:0; overflow:hidden; }
 .notable-card .frame{
-  aspect-ratio:4/5; background:repeating-linear-gradient(135deg, #232c37, #232c37 10px, #1c232c 10px, #1c232c 20px);
+  aspect-ratio:4/5; background:repeating-linear-gradient(135deg, var(--stripe-a), var(--stripe-a) 10px, var(--stripe-b) 10px, var(--stripe-b) 20px);
   display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
 }
 .notable-card .frame svg{ width:30px; height:30px; stroke:var(--brass); fill:none; stroke-width:1.2; opacity:.7; }
@@ -442,8 +543,8 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
 .model-meta{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.08em; color:var(--brass); text-transform:uppercase; margin-top:5px; }
 .model-badges{ display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; }
 .badge{ font-family:'Jost',sans-serif; font-size:10px; letter-spacing:.05em; text-transform:uppercase; border:1px solid var(--line); color:var(--ink-dim); padding:4px 10px; white-space:nowrap; }
-.badge.limited{ border-color:var(--burgundy); color:#e6c2c2; }
-.badge.ongoing{ border-color:#4c7a45; color:#c9e6c2; }
+.badge.limited{ border-color:var(--burgundy); color:var(--err-text); }
+.badge.ongoing{ border-color:var(--ok-line); color:var(--ok-text); }
 .model-desc{ margin-top:13px; color:var(--ink-dim); font-size:16.5px; line-height:1.55; }
 @media (max-width: 920px){
   .model-grid{ grid-template-columns:repeat(2,1fr); }
@@ -459,14 +560,14 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
 
 /* --- universal photo slot --- */
 .pslot{ position:relative; overflow:hidden; background:
-  repeating-linear-gradient(135deg,#232c37,#232c37 10px,#1c232c 10px,#1c232c 20px);
+  repeating-linear-gradient(135deg,var(--stripe-a),var(--stripe-a) 10px,var(--stripe-b) 10px,var(--stripe-b) 20px);
   display:flex; align-items:center; justify-content:center; flex-direction:column; gap:7px; }
 .pslot svg{ width:26px; height:26px; stroke:var(--brass); fill:none; stroke-width:1.2; opacity:.65; }
 .pslot .pslot-id{ font-family:'Jost',sans-serif; font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); opacity:.75; }
 .pslot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 
 /* --- sticky sub-nav --- */
-.subnav{ position:sticky; top:62px; z-index:60; background:rgba(11,14,18,.94); backdrop-filter:blur(8px);
+.subnav{ position:sticky; top:62px; z-index:60; background:color-mix(in srgb, var(--void) 94%, transparent); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line); padding:12px 0; }
 .subnav-inner{ max-width:1160px; margin:0 auto; padding:0 32px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; }
 .subnav-inner::-webkit-scrollbar{ display:none; }
@@ -614,7 +715,7 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
 .piece-stage.flipped .piece-case{ transform:rotateY(180deg); }
 .piece-face{ position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
   overflow:hidden; border-bottom:1px solid var(--line);
-  background:repeating-linear-gradient(135deg,#232c37,#232c37 10px,#1c232c 10px,#1c232c 20px);
+  background:repeating-linear-gradient(135deg,var(--stripe-a),var(--stripe-a) 10px,var(--stripe-b) 10px,var(--stripe-b) 20px);
   display:flex; align-items:center; justify-content:center; flex-direction:column; gap:7px; }
 .piece-face.back{ transform:rotateY(180deg); }
 .piece-face img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
@@ -658,7 +759,7 @@ body.rs-locked{ overflow:hidden; }
 .rs-scrim{ position:absolute; inset:0; background:rgba(5,7,10,.82); backdrop-filter:blur(4px); }
 .rs-sheet{
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:min(560px, calc(100vw - 32px)); max-height:calc(100vh - 48px); overflow-y:auto;
+  width:min(560px, calc(100vw - 32px)); max-height:calc(100vh - 48px); max-height:calc(100dvh - 48px); overflow-y:auto;
   background:var(--panel); border:1px solid var(--line); padding:34px 34px 30px;
 }
 .rs-x{ position:absolute; top:12px; right:14px; background:none; border:none; color:var(--ink-dim);
@@ -684,7 +785,7 @@ body.rs-locked{ overflow:hidden; }
 .rs-preview img{ max-width:100%; max-height:min(46vh,430px); display:block; }
 .rs-building{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--ink-dim);
   text-align:center; line-height:1.6; }
-.rs-building.rs-err{ color:#e6c2c2; letter-spacing:.02em; font-size:12.5px; }
+.rs-building.rs-err{ color:var(--err-text); letter-spacing:.02em; font-size:12.5px; }
 
 .rs-primary{ display:flex; gap:9px; flex-wrap:wrap; }
 .rs-primary .btn{ flex:1; min-width:132px; text-align:center; justify-content:center; font-size:10.5px; padding:11px 12px; }
@@ -722,7 +823,7 @@ body.rs-locked{ overflow:hidden; }
 .rs-toast.on{ opacity:1; transform:translate(-50%,0); }
 
 @media (max-width:560px){
-  .rs-sheet{ width:100vw; max-width:none; height:100vh; max-height:none; top:0; left:0;
+  .rs-sheet{ width:100vw; max-width:none; height:100vh; height:100dvh; max-height:none; top:0; left:0;
     transform:none; padding:58px 20px 30px; border:none; }
   .rs-targets{ grid-template-columns:repeat(3,1fr); }
   .rs-primary .btn{ min-width:0; flex:1 1 100%; }
@@ -737,3 +838,117 @@ body.rs-locked{ overflow:hidden; }
 .arch-share{ margin-top:14px; padding-top:13px; border-top:1px solid var(--line-soft); }
 .story-stage{ position:relative; }
 .story-stage > .rs-corner{ top:12px; right:12px; }
+
+/* ============================================================
+   Mobile navigation — hamburger toggle + slide-in panel
+   Paired with reverso-nav.js. Below 920px this replaces the
+   plain "hide the links" rule with an actual way to reach them.
+   ============================================================ */
+
+.nav-toggle{
+  display:none; position:relative; z-index:1600;
+  width:44px; height:44px; padding:0; margin:0; border:none; background:transparent;
+  cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:1.5px; background:var(--brass-bright);
+  transition:transform .3s ease, opacity .25s ease;
+}
+.nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2){ opacity:0; }
+.nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+.nav-scrim{
+  position:fixed; inset:0; z-index:1400; background:rgba(5,7,10,.72); backdrop-filter:blur(2px);
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+.nav-scrim.on{ opacity:1; pointer-events:auto; }
+
+body.nav-locked{ overflow:hidden; }
+
+@media (max-width:920px){
+  .nav-toggle{ display:flex; }
+
+  .navlinks{
+    display:flex; flex-direction:column; gap:0; list-style:none;
+    position:fixed; top:0; right:0; z-index:1500;
+    width:min(78vw, 300px); height:100vh; height:100dvh;
+    background:var(--panel); border-left:1px solid var(--line);
+    padding:calc(88px + env(safe-area-inset-top, 0px)) 8px 24px;
+    padding-bottom:calc(24px + env(safe-area-inset-bottom, 0px));
+    overflow-y:auto;
+    transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1);
+  }
+  .navlinks.open{ transform:translateX(0); }
+
+  .navlinks li{ width:100%; }
+  .navlinks a{
+    display:block; padding:16px 20px; font-size:13px; letter-spacing:.14em;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navlinks a::after{ display:none; }
+  .navlinks a:active{ color:var(--brass-bright); background:var(--panel-2); }
+  /* Mobile panel hides the underline entirely, so the current page needs a
+     different marker here — a left accent bar plus the same color shift. */
+  .navlinks a.current{ border-left:2px solid var(--brass-bright); background:var(--panel-2); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nav-toggle span, .navlinks, .nav-scrim{ transition:none; }
+}
+
+/* ============================================================
+   Touch targets — the share panel's buttons
+   Built compact for a mouse-precise desktop pointer; on a touch
+   device (phone or tablet, not just "a narrow screen") every one
+   of these falls under the accepted 44px minimum. pointer:coarse
+   targets the actual input method rather than viewport width, so
+   a touchscreen laptop or a tablet held sideways still gets the
+   bigger hit area, and desktop keeps its refined compact sizing.
+   ============================================================ */
+@media (pointer: coarse){
+  .rs-btn, .rs-fmt, .rs-target, .rs-primary .btn{
+    min-height:44px; display:inline-flex; align-items:center; justify-content:center;
+  }
+  .rs-copylink{ min-height:44px; display:flex; align-items:center; justify-content:center; }
+  .rs-iglink{ padding:14px 0; min-height:44px; display:inline-flex; align-items:center; }
+  .rs-x{ min-width:44px; min-height:44px; display:inline-flex; align-items:center; justify-content:center; padding:0; }
+}
+
+/* ============================================================
+   Theme toggle — sun/moon switch, always visible in the nav
+   Paired with reverso-theme.js (the switching + persistence
+   logic) and the inline snippet each page's <head> carries to
+   apply the stored choice before first paint.
+   ============================================================ */
+.nav-right{ display:flex; align-items:center; gap:14px; }
+
+.theme-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; padding:0; margin:0; border:none; background:transparent;
+  color:var(--brass-bright); cursor:pointer;
+}
+.theme-toggle svg{
+  width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:1.5;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.theme-toggle .i-moon{ display:none; }
+:root[data-theme="light"] .theme-toggle .i-sun{ display:none; }
+:root[data-theme="light"] .theme-toggle .i-moon{ display:inline-block; }
+
+@media (pointer: coarse){
+  .theme-toggle{ min-width:44px; min-height:44px; }
+}
+
+/* ============================================================
+   Skip link — first focusable element on every page. Invisible
+   until a keyboard user tabs to it, then it's the first thing
+   they see: a way past the nav straight to the actual content.
+   ============================================================ */
+.skip-link{
+  position:absolute; top:-100px; left:16px; z-index:2000;
+  background:var(--panel); color:var(--brass-bright); border:1px solid var(--brass);
+  padding:12px 20px; font-family:'Jost',sans-serif; font-size:13px; letter-spacing:.08em;
+  text-decoration:none; transition:top .2s ease;
+}
+.skip-link:focus{ top:16px; }

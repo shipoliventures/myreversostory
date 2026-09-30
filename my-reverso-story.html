@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('reverso:theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Reverso Story</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="reverso-styles.css">
+<script src="reverso-nav.js"></script>
+<script src="reverso-theme.js"></script>
 <script>
 /* Enable scroll-reveal animation only if JS is alive, and force everything
    visible if the observer never runs (older browsers, script failure). */
@@ -20,6 +24,7 @@ window.addEventListener('load', function(){
 </script>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to main content</a>
 
 <svg class="grain" width="0" height="0">
   <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
@@ -28,15 +33,24 @@ window.addEventListener('load', function(){
 <div class="progress" id="progressBar"></div>
 
 <nav>
-  <a href="#top" class="brand">MY <b>REVERSO</b> STORY</a>
-  <ul class="navlinks">
+  <a href="#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
+  <div class="nav-right">
+    <button class="theme-toggle" aria-label="Switch to light theme" type="button">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navlinks">
     <li><a href="reverso-history.html">History</a></li>
     <li><a href="reverso-models.html">Models</a></li>
     <li><a href="reverso-calibres.html">Calibres</a></li>
     <li><a href="reverso-collection.html">Archive</a></li>
     <li><a href="reverso-limited.html">Limited</a></li>
     <li><a href="#submit">Share Yours</a></li>
-  </ul>
+    </ul>
+  </div>
 </nav>
 
 <header class="hero" id="top">
@@ -162,7 +176,7 @@ window.addEventListener('load', function(){
     <div class="genesis-side reveal">
       <p class="eyebrow">The Genesis</p>
       <h2>Ninety-five years<br>of turning over.</h2>
-      <p class="lead">A cracked watch glass on an Indian polo ground started it all. What began as a fix for a sporting problem became one of the most personal — and most technically ambitious — watches ever made.</p>
+      <p class="lead">A cracked watch glass on an Indian polo ground started it all. What began as a fix for a sporting problem became one of the most personal, and most technically ambitious, watches ever made.</p>
       <div class="stat-grid">
         <div class="stat"><b data-count="1931">0</b><span>Patent Filed</span></div>
         <div class="stat"><b data-count="180" data-suffix="°">0</b><span>The Turn</span></div>
@@ -176,35 +190,35 @@ window.addEventListener('load', function(){
         <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" stroke-width="0.7" opacity="0.5"/><path d="M7 8l10 8M17 8L7 16"/></svg></div>
         <span class="tl-year">1930 – 1931 · The Challenge</span>
         <h3>A Cracked Crystal in British India</h3>
-        <p>Travelling through India over the winter of 1930–31, Swiss businessman César de Trey fell in with a set of British army officers for whom polo was a way of life — and whose watch glasses rarely survived a match. One of them, freshly out a crystal, put the challenge to him directly: build something that could take the hit. De Trey brought the problem home to Jacques-David LeCoultre, who called on French designer René-Alfred Chauvot to solve it. Chauvot's answer was a case that slid free of its cradle on two spring-loaded studs and span a full 180 degrees, hiding the crystal behind a blank steel back. The patent — for "a watch capable of sliding in its support and being completely turned over" — was filed on the 4th of March, 1931. They named it Reverso, Latin for "I turn around."</p>
+        <p>Travelling through India over the winter of 1930–31, Swiss businessman César de Trey fell in with a set of British army officers for whom polo was a way of life, and whose watch glasses rarely survived a match. One of them, freshly out of a crystal, put the challenge to him directly: build something that could take the hit. De Trey brought the problem home to Jacques-David LeCoultre, who called on French designer René-Alfred Chauvot to solve it. Chauvot's answer was a case that slid free of its cradle on two spring-loaded studs and span a full 180 degrees, hiding the crystal behind a blank steel back. The patent (for "a watch capable of sliding in its support and being completely turned over") was filed on the 4th of March, 1931. They named it Reverso, Latin for "I turn around."</p>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 4v16M6 8c0 4 12 4 12 8"/></svg></div>
         <span class="tl-year">1936 · The Canvas Is Discovered</span>
         <h3>The First Enamelled Case-Back</h3>
-        <p>The reverse plate was only ever engineered to survive impact — an anonymous slab of steel. Owners saw something else in it. The earliest documented enamelled Reverso dates to 1936, a yellow-gold case decorated with a portrait scene, and it marks the moment the "protective" back quietly became the more personal of the watch's two faces. Monograms, crests, and miniature enamels followed within a few years, well before the idea had a name.</p>
+        <p>The reverse plate was only ever engineered to survive impact, an anonymous slab of steel. Owners saw something else in it. The earliest documented enamelled Reverso dates to 1936, a yellow-gold case decorated with a portrait scene, and it marks the moment the "protective" back quietly became the more personal of the watch's two faces. Monograms, crests, and miniature enamels followed within a few years, well before the idea had a name.</p>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg></div>
         <span class="tl-year">1937 · One House, One Name</span>
         <h3>Jaeger and LeCoultre Formally Merge</h3>
-        <p>Edmond Jaeger's Paris workshop and the LeCoultre manufacture in Le Sentier had already been supplying each other for decades — the Reverso's case had come from exactly this partnership. In 1937 the two firms formally merged into a single maison, Jaeger-LeCoultre, giving the watch that made the union necessary a permanent home.</p>
+        <p>Edmond Jaeger's Paris workshop and the LeCoultre manufacture in Le Sentier had already been supplying each other for decades. The Reverso's case had come from exactly this partnership. In 1937 the two firms formally merged into a single maison, Jaeger-LeCoultre, giving the watch that made the union necessary a permanent home.</p>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7a5 5 0 100 10 5 5 0 000-10z"/><path d="M12 9v3l2 2"/></svg></div>
         <span class="tl-year">1991 · The 60th Anniversary</span>
         <h3>The First Complications Arrive</h3>
-        <p>For its 60th birthday, the Reverso grew up: a larger "Grande Taille" case, a display case-back, and — for the first time in the line's history — genuine complications on the dial side, starting with a power-reserve indicator and a date window. The limited "60ème" model is now considered the watch that turned a single design classic into an entire collection.</p>
+        <p>For its 60th birthday, the Reverso grew up: a larger "Grande Taille" case, a display case-back, and, for the first time in the line's history, complications on the dial side, starting with a power-reserve indicator and a date window. The limited "60ème" model is now considered the watch that turned a single design classic into an entire collection.</p>
       </div>
 
       <div class="tl-item reveal">
         <div class="tl-marker"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></div>
         <span class="tl-year">Today</span>
         <h3>Still Turning</h3>
-        <p>Nearly a century on, the Reverso has stayed in continuous production, carried dozens of different calibres, and remained watchmaking's clearest example of one mechanical idea becoming an entire identity. In 2025, Jaeger-LeCoultre revisited its own origin story with the "1931 Polo Club" theme — and every case still leaves the workshop with a blank back, which means, by design, no two ever have to end up the same.</p>
+        <p>Nearly a century on, the Reverso has stayed in continuous production, carried dozens of different calibres, and remained watchmaking's clearest example of one mechanical idea becoming an entire identity. In 2025, Jaeger-LeCoultre revisited its own origin story with the "1931 Polo Club" theme. And every case still leaves the workshop with a blank back, which means, by design, no two ever have to end up the same.</p>
       </div>
 
     </div>
@@ -213,7 +227,7 @@ window.addEventListener('load', function(){
     <div class="tl-more reveal">
       <div class="deco-divider" style="margin:0 auto 26px;"><span></span><i></i><span></span></div>
       <p class="tl-more-lede">War, silence, a forgotten box of cases, a watch with four faces, and countless stories — there's a lot more between 1931 and today.</p>
-      <a href="reverso-history.html" class="btn solid">Read the Full Story — 95 Years of the Reverso</a>
+      <a href="reverso-history.html" class="btn solid">Read the Full Story</a>
     </div>
   </div>
 </section>
@@ -243,7 +257,7 @@ window.addEventListener('load', function(){
       <h2>Tell us what's on the back of yours</h2>
       <p>Every submission is read by hand before it joins the collection, so nothing appears without a real person approving it first.</p>
     </div>
-    <form id="storyForm" class="reveal" method="POST" enctype="multipart/form-data">
+    <form id="storyForm" class="reveal" method="POST" enctype="multipart/form-data" novalidate>
       <!-- FormSubmit control fields. _next is filled in by script so it always
            returns to this page, wherever the site is hosted. -->
       <input type="hidden" name="_subject" value="New Reverso story submission">
@@ -252,17 +266,23 @@ window.addEventListener('load', function(){
       <input type="hidden" name="_next" id="f-next" value="">
       <input type="hidden" name="_url" id="f-url" value="">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="field">
-        <label for="f-name">Your name or handle</label>
-        <input type="text" id="f-name" name="Name" required maxlength="60" placeholder="e.g. Marcus R.">
+      <div class="error-summary" id="errorSummary" role="alert" tabindex="-1" hidden>
+        <h3 id="errorSummaryTitle">There's a problem with your submission</h3>
+        <ul id="errorSummaryList"></ul>
       </div>
       <div class="field">
-        <label for="f-email">Your email <small>(private — never published, just for us to reach you)</small></label>
-        <input type="email" id="f-email" name="Email" required maxlength="120" placeholder="you@example.com">
+        <label for="f-name">Your name or handle <small>(required)</small></label>
+        <input type="text" id="f-name" name="Name" required maxlength="60" placeholder="e.g. Marcus R." autocomplete="name" aria-describedby="err-name">
+        <p class="field-error" id="err-name" hidden></p>
+      </div>
+      <div class="field">
+        <label for="f-email">Your email <small>(required, and kept private: never published, just for us to reach you)</small></label>
+        <input type="email" id="f-email" name="Email" required maxlength="120" placeholder="you@example.com" autocomplete="email" aria-describedby="err-email">
+        <p class="field-error" id="err-email" hidden></p>
       </div>
       <div class="field">
         <label for="f-loc">City &amp; country <small>(optional)</small></label>
-        <input type="text" id="f-loc" name="City and country" maxlength="60" placeholder="e.g. Lisbon, Portugal">
+        <input type="text" id="f-loc" name="City and country" maxlength="60" placeholder="e.g. Lisbon, Portugal" autocomplete="address-level2">
       </div>
       <div class="field">
         <label for="f-ref">Model / reference <small>(optional)</small></label>
@@ -273,30 +293,33 @@ window.addEventListener('load', function(){
         <input type="text" id="f-year" name="Year" maxlength="20" placeholder="e.g. 1962 or 2019">
       </div>
       <div class="field">
-        <label for="f-front">Photo — front of the watch <small>(required)</small></label>
+        <label for="f-front">Photo of the front <small>(required)</small></label>
         <div class="upload-box" id="frontBox" tabindex="0">
-          <input type="file" id="f-front" name="Photo - Front" accept="image/*" required>
+          <input type="file" id="f-front" name="Photo - Front" accept="image/*" required aria-describedby="err-front">
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="frontPreview" alt="Front preview" hidden>
         </div>
+        <p class="field-error" id="err-front" hidden></p>
       </div>
       <div class="field">
-        <label for="f-back">Photo — back of the watch <small>(required)</small></label>
+        <label for="f-back">Photo of the back <small>(required)</small></label>
         <div class="upload-box" id="backBox" tabindex="0">
-          <input type="file" id="f-back" name="Photo - Back" accept="image/*" required>
+          <input type="file" id="f-back" name="Photo - Back" accept="image/*" required aria-describedby="err-back">
           <span class="upload-hint">Click or drop a photo</span>
           <img class="upload-preview" id="backPreview" alt="Back preview" hidden>
         </div>
+        <p class="field-error" id="err-back" hidden></p>
       </div>
       <div class="field full">
-        <label for="f-engrave">What's on the back? <small>(a short line — the engraving, enamel, or motif)</small></label>
+        <label for="f-engrave">What's on the back? <small>(one short line: the engraving, enamel, or motif)</small></label>
         <input type="text" id="f-engrave" name="What is on the back" maxlength="120" placeholder="e.g. My grandfather's initials, hand-engraved in 1958">
       </div>
       <div class="field full">
-        <label for="f-story">The story</label>
-        <textarea id="f-story" name="The story" required maxlength="1200" placeholder="How did this watch come to you? Why does the back look the way it does?"></textarea>
+        <label for="f-story">The story <small>(required)</small></label>
+        <textarea id="f-story" name="The story" required maxlength="1200" placeholder="How did this watch come to you? Why does the back look the way it does?" aria-describedby="err-story"></textarea>
+        <p class="field-error" id="err-story" hidden></p>
       </div>
-      <div class="form-msg" id="formMsg"></div>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
       <div class="form-foot">
         <p class="form-note">By submitting, you agree your story and photos may be published on this page once reviewed. Nothing is auto-published, and your email is only used to reach you about this submission.</p>
         <button type="submit" class="btn solid" id="submitBtn">Submit for Review</button>
@@ -305,8 +328,8 @@ window.addEventListener('load', function(){
   </div>
 </section>
 
-<footer>
-  <a href="#top" class="brand">MY <b>REVERSO</b> STORY</a>
+<footer class="home-footer">
+  <a href="#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true"><span class="brand-word">MY <b>REVERSO</b> STORY</span></a>
   <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
 </footer>
 
@@ -370,7 +393,11 @@ window.addEventListener('load', function(){
   async function renderFeatured(){
     const grid = document.getElementById('galleryGrid');
     const RSTORIES = window.RSTORIES || null;
-    const curated = RSTORIES ? RSTORIES.STORIES.map(function(s){
+    // Only personalized entries (engraving, enamel, lacquer) rotate through
+    // this homepage teaser — an unspoken house rule, same as the archive's
+    // display order below. A story without any physical mark on the watch
+    // can still appear in the archive gallery, just not in this rotation.
+    const curated = RSTORIES ? RSTORIES.STORIES.filter(function(s){ return s.personalized; }).map(function(s){
       const collector = RSTORIES.collectorById(s.collectorId);
       return {
         curated:true, href:'reverso-story.html?id=' + s.id,
@@ -413,15 +440,15 @@ window.addEventListener('load', function(){
             ${s.front ? `<img src="${RD ? RD.escapeHtml(s.front) : s.front}" alt="Front of the Reverso belonging to ${RD ? RD.escapeHtml(s.name) : s.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'noimg',innerHTML:'<span>No Photo Provided</span>'}))">`
                       : `<div class="noimg"><span>No Photo Provided</span></div>`}
             <div class="meta">
-              <h4>${RD ? RD.escapeHtml(s.name) : s.name}</h4>
+              <h3>${RD ? RD.escapeHtml(s.name) : s.name}</h3>
               <small>${RD ? RD.escapeHtml(s.titleLine || [s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso') : (s.titleLine || [s.ref, s.year].filter(Boolean).join(' · ') || 'Reverso')}${s.location ? ' · ' + (RD ? RD.escapeHtml(s.location) : s.location) : ''}</small>
             </div>
           </div>
           <div class="story-face back">
-            ${s.back && !s.curated ? `<img src="${RD ? RD.escapeHtml(s.back) : s.back}" alt="Case back" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;" onerror="this.remove()">` : ''}
+            ${s.back && !s.curated ? `<img src="${RD ? RD.escapeHtml(s.back) : s.back}" alt="Case back" loading="lazy" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;" onerror="this.remove()">` : ''}
             <div class="engraving">${RD ? RD.escapeHtml(s.engrave || 'On the back') : (s.engrave || 'On the back')}</div>
             ${s.curated
-              ? `<p>${RD ? RD.escapeHtml(s.hook) : s.hook}</p><a class="story-more" href="${s.href}">Read the Full Story →</a>`
+              ? `<p>${RD ? RD.escapeHtml(s.hook) : s.hook}</p><a class="story-more" href="${s.href}">Read the Full Story</a>`
               : `<p>${RD ? RD.escapeHtml(s.story) : s.story}</p>`}
             <div class="sig">— ${RD ? RD.escapeHtml(s.name) : s.name}${s.location ? ', ' + (RD ? RD.escapeHtml(s.location) : s.location) : ''}</div>
           </div>
@@ -467,10 +494,13 @@ window.addEventListener('load', function(){
   // real email attachments.
   //
   // TO CHANGE THE DESTINATION ADDRESS: edit FORM_ENDPOINT below.
-  //   - While testing, the plain address works:  'info@shipoliventures.com'
-  //   - After FormSubmit emails you the activation link, replace it with the
-  //     random alias they give you (e.g. 'xxxxxxxxxxxxxxxx'). The alias keeps
-  //     the address out of the page source, where spam bots harvest it.
+  //   - Currently set to the FormSubmit alias for erdoangroups@gmail.com, so
+  //     the real address never appears in this file or in the URL bar after
+  //     someone submits.
+  //   - To point this at a new address instead: put the plain email in
+  //     quotes here, push, submit once to trigger activation, click the
+  //     link FormSubmit emails you, then swap in the new random alias it
+  //     sends afterward and push again.
   const FORM_ENDPOINT = '01aa952532505ea35072bf6d6aa73f4d';
 
   // FormSubmit caps one submission at 10 MB across all attachments, and phone
@@ -484,6 +514,99 @@ window.addEventListener('load', function(){
   const form = document.getElementById('storyForm');
   const msg  = document.getElementById('formMsg');
 
+  // ---------- per-field validation: inline errors + a focusable summary ----------
+  // Each required field owns one specific, plain-language message. The summary
+  // links to all of them at once; the inline text stays under the field itself
+  // so a screen reader reads the field, then immediately its own problem —
+  // the summary supplements that, it doesn't replace it.
+  const REQUIRED_FIELDS = [
+    { id: 'f-name',  errId: 'err-name',
+      check: () => document.getElementById('f-name').value.trim() !== '',
+      message: 'Enter your name or handle.' },
+    { id: 'f-email', errId: 'err-email',
+      check: () => document.getElementById('f-email').value.trim() !== '',
+      message: 'Enter your email address.' },
+    { id: 'f-front', errId: 'err-front', boxId: 'frontBox',
+      check: () => document.getElementById('f-front').files.length > 0,
+      message: 'Add a photo of the front.' },
+    { id: 'f-back',  errId: 'err-back', boxId: 'backBox',
+      check: () => document.getElementById('f-back').files.length > 0,
+      message: 'Add a photo of the back.' },
+    { id: 'f-story', errId: 'err-story',
+      check: () => document.getElementById('f-story').value.trim() !== '',
+      message: 'Tell us the story.' },
+  ];
+
+  const summaryEl = document.getElementById('errorSummary');
+  const summaryList = document.getElementById('errorSummaryList');
+
+  function setFieldError(field, show){
+    const input = document.getElementById(field.id);
+    const errEl = document.getElementById(field.errId);
+    const box = field.boxId ? document.getElementById(field.boxId) : null;
+    if(show){
+      errEl.textContent = field.message;
+      errEl.hidden = false;
+      input.setAttribute('aria-invalid', 'true');
+      if(box) box.classList.add('has-error');
+    } else {
+      errEl.textContent = '';
+      errEl.hidden = true;
+      input.removeAttribute('aria-invalid');
+      if(box) box.classList.remove('has-error');
+    }
+  }
+
+  function validateAll(){
+    const invalid = REQUIRED_FIELDS.filter(f => !f.check());
+    REQUIRED_FIELDS.forEach(f => setFieldError(f, invalid.includes(f)));
+    return invalid;
+  }
+
+  function showSummary(invalidFields){
+    summaryList.innerHTML = invalidFields.map(f =>
+      '<li><a href="#' + f.id + '" data-target="' + f.id + '">' + f.message + '</a></li>'
+    ).join('');
+    summaryEl.hidden = false;
+    summaryEl.focus();
+  }
+
+  function hideSummary(){
+    summaryEl.hidden = true;
+    summaryList.innerHTML = '';
+  }
+
+  // Clicking a summary link jumps to and focuses the actual field, not just
+  // the browser's default same-page anchor scroll — the photo fields need
+  // their upload box focused, not the (invisible) file input itself.
+  summaryList.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-target]');
+    if(!a) return;
+    e.preventDefault();
+    const targetId = a.getAttribute('data-target');
+    const field = REQUIRED_FIELDS.find(f => f.id === targetId);
+    const focusTarget = field.boxId ? document.getElementById(field.boxId) : document.getElementById(targetId);
+    focusTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    focusTarget.focus();
+  });
+
+  // Once a field is fixed, its own error clears immediately rather than
+  // waiting for another full submit attempt. Text fields check on blur
+  // (after the person finishes typing, not on every keystroke); photo
+  // fields check the moment a file is chosen.
+  ['f-name', 'f-email', 'f-story'].forEach((id) => {
+    document.getElementById(id).addEventListener('blur', () => {
+      const field = REQUIRED_FIELDS.find(f => f.id === id);
+      if(field.check()) setFieldError(field, false);
+    });
+  });
+  ['f-front', 'f-back'].forEach((id) => {
+    document.getElementById(id).addEventListener('change', () => {
+      const field = REQUIRED_FIELDS.find(f => f.id === id);
+      if(field.check()) setFieldError(field, false);
+    });
+  });
+
   form.action = 'https://formsubmit.co/' + FORM_ENDPOINT;
 
   // Come back to this page after FormSubmit accepts the submission.
@@ -496,7 +619,7 @@ window.addEventListener('load', function(){
 
   // Returning from a successful submission.
   if(new URLSearchParams(location.search).get('sent') === '1'){
-    msg.textContent = 'Thank you \u2014 your story and photos are on their way to the archive\u2019s curators. We read every submission by hand and will be in touch.';
+    msg.textContent = 'Thank you. Your story and photos are on their way to the archive\u2019s curators. We read every submission by hand and will be in touch.';
     msg.className = 'form-msg show ok';
     history.replaceState(null, '', location.pathname + '#submit');
   }
@@ -547,19 +670,20 @@ window.addEventListener('load', function(){
     e.preventDefault();
 
     const btn = document.getElementById('submitBtn');
-    const name  = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const story = document.getElementById('f-story').value.trim();
     const frontInput = document.getElementById('f-front');
     const backInput  = document.getElementById('f-back');
-    const frontFile = frontInput.files[0];
-    const backFile  = backInput.files[0];
 
-    if(!name || !email || !story || !frontFile || !backFile){
-      msg.textContent = 'Please fill in your name, email, story, and both photos before submitting.';
-      msg.className = 'form-msg show err';
+    const invalid = validateAll();
+    if(invalid.length){
+      msg.textContent = '';
+      msg.className = 'form-msg';
+      showSummary(invalid);
       return;
     }
+    hideSummary();
+
+    const frontFile = frontInput.files[0];
+    const backFile  = backInput.files[0];
 
     btn.disabled = true; btn.textContent = 'Preparing photos\u2026';
     try{

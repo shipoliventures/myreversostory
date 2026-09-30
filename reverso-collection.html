@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('reverso:theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Archive · My Reverso Story</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="reverso-styles.css">
+<script src="reverso-nav.js"></script>
+<script src="reverso-theme.js"></script>
 <script>
 /* Enable scroll-reveal animation only if JS is alive, and force everything
    visible if the observer never runs (older browsers, script failure). */
@@ -20,6 +24,7 @@ window.addEventListener('load', function(){
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <svg class="grain" width="0" height="0">
   <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
@@ -28,17 +33,26 @@ window.addEventListener('load', function(){
 <div class="progress" id="progressBar"></div>
 
 <nav>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
-  <ul class="navlinks">
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
+  <div class="nav-right">
+    <button class="theme-toggle" aria-label="Switch to light theme" type="button">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navlinks">
     <li><a href="reverso-history.html">History</a></li>
     <li><a href="reverso-models.html">Models</a></li>
     <li><a href="reverso-calibres.html">Calibres</a></li>
-    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-collection.html" aria-current="page" class="current">Archive</a></li>
     <li><a href="reverso-limited.html">Limited</a></li>
-  </ul>
+    </ul>
+  </div>
 </nav>
 
-<header class="history-hero">
+<header class="history-hero" id="main-content">
   <div class="wrap">
     <p class="eyebrow">The Archive</p>
     <h1>Every back<br>tells a story.</h1>
@@ -106,7 +120,7 @@ window.addEventListener('load', function(){
         in limited numbers with special dials, for particular markets and retailers, without a
         personalised back &mdash; those are catalogued separately.
       </p>
-      <a href="reverso-limited.html" class="btn solid">See the full list of limited editions →</a>
+      <a href="reverso-limited.html" class="btn solid">See the full list of limited editions</a>
     </div>
 
   </div>
@@ -122,7 +136,7 @@ window.addEventListener('load', function(){
 </div>
 
 <footer>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
   <p>An independent, fan-made archive built by and for Reverso collectors. Not affiliated with, endorsed by, or operated by Jaeger-LeCoultre. Historical notes are drawn from public reporting on the watch's history and innovations since 1931. References, piece counts, and other information vary by market and source &mdash; verify before relying on them.</p>
 </footer>
 
@@ -199,7 +213,7 @@ window.addEventListener('load', function(){
         '<div class="arch-year">' + esc(s.year) + ' &nbsp;·&nbsp; ' + s.pieces.length + ' pieces</div>' +
         '<div class="arch-name">' + esc(s.name) + '</div>' +
         '<p class="arch-text">' + rich(s.blurb) + '</p>' +
-        '<span class="series-go">View the full set →</span>' +
+        '<span class="series-go">View the full set</span>' +
       '</div>' +
     '</a>';
   }
@@ -262,15 +276,15 @@ window.addEventListener('load', function(){
         '<div class="story-face front">' +
           (front ? '<img src="' + esc(front) + '" alt="Reverso belonging to ' + esc(s.name) + '" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement(\'div\'),{className:\'noimg\',innerHTML:\'<span>No Photo Provided</span>\'}))">'
                  : '<div class="noimg"><span>No Photo Provided</span></div>') +
-          '<div class="meta"><h4>' + esc(s.name) + '</h4>' +
+          '<div class="meta"><h3>' + esc(s.name) + '</h3>' +
             '<small>' + esc(s.titleLine || [s.ref, s.year].filter(Boolean).join(' \u00b7 ') || 'Reverso') +
             (s.location ? ' \u00b7 ' + esc(s.location) : '') + '</small></div>' +
         '</div>' +
         '<div class="story-face back">' +
-          (s.back && !s.curated ? '<img src="' + esc(s.back) + '" alt="Case back" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;" onerror="this.remove()">' : '') +
+          (s.back && !s.curated ? '<img src="' + esc(s.back) + '" alt="Case back" loading="lazy" style="width:100%;height:45%;object-fit:cover;margin-bottom:10px;" onerror="this.remove()">' : '') +
           '<div class="engraving">' + esc(s.engrave || 'On the back') + '</div>' +
           (s.curated
-            ? '<p>' + esc(s.hook) + '</p><a class="story-more" href="' + esc(s.href) + '">Read the Full Story \u2192</a>'
+            ? '<p>' + esc(s.hook) + '</p><a class="story-more" href="' + esc(s.href) + '">Read the Full Story</a>'
             : '<p>' + esc(s.story) + '</p>') +
           '<div class="sig">\u2014 ' + esc(s.name) + (s.location ? ', ' + esc(s.location) : '') + '</div>' +
         '</div>' +
@@ -278,10 +292,12 @@ window.addEventListener('load', function(){
     '</div>';
   }
 
-  /* curated stories (from reverso-stories.js) shaped to match the submission format above */
+  /* curated stories (from reverso-stories.js) shaped to match the submission format above.
+     Uses orderedForDisplay() rather than the raw STORIES array — personalized
+     entries first, everyone interleaved so no collector repeats back to back. */
   function curatedAsSubmissions(){
     if(!window.RSTORIES) return [];
-    return window.RSTORIES.STORIES.map(function(s){
+    return window.RSTORIES.orderedForDisplay().map(function(s){
       const collector = window.RSTORIES.collectorById(s.collectorId);
       return {
         curated:true, href:'reverso-story.html?id=' + s.id,
@@ -346,11 +362,11 @@ window.addEventListener('load', function(){
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'more-btn';
-      btn.textContent = 'More →';
+      btn.textContent = 'More';
       btn.setAttribute('aria-expanded', 'false');
       btn.addEventListener('click', function(){
         const open = el.classList.toggle('open');
-        btn.textContent = open ? '← Less' : 'More →';
+        btn.textContent = open ? 'Less' : 'More';
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
       el.insertAdjacentElement('afterend', btn);

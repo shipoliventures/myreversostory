@@ -27,11 +27,11 @@ window.RR = (function () {
     { id: 'e3', num: 'III',  name: 'The Complication Decade', years: '1991 – 2000',
       lede: 'Six anniversary limited editions, 500 pieces each, one new complication roughly every two years. The decade that turned a design classic into a horological platform.' },
     { id: 'e4', num: 'IV',   name: 'Bigger, Sportier, Grander', years: '1998 – 2012',
-      lede: 'Gran\u2019Sport, Grande Taille, XGT, Grande, Squadra. The Reverso spent the 2000s growing — and building the most complicated watches it has ever carried.' },
+      lede: 'Gran\u2019Sport, Grande Taille, XGT, Grande, Squadra. The Reverso spent the 2000s growing, and building the most complicated watches it has ever carried.' },
     { id: 'e5', num: 'V',    name: 'The Modern Rationalisation', years: '2016 – 2023',
       lede: 'SIHH 2016 swept away a fragmented line-up and replaced it with three clear families: Classic, Tribute, and One. Almost everything sold today descends from this reset.' },
     { id: 'e6', num: 'VI',   name: 'Polo Club & the Valley of Inventions', years: '2024 – 2026',
-      lede: 'The most recent chapters — and the one still being written.' }
+      lede: 'The most recent chapters, and the one still being written.' }
   ];
 
   const MODELS = [
@@ -39,86 +39,86 @@ window.RR = (function () {
     { era:'e1', slot:'m-1931-original', year:'1931', name:'Reverso (first series)',
       cal:'Tavannes cal. 064', size:'38 × 23 mm', status:'historic',
       tags:['Time only','No seconds','Staybrite steel'],
-      text:'Born of a contract signed in Lausanne by Chauvot, the Geneva casemakers A. \u0026 E. Wenger, and C\u00e9sar de Trey with his son Pierre \u2014 Chauvot taking SFr 2.50 for every watch sold. They projected 5,000 pieces a year in steel and gold, in two sizes, and wanted stock in shops for Christmas 1931. Article 14 of that contract quietly permitted movements from Tavannes, Movado <em>or</em> Jaeger/LeCoultre \u2014 an escape clause in case Le Sentier could not deliver in time, which is exactly what happened. It was also marketed hard on toughness: a 1940 advertisement called it <em>la montre id\u00e9ale aux arm\u00e9es</em>, built in Staybrite steel, \u201cabsolutely stainless, and of a hardness proof against any test\u201d. No seconds hand, and the dial signed simply \u201cReverso\u201d \u2014 no Jaeger, no LeCoultre, because there was no LeCoultre movement inside to claim.',
+      text:'Born of a contract signed in Lausanne by Chauvot, the Geneva casemakers A. \u0026 E. Wenger, and C\u00e9sar de Trey with his son Pierre. Chauvot took SFr 2.50 for every watch sold. They projected 5,000 pieces a year in steel and gold, in two sizes, and wanted stock in shops for Christmas 1931. Article 14 of that contract quietly permitted movements from Tavannes, Movado <em>or</em> Jaeger/LeCoultre: an escape clause in case Le Sentier could not deliver in time, which is exactly what happened. It was also marketed hard on toughness: a 1940 advertisement called it <em>la montre id\u00e9ale aux arm\u00e9es</em>, built in Staybrite steel, \u201cabsolutely stainless, and of a hardness proof against any test\u201d. No seconds hand, and the dial signed simply \u201cReverso\u201d: no Jaeger, no LeCoultre, because there was no LeCoultre movement inside to claim.',
       src:'Basha, <em>JLC: A Guide for the Collector</em>' },
 
     { era:'e1', slot:'m-1931-ladies', year:'1931', name:'Reverso, ladies\u2019 first series',
       cal:'Smaller Tavannes calibre', size:'approx. 28 × 16 mm', status:'historic',
       tags:['Women\u2019s model','First series only'],
-      text:'A women\u2019s Reverso existed from the very beginning \u2014 which is telling, because there was no meaningful market of female polo players. It appears only in the first series (1931\u201333) and then vanishes, making it one of the scarcer vintage configurations. The line went further than the wrist: Artcurial\u2019s 2011 sale included a c.1933 Staybrite <em>pendant</em> Reverso \u2014 a keyless bag watch, case no. 14494, movement no. 38029, 34 \u00d7 23 mm \u2014 confirming the ref. 205 pendant listed in the period tables.' },
+      text:'A women\u2019s Reverso existed from the very beginning, which is telling: there was no meaningful market of female polo players. It appears only in the first series (1931\u201333) and then vanishes, making it one of the scarcer vintage configurations. The line went further than the wrist: Artcurial\u2019s 2011 sale included a c.1933 Staybrite <em>pendant</em> Reverso (a keyless bag watch, case no. 14494, movement no. 38029, 34 \u00d7 23 mm), confirming the ref. 205 pendant listed in the period tables.' },
 
     { era:'e1', slot:'m-deluxe', year:'1932', name:'Reverso “De Luxe”',
       cal:'Tavannes cal. 064, adjusted', size:'38 × 23 mm', status:'historic',
       tags:['Sapphire crystal','Adjusted movement'],
-      text:'The upgrade tier — and quietly a landmark. The De Luxe was fitted with a synthetic sapphire crystal, among the earliest known uses of sapphire in a commercial wristwatch, and a movement adjusted to two or more positions. Given that the whole watch existed because mineral glass shattered, solving the problem with sapphire rather than steel is a neat piece of irony.',
+      text:'The upgrade tier, and quietly a landmark. The De Luxe was fitted with a synthetic sapphire crystal, among the earliest known uses of sapphire in a commercial wristwatch, and a movement adjusted to two or more positions. Given that the whole watch existed because mineral glass shattered, solving the problem with sapphire rather than steel is a neat piece of irony.',
       src:'Basha, <em>JLC: A Guide for the Collector</em>' },
 
     { era:'e1', slot:'m-1933-410', year:'1933', name:'Reverso, LeCoultre-powered',
       cal:'LeCoultre cal. 11U / 410 (small seconds), 411 (centre seconds)', size:'38 × 23 mm', status:'historic',
       tags:['In-house movement','Two variants'],
-      text:'Two years in, LeCoultre finally had its own rectangular movement — and immediately made two: the 410 with small seconds at six, and the 411 with a sweeping centre seconds. This is also the moment the dials start carrying names: Reverso-LeCoultre, Jaeger, and after 1937 Jaeger-LeCoultre. Retailer signatures appear too — Gübelin, Türler, Cartier — sometimes instead of the manufacture\u2019s own.' },
+      text:'Two years in, LeCoultre finally had its own rectangular movement, and immediately made two: the 410 with small seconds at six, and the 411 with a sweeping centre seconds. This is also the moment the dials start carrying names: Reverso-LeCoultre, Jaeger, and after 1937 Jaeger-LeCoultre. Retailer signatures appear too: Gübelin, Türler, Cartier, sometimes instead of the manufacture\u2019s own.' },
 
     { era:'e1', slot:'m-colour-dials', year:'1931\u20131935', name:'The lacquered colour dials',
       cal:'Tavannes 064 / Lisica', size:'various', status:'historic',
       tags:['Burgundy','Blue','Red','Black lacquer','Stern dials'],
-      text:'The detail that most surprises people about vintage Reversos: they were not all silver. Artcurial\u2019s 2011 Jaeger-LeCoultre sale catalogued a run of lacquered colour dials from the very first years \u2014 a burgundy ladies\u2019 model in gold and steel from 1931, a black-lacquer piece for E. G\u00fcbelin, an extremely rare <em>blue</em> dial with painted Arabic numerals, and a red lacquered dial signed G\u00fcbelin on a Lisica calibre 864. Several of the black-lacquer dials were made by <em>Stern</em> \u2014 the Geneva dial house that would later own Patek Philippe. The modern Tribute Rouge and Bleu are not inventions; they are revivals.',
+      text:'The detail that most surprises people about vintage Reversos: they were not all silver. Artcurial\u2019s 2011 Jaeger-LeCoultre sale catalogued a run of lacquered colour dials from the very first years: a burgundy ladies\u2019 model in gold and steel from 1931, a black-lacquer piece for E. G\u00fcbelin, an extremely rare <em>blue</em> dial with painted Arabic numerals, and a red lacquered dial signed G\u00fcbelin on a Lisica calibre 864. Several of the black-lacquer dials were made by <em>Stern</em>, the Geneva dial house that would later own Patek Philippe. The modern Tribute Rouge and Bleu are not inventions; they are revivals.',
       src:'Artcurial, <em>Jaeger-LeCoultre Unique Auction</em>, Paris, 29 November 2011' },
 
     { era:'e1', slot:'m-retailer-signed', year:'1931\u20131948', name:'Retailer-signed and rebadged Reversos',
       cal:'Lisica 064, Lisica EF51, EWC', size:'various', status:'historic',
       tags:['G\u00fcbelin','Golay Fils & Stahl','European Watch & Clock Co.'],
-      text:'A whole shadow catalogue of Reversos wearing other names. The Artcurial sale included pieces signed for <em>E. G\u00fcbelin</em>, for <em>Golay Fils & Stahl</em> on a Lisica calibre EF51, and \u2014 most intriguingly \u2014 a c.1948 example signed <em>European Watch & Clock Co. Inc.</em> of New York, running an EWC-numbered movement on an extensible steel and black-lacquer bracelet. EWC was Cartier\u2019s American arm, which puts a Cartier-affiliated Reverso in New York at the very end of the model\u2019s first life. Note also that \u201cLisica\u201d appears repeatedly as a calibre signature \u2014 the name under which the bought-in movements were marked.',
+      text:'A whole shadow catalogue of Reversos wearing other names. The Artcurial sale included pieces signed for <em>E. G\u00fcbelin</em>, for <em>Golay Fils & Stahl</em> on a Lisica calibre EF51, and, most intriguingly, a c.1948 example signed <em>European Watch & Clock Co. Inc.</em> of New York, running an EWC-numbered movement on an extensible steel and black-lacquer bracelet. EWC was Cartier\u2019s American arm, which puts a Cartier-affiliated Reverso in New York at the very end of the model\u2019s first life. Note also that \u201cLisica\u201d appears repeatedly as a calibre signature: the name under which the bought-in movements were marked.',
       src:'Artcurial, Paris, 29 November 2011' },
 
     { era:'e1', slot:'m-standard-lux', year:'1930s', name:'Reverso Standard & Reverso Lux',
       cal:'Various', size:'38 × 23 mm', status:'historic',
       tags:['Two tiers','Full reference table'],
-      text:'The period sales literature defines the two grades precisely: the <em>luxury</em> version had a specially-made movement, sapphire glass, a finer dial and a top-quality leather strap; the <em>standard</em> had a robust but plainer movement and ordinary glass. Dials came silver-plated with Gothic numerals, with hour symbols, with hour symbols and a Gothic 12, and in luminous variants of each. A period catalogue page sets out the core references plainly: <em>ref. 2201</em> with the 11-line USC movement (centre seconds), <em>ref. 201</em> with the 11-line UL, and <em>ref. 651</em> with the 9-line UO \u2014 each available all-steel, all-gold, or with a steel cradle and gold case. The fuller grid runs men\u2019s De Luxe centre seconds 1101\u20131108, men\u2019s De Luxe subsidiary 101\u2013108, ladies\u2019 cord-strap De Luxe 901\u2013908, with Standard equivalents 2201\u20132208, 201\u2013208 and R701\u2013R708.',
+      text:'The period sales literature defines the two grades precisely: the <em>luxury</em> version had a specially-made movement, sapphire glass, a finer dial and a top-quality leather strap; the <em>standard</em> had a robust but plainer movement and ordinary glass. Dials came silver-plated with Gothic numerals, with hour symbols, with hour symbols and a Gothic 12, and in luminous variants of each. A period catalogue page sets out the core references plainly: <em>ref. 2201</em> with the 11-line USC movement (centre seconds), <em>ref. 201</em> with the 11-line UL, and <em>ref. 651</em> with the 9-line UO, each available all-steel, all-gold, or with a steel cradle and gold case. The fuller grid runs men\u2019s De Luxe centre seconds 1101\u20131108, men\u2019s De Luxe subsidiary 101\u2013108, ladies\u2019 cord-strap De Luxe 901\u2013908, with Standard equivalents 2201\u20132208, 201\u2013208 and R701\u2013R708.',
       src:'Basha, from the 1940 French catalogue' },
 
     { era:'e3', slot:'m-joaillerie-101', year:'c.1990', name:'Reverso Joaillerie, Calibre 101',
       cal:'Cal. 101 \u00b7 crown on the reverse', size:'11 \u00d7 27 mm', status:'historic',
       tags:['Fully diamond-set','~4.2 ct','Smallest movement in the world'],
-      text:'Predating the better-known Grande Reverso 101 by well over a decade: a white-gold ladies\u2019 Reverso with the case entirely set in diamonds \u2014 roughly 4.2 carats \u2014 running the 1929 calibre 101, still the smallest mechanical movement ever series-produced. The winding crown sits on the back of the case rather than the side. Example number 1 appeared at Artcurial in 2011.',
+      text:'Predating the better-known Grande Reverso 101 by well over a decade: a white-gold ladies\u2019 Reverso with the case entirely set in diamonds (roughly 4.2 carats), running the 1929 calibre 101, still the smallest mechanical movement ever series-produced. The winding crown sits on the back of the case rather than the side. Example number 1 appeared at Artcurial in 2011.',
       src:'Artcurial, Paris, 29 Nov 2011, lot 471' },
 
     { era:'e1', slot:'m-hamilton-otis', year:'1930s', name:'Licensed abroad: the Hamilton “Otis”',
       cal:'—', size:'—', status:'historic',
       tags:['Licensed design','US market'],
-      text:'Proof of how quickly the idea travelled. The patent was licensed out through the 1930s and Jaeger-LeCoultre supplied other firms directly. <em>Patek Philippe</em> carried a reversible watch in its range \u2014 Geneva bought movements from Le Sentier at the time, as did <em>Cartier</em>. Preferential retailers such as <em>G\u00fcbelin</em> sold Reversos signed with their own name on the dial, and the New York importer <em>European Watch \u0026 Clock Co.</em> did the same, its watches carrying EWC-marked movements. Some of the finest early dials came from <em>Stern Fr\u00e8res</em> of Geneva. In the United States <em>Hamilton</em> sold the Reverso under its own name for years. There was a reason for the American arrangement: a US instrumentation company already owned the protected name \u201cJaeger\u201d and consignments were turned back by customs, so Reversos bound for America carried only the <em>LC</em> signet on movement and dial until an agreement was reached in the early 1980s.' },
+      text:'Proof of how quickly the idea travelled. The patent was licensed out through the 1930s and Jaeger-LeCoultre supplied other firms directly. <em>Patek Philippe</em> carried a reversible watch in its range. Geneva bought movements from Le Sentier at the time, as did <em>Cartier</em>. Preferential retailers such as <em>G\u00fcbelin</em> sold Reversos signed with their own name on the dial, and the New York importer <em>European Watch \u0026 Clock Co.</em> did the same, its watches carrying EWC-marked movements. Some of the finest early dials came from <em>Stern Fr\u00e8res</em> of Geneva. In the United States <em>Hamilton</em> sold the Reverso under its own name for years. There was a reason for the American arrangement: a US instrumentation company already owned the protected name \u201cJaeger\u201d and consignments were turned back by customs, so Reversos bound for America carried only the <em>LC</em> signet on movement and dial until an agreement was reached in the early 1980s.' },
 
     /* ---------------- ERA II ---------------- */
     { era:'e2', slot:'m-corvo', year:'1972', name:'The Corvo Reverso',
       cal:'Cal. 840 (the oval “ovetto”)', size:'Original 1930s cases', status:'historic',
       tags:['200 pieces','The rescue'],
-      text:'Not a catalogue model \u2014 a rescue, and the sequence is worth having exactly. It began with a phone call from L\u00e9on Constantin, just back from Milan, asking how many Reversos were left in stock; the general manager was out, so a secretary took the message. The answer: 200 steel cases, no movements. Days later Giorgio Corvo \u2014 JLC\u2019s sole representative for Italy, then the most trend-setting watch market in the world \u2014 called and said simply, \u201cI\u2019ll take them all.\u201d Le Sentier rang his Milan office <em>three times</em> to confirm he was serious, then tried to talk him out of it: the 9- and 11-line movements were long out of production and restarting was unthinkable in 1972. So Corvo solved it himself, fitting a movement into a case in Milan and carrying the result back to Switzerland as proof. A new dial was drawn for the run, white or grey, signed LeCoultre: one hundred of each. They sold out in a month.',
+      text:'Not a catalogue model, but a rescue, and the sequence is worth having exactly. It began with a phone call from L\u00e9on Constantin, just back from Milan, asking how many Reversos were left in stock; the general manager was out, so a secretary took the message. The answer: 200 steel cases, no movements. Days later Giorgio Corvo, JLC\u2019s sole representative for Italy and then the most trend-setting watch market in the world, called and said simply, \u201cI\u2019ll take them all.\u201d Le Sentier rang his Milan office <em>three times</em> to confirm he was serious, then tried to talk him out of it: the 9- and 11-line movements were long out of production and restarting was unthinkable in 1972. So Corvo solved it himself, fitting a movement into a case in Milan and carrying the result back to Switzerland as proof. A new dial was drawn for the run, white or grey, signed LeCoultre: one hundred of each. They sold out in a month.',
       src:'Corvo family interview, Hodinkee archive film' },
 
     { era:'e2', slot:'m-reverso-ii', year:'1982–83', name:'Reverso II',
       cal:'Mostly quartz; some mechanical', size:'32 × 23 mm', status:'historic',
       tags:['150th anniversary','No gadroons'],
-      text:'The official relaunch, for the manufacture\u2019s 150th anniversary. Wider and squarer than the classic proportions, and — almost uniquely in the whole history of the line — without the three-line gadroon motif above and below the dial. Buyers wanted the rectangle back, so it was retired quickly. Its shape resurfaced 25 years later as the Squadra.' },
+      text:'The official relaunch, for the manufacture\u2019s 150th anniversary. Wider and squarer than the classic proportions, and, almost uniquely in the whole history of the line, without the three-line gadroon motif above and below the dial. Buyers wanted the rectangle back, so it was retired quickly. Its shape resurfaced 25 years later as the Squadra.' },
 
     { era:'e2', slot:'m-1985-waterproof', year:'1985', name:'The water-resistant Reverso',
       cal:'Quartz and mechanical', size:'Classic proportions', status:'historic',
       tags:['50+ part case','First water-resistant'],
-      text:'The watch that made every modern Reverso possible, and it took Daniel Wild five years. The pin-in-groove guidance of 1931 gave way to a skid system — an eagle-tail-shaped skate that returns inside the cradle and cannot be disengaged — while a \u201cguard ring\u201d, effectively a second case, carried the movement on four sealed beryllium screws. The silhouette stayed identical to the millimetre while the part count went from roughly 30 to over 50 — water-resistant for the first time, and able to pivot at any point along the cradle rather than only at the far end. One of the most complicated cases in watchmaking, hidden inside something that looks unchanged since 1931.' },
+      text:'The watch that made every modern Reverso possible, and it took Daniel Wild five years. The pin-in-groove guidance of 1931 gave way to a skid system (an eagle-tail-shaped skate that returns inside the cradle and cannot be disengaged) while a \u201cguard ring\u201d, effectively a second case, carried the movement on four sealed beryllium screws. The silhouette stayed identical to the millimetre while the part count went from roughly 30 to over 50. It was water-resistant for the first time, and able to pivot at any point along the cradle rather than only at the far end. One of the most complicated cases in watchmaking, hidden inside something that looks unchanged since 1931.' },
 
     { era:'e2', slot:'m-classique', year:'late 1980s', name:'Reverso Classique',
       cal:'Cal. 846/1, or cal. 657 quartz', size:'38.5 × 23.1 mm', status:'historic',
       tags:['New “Classic” dial','Dame / Lady size'],
-      text:'The first modern civilian Reverso: original proportions, but a completely new dial — black numerals on white, rail-track minute ring — which broke deliberately with the coloured, index-marked dials of the 1930s. A smaller “Dame” version arrived alongside it, same rectangle, on strap or bracelet.' },
+      text:'The first modern civilian Reverso: original proportions, but a completely new dial (black numerals on white, rail-track minute ring) which broke deliberately with the coloured, index-marked dials of the 1930s. A smaller “Dame” version arrived alongside it, same rectangle, on strap or bracelet.' },
 
     /* ---------------- ERA III ---------------- */
     { era:'e3', slot:'m-grande-taille', year:'1991', name:'Reverso Grande Taille',
       cal:'Cal. 822 · refs 270.2.62 / 270.1.62 / 270.5.62 / 270.8.62', size:'42 × 26 mm', status:'historic',
       tags:['New larger case','Platform for everything'],
-      text:'The bigger case that gave the complications somewhere to live \u2014 and it stayed in production until 2016. It exists because the 60th-anniversary watch needed a complication calibre the existing case simply could not take: design head Janek Deleskiewicz wanted a display back, the movement grew, and G\u00fcnter Bl\u00fcmlein approved the then-radical decision to enlarge the Reverso itself. Its calibre 822 was drawn deliberately in the spirit of the 1930s cal. 410 — a modern movement wearing a period face.' },
+      text:'The bigger case that gave the complications somewhere to live, and it stayed in production until 2016. It exists because the 60th-anniversary watch needed a complication calibre the existing case simply could not take: design head Janek Deleskiewicz wanted a display back, the movement grew, and G\u00fcnter Bl\u00fcmlein approved the then-radical decision to enlarge the Reverso itself. Its calibre 822 was drawn deliberately in the spirit of the 1930s cal. 410, a modern movement wearing a period face.' },
 
     { era:'e3', slot:'m-60eme', year:'1991', name:'Reverso 60ème (Soixantième)',
       cal:'Cal. 824 \u00b7 ref. 270.2.64', size:'42 \u00d7 26 mm Grande Taille', status:'limited', limited:'500 pieces',
       tags:['Power reserve','Date','First display back'],
-      text:'The hinge point of the entire modern collection. First Reverso with a complication and the first with a sapphire display back instead of blank steel, and the first of six 500-piece anniversary editions running through the decade. A documented example \u2014 no. 480/500, sold at Artcurial in 2011 \u2014 records the detail: 26 \u00d7 42 mm pink gold case, silver guilloch\u00e9 dial, small seconds at six, a pink gold date hand and power reserve at ten, blued steel hands, and calibre 824 with its plate and bridges in <em>14K pink gold</em>, visible through the sapphire back.' },
+      text:'The hinge point of the entire modern collection. First Reverso with a complication and the first with a sapphire display back instead of blank steel, and the first of six 500-piece anniversary editions running through the decade. A documented example (no. 480/500, sold at Artcurial in 2011) records the detail: 26 \u00d7 42 mm pink gold case, silver guilloch\u00e9 dial, small seconds at six, a pink gold date hand and power reserve at ten, blued steel hands, and calibre 824 with its plate and bridges in <em>14K pink gold</em>, visible through the sapphire back.' },
 
     { era:'e3', slot:'m-art-deco', year:'1992', name:'Reverso Art Deco',
       cal:'Cal. 822 skeletonised \u00b7 refs 270.2.62 / 270.3.62', size:'42 \u00d7 26 mm Grande Taille', status:'limited',
@@ -128,7 +128,7 @@ window.RR = (function () {
     { era:'e3', slot:'m-tourbillon-1993', year:'1993', name:'Reverso Tourbillon',
       cal:'Cal. 828 \u00b7 ref. 270.2.68', size:'42 \u00d7 26 mm Grande Taille', status:'limited', limited:'500 pieces',
       tags:['Tourbillon','Power reserve on the back'],
-      text:'JLC\u2019s first tourbillon in modern times — and it went into the rectangle, not a round case. The tourbillon and power-reserve indication sit on the reverse, so the complication is the thing you turn the watch over to see.' },
+      text:'JLC\u2019s first tourbillon in modern times, and it went into the rectangle, not a round case. The tourbillon and power-reserve indication sit on the reverse, so the complication is the thing you turn the watch over to see.' },
 
     { era:'e3', slot:'m-repetition-1994', year:'1994', name:'Reverso Répétition Minutes',
       cal:'Cal. 943 \u00b7 ref. 270.2.73', size:'42 \u00d7 26 mm Grande Taille', status:'limited', limited:'500 pieces',
@@ -138,12 +138,12 @@ window.RR = (function () {
     { era:'e3', slot:'m-duoface-1994', year:'1994', name:'Reverso Duoface',
       cal:'Cal. 854 \u00b7 refs 270.2.54 / 270.1.54 / 270.3.54 / 270.8.54', size:'42 \u00d7 26 mm Grande Taille', status:'ongoing',
       tags:['Second dial','Dual time','Single movement'],
-      text:'The most consequential Reverso since 1931, and it began on a restaurant tablecloth. Jaeger-LeCoultre\u2019s own account has the concept sketched over lunch in a small restaurant in the Vall\u00e9e de Joux: what if the famous watch offered <em>two</em> watch faces? The answer was calibre 854 \u2014 the time here on the front, the time elsewhere on the back, from one movement. Three years later the women\u2019s Reverso gained two faces of its own, one for day and one for night, as the Duetto. Everything called Duoface or Duetto since descends from that lunch.' },
+      text:'The most consequential Reverso since 1931, and it began on a restaurant tablecloth. Jaeger-LeCoultre\u2019s own account has the concept sketched over lunch in a small restaurant in the Vall\u00e9e de Joux: what if the famous watch offered <em>two</em> watch faces? The answer was calibre 854: the time here on the front, the time elsewhere on the back, from one movement. Three years later the women\u2019s Reverso gained two faces of its own, one for day and one for night, as the Duetto. Everything called Duoface or Duetto since descends from that lunch.' },
 
     { era:'e3', slot:'m-chrono-retro', year:'1996', name:'Reverso Chronographe Rétrograde',
       cal:'Cal. 829 \u00b7 ref. 270.2.69', size:'42 \u00d7 26 mm Grande Taille', status:'limited', limited:'500 pieces',
       tags:['Retrograde chronograph','Indications on both faces'],
-      text:'A chronograph split across two dials, with a retrograde hand that sweeps back to zero instead of running in circles — the sensible answer when your dial is a rectangle. Cal. 829 is the direct ancestor of the 2023 Tribute Chronograph\u2019s cal. 860.' },
+      text:'A chronograph split across two dials, with a retrograde hand that sweeps back to zero instead of running in circles, the sensible answer when your dial is a rectangle. Cal. 829 is the direct ancestor of the 2023 Tribute Chronograph\u2019s cal. 860.' },
 
     { era:'e3', slot:'m-duetto-1997', year:'1997', name:'Reverso Duetto',
       cal:'Cal. 865 (1997); cal. 844 (1994 Lady)', size:'38.5 × 23.1 mm', status:'historic',
@@ -194,32 +194,32 @@ window.RR = (function () {
     { era:'e4', slot:'m-grande-101', year:'2004', name:'Grande Reverso 101',
       cal:'Cal. 101', size:'—', status:'limited',
       tags:['Smallest mechanical movement in the world'],
-      text:'The 1929 calibre 101 — still the smallest mechanical movement ever put into series production — fitted into a Reverso. A jeweller\u2019s watch with a watchmaker\u2019s heart.' },
+      text:'The 1929 calibre 101 (still the smallest mechanical movement ever put into series production) fitted into a Reverso. A jeweller\u2019s watch with a watchmaker\u2019s heart.' },
 
     { era:'e4', slot:'m-triptyque', year:'2006', name:'Reverso Grande Complication à Triptyque',
       cal:'Cal. 175', size:'Grande', status:'limited', limited:'75 pieces',
       tags:['Three dials','Tourbillon','Perpetual calendar','Sidereal time','6 patents'],
-      text:'The world\u2019s first watch with three dials driven by a single movement — front, back, and a third display hidden inside the cradle itself. Three dimensions of time at once: civil, sidereal and perpetual, with a tourbillon and an equation of time. Six new patents.' },
+      text:'The world\u2019s first watch with three dials driven by a single movement: front, back, and a third display hidden inside the cradle itself. Three dimensions of time at once: civil, sidereal and perpetual, with a tourbillon and an equation of time. Six new patents.' },
 
     { era:'e4', slot:'m-eclipses', year:'2006', name:'Reverso à Éclipses',
       cal:'Cal. 849', size:'—', status:'limited',
       tags:['Shutter mechanism','Rare crafts'],
-      text:'A miniature shutter over the case-back that opens to reveal the decoration beneath — the case-back treated as something to be unveiled rather than simply seen.' },
+      text:'A miniature shutter over the case-back that opens to reveal the decoration beneath. The case-back is treated as something to be unveiled rather than simply seen.' },
 
     { era:'e4', slot:'m-squadra', year:'2006–2012', name:'Reverso Squadra family',
       cal:'Cal. 977 Hometime, 754 Chrono GMT, 753 World Chrono, 966/968J Lady', size:'up to 52.9 × 36.5 mm', status:'historic',
       tags:['Square case','Sports line','Lady Duetto'],
-      text:'The square Reverso, and the one with the best origin story: its proportions came from Chauvot\u2019s <em>original 1931 drawings</em>, which showed the Reverso as a square rather than a rectangle. Those seventy-five-year-old sketches were pulled from the archive and overscaled into something their author could never have foreseen \u2014 the flagship Squadra Chronograph GMT ran 35 mm across and a stupendous 50.5 mm lug to lug, with the godrons repeated on the chronograph pushers and the octagonal crown for grip. It replaced Gran\u2019Sport as the sports line. Hometime, Chronograph GMT, World Chronograph, and from 2009 a Lady and Lady Duetto. Retired in the 2016 reset with no direct successor.' },
+      text:'The square Reverso, and the one with the best origin story: its proportions came from Chauvot\u2019s <em>original 1931 drawings</em>, which showed the Reverso as a square rather than a rectangle. Those seventy-five-year-old sketches were pulled from the archive and overscaled into something their author could never have foreseen: the flagship Squadra Chronograph GMT ran 35 mm across and a stupendous 50.5 mm lug to lug, with the godrons repeated on the chronograph pushers and the octagonal crown for grip. It replaced Gran\u2019Sport as the sports line. Hometime, Chronograph GMT, World Chronograph, and from 2009 a Lady and Lady Duetto. Retired in the 2016 reset with no direct successor.' },
 
     { era:'e4', slot:'m-gyro2', year:'2008', name:'Reverso Gyrotourbillon 2',
       cal:'Cal. 174', size:'Largest case of its day', status:'limited', limited:'75 pieces',
       tags:['Spherical tourbillon','Cylindrical hairspring','Perpetual calendar','Equation of time'],
-      text:'A spherical multi-axis tourbillon — inner carriage one rotation every 18.75 seconds, outer carriage one per minute — squeezed into a rectangle. The first wristwatch to run a cylindrical hairspring. It took first <em>and</em> second place at the 2009 International Chronometry Competition.' },
+      text:'A spherical multi-axis tourbillon (inner carriage one rotation every 18.75 seconds, outer carriage one per minute) squeezed into a rectangle. The first wristwatch to run a cylindrical hairspring. It took first <em>and</em> second place at the 2009 International Chronometry Competition.' },
 
     { era:'e4', slot:'m-grande-duo-986', year:'2009–2012', name:'Grande Reverso Duo / Night & Day / Calendar',
       cal:'Cal. 986, 976, 843', size:'48.5 × 29.5 mm', status:'historic',
       tags:['Duo Date','Night & Day','Calendar'],
-      text:'The Grande Reverso family at full stretch: the Duo Date on calibre 986 (2009), the time-only 976, the Duo \u201cNight \u0026 Day\u201d, and a Grande Reverso Calendar in 2012. The Duo Date runs a guilloch\u00e9 silver front with date at twelve and small seconds at six, and a black reverse with luminous hands and a day/night indicator; 31 \u00d7 52 mm. <em>Edition size needs care:</em> a pink-gold example at Artcurial in 2011 was numbered <em>286/500</em>, which conflicts with the 1,500-piece figure quoted elsewhere \u2014 most likely 500 per metal rather than 1,500 overall, but treat it as unresolved.' },
+      text:'The Grande Reverso family at full stretch: the Duo Date on calibre 986 (2009), the time-only 976, the Duo \u201cNight \u0026 Day\u201d, and a Grande Reverso Calendar in 2012. The Duo Date runs a guilloch\u00e9 silver front with date at twelve and small seconds at six, and a black reverse with luminous hands and a day/night indicator; 31 \u00d7 52 mm. <em>Edition size needs care:</em> a pink-gold example at Artcurial in 2011 was numbered <em>286/500</em>, which conflicts with the 1,500-piece figure quoted elsewhere; most likely 500 per metal rather than 1,500 overall, but treat it as unresolved.' },
 
     { era:'e4', slot:'m-ultrathin-1931', year:'2011', name:'Grande Reverso Ultra Thin Tribute to 1931',
       cal:'Cal. 822', size:'46.8 × 27.4 × 7.3 mm', status:'historic',
@@ -229,7 +229,7 @@ window.RR = (function () {
     { era:'e4', slot:'m-rideau', year:'2011', name:'Reverso Répétition Minutes à Rideau',
       cal:'Cal. 944', size:'Grande', status:'limited',
       tags:['Minute repeater','Sliding curtain','Trebuchet hammers'],
-      text:'A minute repeater hidden behind a sliding metal curtain that opens as you activate it — mechanism imitating the case\u2019s own gesture. Trebuchet hammers strike gongs fixed to the sapphire crystal.' },
+      text:'A minute repeater hidden behind a sliding metal curtain that opens as you activate it, the mechanism imitating the case\u2019s own gesture. Trebuchet hammers strike gongs fixed to the sapphire crystal.' },
 
     /* ---------------- ERA V ---------------- */
     { era:'e5', slot:'m-classic-2016', year:'2016–17', name:'Reverso Classic (Small / Medium / Large)',
@@ -255,7 +255,7 @@ window.RR = (function () {
     { era:'e5', slot:'m-tribute-duoface-fagliano', year:'2016', name:'Reverso Tribute Duoface Fagliano',
       cal:'Cal. 854A/2', size:'Tribute', status:'limited', limited:'190 pieces',
       tags:['Casa Fagliano strap','Polo reference'],
-      text:'Straps hand-made by the Argentine polo bootmaker Casa Fagliano — a direct, literal thread back to the field the watch was invented on.' },
+      text:'Straps hand-made by the Argentine polo bootmaker Casa Fagliano, a direct, literal thread back to the field the watch was invented on.' },
 
     { era:'e5', slot:'m-tribute-tourbillon-duoface', year:'2018', name:'Reverso Tribute Tourbillon Duoface',
       cal:'Flying tourbillon', size:'Tribute', status:'limited', limited:'50 pieces',
@@ -265,17 +265,17 @@ window.RR = (function () {
     { era:'e5', slot:'m-quadriptyque', year:'2021', name:'Reverso Hybris Mechanica Cal. 185 Quadriptyque',
       cal:'Cal. 185', size:'Grande', status:'limited', limited:'10 pieces',
       tags:['4 display faces','11 complications','12 patents','Perpetual calendar','Minute repeater','Flying tourbillon'],
-      text:'The most complicated Reverso ever built and the world\u2019s first wristwatch with four functioning display faces. Eleven complications: perpetual calendar and flying tourbillon on the main dial, minute repeater with a digital jumping hour on the second face, and a triple-cycle astronomical display — synodic, draconic and anomalistic — set into the cradle itself. Twelve patents.' },
+      text:'The most complicated Reverso ever built and the world\u2019s first wristwatch with four functioning display faces. Eleven complications: perpetual calendar and flying tourbillon on the main dial, minute repeater with a digital jumping hour on the second face, and a triple-cycle astronomical display (synodic, draconic and anomalistic) set into the cradle itself. Twelve patents.' },
 
     { era:'e5', slot:'m-nonantieme', year:'2021', name:'Reverso Tribute Nonantième',
       cal:'Cal. 826', size:'Grande', status:'limited', limited:'190 pieces',
       tags:['Moon phase','Digital jumping hour','Day/night','Star-field back'],
-      text:'Ninetieth, in Swiss-French — continuing the Soixantième/Septantième naming. Moon phase and date on the front; on the back, a complication never before put on a Reverso: a semi-jumping digital hour beside a rotating minute disc and a day/night indicator, over a hand-engraved star field in deep blue lacquer.' },
+      text:'Ninetieth, in Swiss-French, continuing the Soixantième/Septantième naming. Moon phase and date on the front; on the back, a complication never before put on a Reverso: a semi-jumping digital hour beside a rotating minute disc and a day/night indicator, over a hand-engraved star field in deep blue lacquer.' },
 
     { era:'e5', slot:'m-tribute-chrono', year:'2023', name:'Reverso Tribute Chronograph',
       cal:'Cal. 860', size:'Tribute', status:'ongoing',
       tags:['Chronograph','Double-sided display'],
-      text:'Twenty-seven years after the Chronographe Rétrograde, the chronograph returns — cal. 860 integrating a chronograph with a double-sided time display in a case under 12 mm thick, despite over 300 components. Steel or pink gold.' },
+      text:'Twenty-seven years after the Chronographe Rétrograde, the chronograph returns: cal. 860 integrating a chronograph with a double-sided time display in a case under 12 mm thick, despite over 300 components. Steel or pink gold.' },
 
     /* ---------------- ERA VI ---------------- */
     { era:'e6', slot:'m-hybris-artistica-179', year:'2023 / 2025', name:'Reverso Hybris Artistica Cal. 179',
@@ -296,7 +296,7 @@ window.RR = (function () {
     { era:'e6', slot:'m-monoface-ss-2025', year:'2025', name:'Reverso Tribute Monoface Small Seconds',
       cal:'Hand-wound', size:'7.56 mm thick', status:'ongoing',
       tags:['Time + small seconds','Milanese bracelet'],
-      text:'A slim single-faced Tribute — no second dial, no case-back complication — offered in gold on a Milanese mesh bracelet.' },
+      text:'A slim single-faced Tribute, no second dial and no case-back complication, offered in gold on a Milanese mesh bracelet.' },
 
     { era:'e6', slot:'m-duoface-ss-2025', year:'2025', name:'Reverso Tribute Duoface Small Seconds',
       cal:'Cal. 854', size:'Tribute', status:'ongoing',
@@ -306,7 +306,7 @@ window.RR = (function () {
     { era:'e6', slot:'m-classic-small-2026', year:'2026', name:'Reverso Classic Small Monoface',
       cal:'Updated hand-wound', size:'35.78 × 21 × 7.4 mm', status:'ongoing',
       tags:['Vintage proportions','Monoface'],
-      text:'A deliberate return to vintage scale — closer to the sizes worn in the 1930s, when even men\u2019s watches were slim. Part of a 2026 core-collection refresh alongside an updated Tribute Small Seconds.' },
+      text:'A deliberate return to vintage scale, closer to the sizes worn in the 1930s, when even men\u2019s watches were slim. Part of a 2026 core-collection refresh alongside an updated Tribute Small Seconds.' },
 
     { era:'e6', slot:'m-vallee-merveilles', year:'2026', name:'Reverso One — La Vallée des Merveilles',
       cal:'Cal. 846', size:'Reverso One', status:'limited', limited:'20 pieces each',
@@ -328,7 +328,7 @@ window.RR = (function () {
     { id:'c2', num:'II',  name:'The House Rectangles', years:'1933 – 1948',
       lede:'Eleven different movements powered the pre-war Reverso. These are the ones that mattered.' },
     { id:'c3', num:'III', name:'The Movements That Came Back', years:'1972 – 1991',
-      lede:'A calibre borrowed from an oval watch restarted the whole line — and its descendant still runs the smallest Reversos made today.' },
+      lede:'A calibre borrowed from an oval watch restarted the whole line, and its descendant still runs the smallest Reversos made today.' },
     { id:'c4', num:'IV',  name:'One Movement, Two Faces', years:'1994 – today',
       lede:'The engineering problem that defines the modern Reverso: driving a dial on each side of a case that turns over.' },
     { id:'c5', num:'V',   name:'The Complication Calibres', years:'1991 – 2011',
@@ -341,22 +341,22 @@ window.RR = (function () {
     { ch:'c1', slot:'cal-064', name:'Tavannes cal. 064', years:'1931–1933',
       spec:'Manual · rectangular · bought-in',
       models:'Reverso first series; Reverso De Luxe',
-      text:'The Reverso began life powered by a competitor, and the contract shows it was planned that way: Article 14 of the 1931 agreement expressly allowed movements from Tavannes, Movado or Jaeger/LeCoultre, while stating that a special movement \u201ccompletely suited\u201d to Chauvot\u2019s case would follow. It had to. LeCoultre\u2019s round calibres were too small for the rectangle and the Duoplan \u2014 its own finest shaped movement, and the obvious candidate \u2014 was too thick. So Tavannes <em>calibre 064</em> ran in the gentlemen\u2019s watches and <em>calibre 050</em> in the smaller ladies\u2019 model, both without seconds, until about the end of 1932. Fritz calls it the one moment in the manufacture\u2019s history when the maker of fine movements <em>par excellence</em> lacked the right calibre for its own watch.' },
+      text:'The Reverso began life powered by a competitor, and the contract shows it was planned that way: Article 14 of the 1931 agreement expressly allowed movements from Tavannes, Movado or Jaeger/LeCoultre, while stating that a special movement \u201ccompletely suited\u201d to Chauvot\u2019s case would follow. It had to. LeCoultre\u2019s round calibres were too small for the rectangle and the Duoplan, its own finest shaped movement and the obvious candidate, was too thick. So Tavannes <em>calibre 064</em> ran in the gentlemen\u2019s watches and <em>calibre 050</em> in the smaller ladies\u2019 model, both without seconds, until about the end of 1932. Fritz calls it the one moment in the manufacture\u2019s history when the maker of fine movements <em>par excellence</em> lacked the right calibre for its own watch.' },
 
     { ch:'c2', slot:'cal-410', name:'LeCoultre cal. 11U / 410', years:'from 1933',
       spec:'Manual · 15 jewels · 18,000 vph · ~50 h',
       models:'Reverso with subsidiary seconds at 6',
-      text:'The movement the 1931 contract had promised: one \u201ccompletely suited\u201d to Chauvot\u2019s case. Two years from problem to production movement is fast, which tells you how quickly the watch had succeeded \u2014 and it marked LeCoultre\u2019s breakthrough, after almost a century as a barely-known maker of fine movements, into selling complete watches under its own name. Collectors can date a vintage Reverso quite precisely from the many small changes made to the calibre 11 family over the years. The modern cal. 822 was drawn, six decades later, to look deliberately like this one.' },
+      text:'The movement the 1931 contract had promised: one \u201ccompletely suited\u201d to Chauvot\u2019s case. Two years from problem to production movement is fast, which tells you how quickly the watch had succeeded, and it marked LeCoultre\u2019s breakthrough, after almost a century as a barely-known maker of fine movements, into selling complete watches under its own name. Collectors can date a vintage Reverso quite precisely from the many small changes made to the calibre 11 family over the years. The modern cal. 822 was drawn, six decades later, to look deliberately like this one.' },
 
     { ch:'c1', slot:'cal-duoplan', name:'The Duoplan (why nothing fitted)', years:'1925',
       spec:'Two-storey architecture · large balance in a small movement',
       models:'Not a Reverso calibre — the reason the Reverso needed Tavannes',
-      text:'The movement that explains the Reverso’s awkward first two years. Devised by Henri Rodanet, Jaeger’s technical director in Paris, and industrialised by LeCoultre at Le Sentier, the Duoplan stacked the movement across two levels — barrel and wheel train below, balance on the tier above — freeing space for a balance wheel far larger than a small movement could otherwise carry, and with it a precision nobody had managed at that size. It was radical, celebrated, and far too thick for Chauvot’s sliding case. So the watch that prefigured the Reverso’s spirit of rethinking received wisdom was the very movement that could not go inside it.' },
+      text:'The movement that explains the Reverso’s awkward first two years. Devised by Henri Rodanet, Jaeger’s technical director in Paris, and industrialised by LeCoultre at Le Sentier, the Duoplan stacked the movement across two levels (barrel and wheel train below, balance on the tier above), freeing space for a balance wheel far larger than a small movement could otherwise carry, and with it a precision nobody had managed at that size. It was radical, celebrated, and far too thick for Chauvot’s sliding case. So the watch that prefigured the Reverso’s spirit of rethinking received wisdom was the very movement that could not go inside it.' },
 
     { ch:'c2', slot:'cal-413', name:'Cal. 413', years:'1937',
       spec:'Manual · small seconds',
       models:'Reverso 1937 small seconds',
-      text:'The manufacture’s fourth in-house Reverso movement, and a useful dating tool: watches carrying it have black dials signed <em>Jaeger-LeCoultre</em> — the first year the merged name appeared — which pins them precisely to 1937.' },
+      text:'The manufacture’s fourth in-house Reverso movement, and a useful dating tool: watches carrying it have black dials signed <em>Jaeger-LeCoultre</em> (the first year the merged name appeared), which pins them precisely to 1937.' },
 
     { ch:'c2', slot:'cal-411', name:'LeCoultre cal. 411', years:'from 1933',
       spec:'Manual · centre seconds',
@@ -376,12 +376,12 @@ window.RR = (function () {
     { ch:'c3', slot:'cal-822', name:'Cal. 822', years:'1991 – today',
       spec:'Manual · rectangular',
       models:'Grande Taille, Ultra Thin Tribute to 1931, Classic Medium, Tribute Small Seconds, Hokusai enamels',
-      text:'Built for the larger Grande Taille case in 1991 and drawn to echo the 1930s cal. 410 — a modern movement wearing a period face. It is now the workhorse behind some of the most beautiful watches in the line, including the enamel Tributes, where a thin, reliable, well-proportioned movement matters more than a complication.' },
+      text:'Built for the larger Grande Taille case in 1991 and drawn to echo the 1930s cal. 410, a modern movement wearing a period face. It is now the workhorse behind some of the most beautiful watches in the line, including the enamel Tributes, where a thin, reliable, well-proportioned movement matters more than a complication.' },
 
     { ch:'c4', slot:'cal-854', name:'Cal. 854 (854/1, 854A/2, 854C/2)', years:'1994 – today',
       spec:'Manual · two dials · ~42 h',
       models:'Duoface, Tribute Duoface, Classic Duoface, Fagliano',
-      text:'The defining modern Reverso movement. One gear train, two dials on opposite sides of a case that pivots — local time on the front, a second time zone on the back, no second movement, no compromise in thickness. Thirty years on it is still being reinterpreted rather than replaced.' },
+      text:'The defining modern Reverso movement. One gear train, two dials on opposite sides of a case that pivots: local time on the front, a second time zone on the back, no second movement, no compromise in thickness. Thirty years on it is still being reinterpreted rather than replaced.' },
 
     { ch:'c4', slot:'cal-844', name:'Cal. 844 / 864 / 842 / 968', years:'1994 – today',
       spec:'Manual · dual dial, women\u2019s sizes',
@@ -391,7 +391,7 @@ window.RR = (function () {
     { ch:'c5', slot:'cal-824', name:'Cal. 824', years:'1991',
       spec:'Manual · power reserve · date',
       models:'Reverso 60ème',
-      text:'The first complicated Reverso movement, and the first one JLC ever intended you to look at — the 60ème gave the watch a sapphire display back after sixty years of blank steel.' },
+      text:'The first complicated Reverso movement, and the first one JLC ever intended you to look at, the 60ème gave the watch a sapphire display back after sixty years of blank steel.' },
 
     { ch:'c5', slot:'cal-828', name:'Cal. 828', years:'1993',
       spec:'Manual · tourbillon · power reserve',
@@ -401,27 +401,27 @@ window.RR = (function () {
     { ch:'c5', slot:'cal-943', name:'Cal. 943 / 944', years:'1994 / 2011',
       spec:'Manual · minute repeater',
       models:'Répétition Minutes; Répétition Minutes à Rideau',
-      text:'The world\u2019s first rectangular minute-repeater movement. Gongs are wound circles by nature; making them fit — and sing — in a rectangle is why almost nobody else tried. The 944 returned in 2011 with trebuchet hammers striking gongs fixed to the crystal itself.' },
+      text:'The world\u2019s first rectangular minute-repeater movement. Gongs are wound circles by nature; making them fit, and sing, in a rectangle is why almost nobody else tried. The 944 returned in 2011 with trebuchet hammers striking gongs fixed to the crystal itself.' },
 
     { ch:'c5', slot:'cal-829', name:'Cal. 829', years:'1996',
       spec:'Manual · retrograde chronograph · 36 jewels',
       models:'Chronographe Rétrograde; Gran\u2019Sport Chronograph (859)',
-      text:'A chronograph organised across two faces, using a retrograde hand that flies back to zero rather than sweeping a full circle — the rational answer to a rectangular dial. Its logic reappears in the 2023 cal. 860.' },
+      text:'A chronograph organised across two faces, using a retrograde hand that flies back to zero rather than sweeping a full circle, the rational answer to a rectangular dial. Its logic reappears in the 2023 cal. 860.' },
 
     { ch:'c5', slot:'cal-879', name:'Cal. 879 / 873 / 874 / 875', years:'2000–2003',
       spec:'Manual · double barrel · 8-day reserve · 28,800 vph',
       models:'Septantième, Grande 8 Days, Sun Moon, Grande Date',
-      text:'Eight days of power from two barrels, married to a high-frequency balance — unusually long running time for a hand-wound watch this flat. The 879\u2019s large-date architecture set up the entire Grande Reverso family, and its descendant cal. 834 powers the 2025 Tribute Geographic.' },
+      text:'Eight days of power from two barrels, married to a high-frequency balance, unusually long running time for a hand-wound watch this flat. The 879\u2019s large-date architecture set up the entire Grande Reverso family, and its descendant cal. 834 powers the 2025 Tribute Geographic.' },
 
     { ch:'c5', slot:'cal-855', name:'Cal. 855', years:'2000',
       spec:'Manual · perpetual calendar',
       models:'Reverso Quantième Calendrier Perpétuel',
-      text:'Leap-year indication on the front, month, day, date and moon on the back — a perpetual calendar split across a case that turns over, closing the six-watch anniversary series.' },
+      text:'Leap-year indication on the front, month, day, date and moon on the back, a perpetual calendar split across a case that turns over, closing the six-watch anniversary series.' },
 
     { ch:'c2', slot:'cal-437', name:'Cal. 437/1 and P437/1', years:'c.1947',
       spec:'Manual \u00b7 centre seconds',
       models:'Reverso \u201cInterchangeable / Reversible\u201d',
-      text:'The pair fitted to the late-1940s two-part-case Reverso \u2014 a little-documented variant in pink gold and steel with a centre seconds hand. Two consecutive examples surfaced together at auction in 2011, which is how the pairing of the 437/1 and P437/1 is known at all.' },
+      text:'The pair fitted to the late-1940s two-part-case Reverso, a little-documented variant in pink gold and steel with a centre seconds hand. Two consecutive examples surfaced together at auction in 2011, which is how the pairing of the 437/1 and P437/1 is known at all.' },
 
     { ch:'c3', slot:'cal-657', name:'Cal. 657 \u2014 the quartz years', years:'1980s\u20132010s',
       spec:'Quartz',
@@ -431,7 +431,7 @@ window.RR = (function () {
     { ch:'c3', slot:'cal-101', name:'Cal. 101 \u2014 the smallest of all', years:'1929 \u2013 today',
       spec:'Manual \u00b7 98 parts \u00b7 c.0.2 g \u00b7 21,600 vph',
       models:'Reverso Joaillerie (c.1990); Grande Reverso 101 (2004)',
-      text:'Not designed for the Reverso, and older than it \u2014 but no list of its movements is complete without the 101. Introduced in 1929 and still made today, it remains the smallest mechanical movement ever put into series production: 98 components weighing about a fifth of a gram. In the jewellery Reversos the winding crown moves to the back of the case, because there is no room for it anywhere else.' },
+      text:'Not designed for the Reverso, and older than it, but no list of its movements is complete without the 101. Introduced in 1929 and still made today, it remains the smallest mechanical movement ever put into series production: 98 components weighing about a fifth of a gram. In the jewellery Reversos the winding crown moves to the back of the case, because there is no room for it anywhere else.' },
 
     { ch:'c4', slot:'cal-865', name:'Cal. 865 and 864', years:'1997 \u2013 2000s',
       spec:'Manual \u00b7 dual dial, women\u2019s',
@@ -466,7 +466,7 @@ window.RR = (function () {
     { ch:'c4', slot:'cal-853', name:'Cal. 853 and 976', years:'2016 \u2013 today',
       spec:'Manual \u00b7 time only',
       models:'Reverso Tribute Small Seconds; Grande Reverso 976',
-      text:'The plain hand-wound movements behind the simplest modern Tributes \u2014 no complication, nothing to display on the back, which is exactly the point when the case-back is meant to be left blank for the owner.' },
+      text:'The plain hand-wound movements behind the simplest modern Tributes: no complication, nothing to display on the back, which is exactly the point when the case-back is meant to be left blank for the owner.' },
 
     { ch:'c3', slot:'cal-960', name:'Cal. 960, 970 and 977 \u2014 the automatics', years:'1998 \u2013 2012',
       spec:'Automatic',
@@ -476,37 +476,37 @@ window.RR = (function () {
     { ch:'c4', slot:'cal-965', name:'Cal. 965, 966, 968 and 969', years:'2009 \u2013 today',
       spec:'Automatic and manual \u00b7 women\u2019s and mid-size',
       models:'Squadra Lady Duetto; Reverso Classic Medium and Large',
-      text:'The workaday movements of the modern collection \u2014 the ones in most Reversos actually being sold, rather than the ones that get written about. The 968A drove the Squadra Lady Duetto; the 965 and 969 run Classic Medium and Large references today.' },
+      text:'The workaday movements of the modern collection, the ones in most Reversos actually being sold, rather than the ones that get written about. The 968A drove the Squadra Lady Duetto; the 965 and 969 run Classic Medium and Large references today.' },
 
     { ch:'c5', slot:'cal-986', name:'Cal. 986', years:'2009',
       spec:'Manual \u00b7 dual dial \u00b7 date \u00b7 day/night',
       models:'Grande Reverso Duo Date',
-      text:'A guilloch\u00e9 silver front with date at twelve and small seconds at six; a black reverse with luminous hands and a day/night indicator. Edition size is unsettled \u2014 an example at auction was numbered 286/500 against the 1,500 quoted elsewhere.' },
+      text:'A guilloch\u00e9 silver front with date at twelve and small seconds at six; a black reverse with luminous hands and a day/night indicator. Edition size is unsettled: an example at auction was numbered 286/500 against the 1,500 quoted elsewhere.' },
 
     { ch:'c6', slot:'cal-175', name:'Cal. 175', years:'2006',
       spec:'Manual · 3 displays · 18 functions · 6 patents',
       models:'Grande Complication à Triptyque',
-      text:'The first movement ever to drive three dials — front, back, and a third set into the cradle the case pivots within. Civil time, sidereal time and perpetual calendar simultaneously, plus a tourbillon and an equation of time, from a single going train.' },
+      text:'The first movement ever to drive three dials: front, back, and a third set into the cradle the case pivots within. Civil time, sidereal time and perpetual calendar simultaneously, plus a tourbillon and an equation of time, from a single going train.' },
 
     { ch:'c6', slot:'cal-174', name:'Cal. 174 — Gyrotourbillon 2', years:'2008',
       spec:'Manual · spherical multi-axis tourbillon · cylindrical hairspring',
       models:'Reverso Gyrotourbillon 2',
-      text:'Two carriages rotating on different axes — the inner one turning once every 18.75 seconds, the outer once a minute — inside a rectangle. It was the first wristwatch to use a cylindrical hairspring, and it won first and second place at the 2009 International Chronometry Competition.' },
+      text:'Two carriages rotating on different axes (the inner one turning once every 18.75 seconds, the outer once a minute) inside a rectangle. It was the first wristwatch to use a cylindrical hairspring, and it won first and second place at the 2009 International Chronometry Competition.' },
 
     { ch:'c6', slot:'cal-179', name:'Cal. 179 — Tribute Gyrotourbillon', years:'2016',
       spec:'Manual · bi-axial flying tourbillon · Gyrolab balance',
       models:'Reverso Tribute Gyrotourbillon; Hybris Artistica',
-      text:'The Gyrotourbillon shrunk by roughly a third in width and thickness versus 2008, now flying — nothing bridging it from above — with a hemispherical balance spring and the deliberately non-circular Gyrolab balance wheel, shaped to cut air resistance.' },
+      text:'The Gyrotourbillon shrunk by roughly a third in width and thickness versus 2008, now flying, with nothing bridging it from above, and with a hemispherical balance spring and the deliberately non-circular Gyrolab balance wheel, shaped to cut air resistance.' },
 
     { ch:'c6', slot:'cal-185', name:'Cal. 185 — Quadriptyque', years:'2021',
       spec:'Manual · 4 faces · 11 complications · 12 patents',
       models:'Hybris Mechanica Cal. 185 Quadriptyque',
-      text:'The most complicated movement ever fitted to a Reverso, and the only one in history to drive four working display faces. Perpetual calendar and flying tourbillon; minute repeater with a digital jumping hour; and three lunar cycles — synodic, draconic and anomalistic — displayed in the cradle.' },
+      text:'The most complicated movement ever fitted to a Reverso, and the only one in history to drive four working display faces. Perpetual calendar and flying tourbillon; minute repeater with a digital jumping hour; and three lunar cycles (synodic, draconic and anomalistic) displayed in the cradle.' },
 
     { ch:'c6', slot:'cal-826', name:'Cal. 826', years:'2021',
       spec:'Manual · digital jumping hour · moon phase · day/night',
       models:'Reverso Tribute Nonantième',
-      text:'Built new for the 90th anniversary to do something the case-back had never done: a semi-jumping digital hour beside a rotating minute disc and a day/night indicator — a genuine second complication on the reverse rather than a repeat of the front.' },
+      text:'Built new for the 90th anniversary to do something the case-back had never done: a semi-jumping digital hour beside a rotating minute disc and a day/night indicator, a second complication on the reverse rather than a repeat of the front.' },
 
     { ch:'c6', slot:'cal-953', name:'Cal. 953', years:'2025',
       spec:'Manual · integrated minute repeater · 7 patents',
@@ -516,12 +516,12 @@ window.RR = (function () {
     { ch:'c6', slot:'cal-860', name:'Cal. 860', years:'2023',
       spec:'Manual · chronograph · 300+ parts · double-sided',
       models:'Reverso Tribute Chronograph',
-      text:'Takes its cue from the 1996 cal. 829 and integrates a chronograph with a double-sided time display — over 300 components in a case under 12 mm thick.' },
+      text:'Takes its cue from the 1996 cal. 829 and integrates a chronograph with a double-sided time display, over 300 components in a case under 12 mm thick.' },
 
     { ch:'c6', slot:'cal-834', name:'Cal. 834', years:'2025',
       spec:'Manual · world time · Grande Date (patented)',
       models:'Reverso Tribute Geographic',
-      text:'A descendant of the 8-day 879, re-engineered to put world time into a rectangle for the first time since 1998 — with a patented large-date display that had defeated earlier attempts at this size.' }
+      text:'A descendant of the 8-day 879, re-engineered to put world time into a rectangle for the first time since 1998, with a patented large-date display that had defeated earlier attempts at this size.' }
   ];
 
   /* ---------------------------------------------------------

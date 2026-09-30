@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('reverso:theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curator Admin · My Reverso Story</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="reverso-styles.css">
 <meta name="robots" content="noindex, nofollow">
 <script>
@@ -25,7 +27,7 @@ window.addEventListener('load', function(){
 <div class="progress" id="progressBar" style="display:none;"></div>
 
 <nav>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY <span style="color:var(--ink-dim); font-size:11px; letter-spacing:.1em;">· CURATOR</span></a>
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY <span style="color:var(--ink-dim); font-size:11px; letter-spacing:.1em;">· CURATOR</span></a>
 </nav>
 
 <header class="history-hero" style="padding-bottom:50px;">
@@ -42,7 +44,7 @@ window.addEventListener('load', function(){
     <div class="curator-gate" id="gate">
       <input type="text" id="pass" placeholder="Enter curator passcode">
       <button class="btn" id="goBtn">Sign In</button>
-      <span class="form-note" id="gateMsg"></span>
+      <span class="form-note" id="gateMsg" role="status" aria-live="polite"></span>
     </div>
 
     <div id="panel" style="display:none;">
@@ -59,7 +61,7 @@ window.addEventListener('load', function(){
 </section>
 
 <footer>
-  <a href="my-reverso-story.html#top" class="brand">MY <b>REVERSO</b> STORY</a>
+  <a href="my-reverso-story.html#top" class="brand"><img src="reverso-crest-dark.png" class="brand-mark for-dark" alt="" aria-hidden="true"><img src="reverso-crest-light.png" class="brand-mark for-light" alt="" aria-hidden="true">MY <b>REVERSO</b> STORY</a>
   <p>This page is not linked from the public site and is excluded from search indexing, but it is not secured by real authentication — the passcode is a light deterrent, not a login system. Treat it accordingly.</p>
 </footer>
 
@@ -120,8 +122,8 @@ window.addEventListener('load', function(){
     wrap.innerHTML = full.map(s => `
       <div class="pending-item admin-item" data-id="${s.id}">
         <div class="admin-photos">
-          ${s.front ? `<img src="${RD.escapeHtml(s.front)}" alt="Front">` : `<div class="noimg small"><span>No front photo</span></div>`}
-          ${s.back ? `<img src="${RD.escapeHtml(s.back)}" alt="Back">` : `<div class="noimg small"><span>No back photo</span></div>`}
+          ${s.front ? `<img src="${RD.escapeHtml(s.front)}" alt="Front" loading="lazy">` : `<div class="noimg small"><span>No front photo</span></div>`}
+          ${s.back ? `<img src="${RD.escapeHtml(s.back)}" alt="Back" loading="lazy">` : `<div class="noimg small"><span>No back photo</span></div>`}
         </div>
         <div>
           <h4>${RD.escapeHtml(s.name)}${s.location ? ' — ' + RD.escapeHtml(s.location) : ''}</h4>
