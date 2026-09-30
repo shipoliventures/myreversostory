@@ -12,7 +12,7 @@
 <style>
 .piece-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
 .piece{ border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column; }
-/* flip-card styles now live in reverso-styles.css (shared with the archive page) */
+/* flip-card styles now live in reverso-styles.css (shared with the Stories page) */
 .piece-body{ padding:20px 22px 24px; }
 .piece-name{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:20px; color:var(--ink); line-height:1.25; }
 .piece-ref{ font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--brass); margin-top:5px; }
@@ -72,7 +72,7 @@ window.addEventListener('load', function(){
     <li><a href="reverso-history.html">History</a></li>
     <li><a href="reverso-models.html">Models</a></li>
     <li><a href="reverso-calibres.html">Calibres</a></li>
-    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-stories.html">Stories</a></li>
     <li><a href="reverso-limited.html">Limited</a></li>
     </ul>
   </div>
@@ -83,7 +83,7 @@ window.addEventListener('load', function(){
     <p class="eyebrow" id="s-kicker">Artistic Edition</p>
     <h1 id="s-name">Series</h1>
     <p class="lede" id="s-blurb"></p>
-    <a href="reverso-collection.html" class="back-link">← Back to the Archive</a>
+    <a href="reverso-stories.html" class="back-link">← Back to Stories</a>
   </div>
 </header>
 
@@ -127,7 +127,7 @@ window.addEventListener('load', function(){
   if(!S){
     document.getElementById('s-name').textContent = 'Series not found';
     document.getElementById('s-blurb').textContent =
-      'No series matches “' + slug + '”. Head back to the archive and pick one.';
+      'No series matches “' + slug + '”. Head back to Stories and pick one.';
     return;
   }
 

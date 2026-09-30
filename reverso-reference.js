@@ -2,7 +2,7 @@
    MY REVERSO STORY — SHARED REFERENCE DATA
    ------------------------------------------------------------
    Drives reverso-models.html, reverso-calibres.html and
-   reverso-collection.html.
+   reverso-stories.html.
 
    PHOTOS
    Every entry has a "slot" id. The page looks for:

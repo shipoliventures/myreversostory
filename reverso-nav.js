@@ -4,7 +4,7 @@
    disappear (reverso-styles.css), so this turns the hamburger
    button each page's <nav> now carries into a working toggle
    for a slide-in panel — the site's only way to reach History,
-   Models, Calibres, Archive or Limited on a phone.
+   Models, Calibres, Stories or Limited on a phone.
 
    Defensive by design: if a page is missing the button or the
    link list, this quietly does nothing rather than throwing,

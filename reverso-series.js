@@ -1,7 +1,7 @@
 /* ============================================================
    MY REVERSO STORY — SERIES & EDITIONS DATA
    ------------------------------------------------------------
-   Drives reverso-collection.html (cards) and
+   Drives reverso-stories.html (cards) and
    reverso-series.html?s=<slug> (the dedicated set pages).
 
    PHOTOS — each piece takes TWO images:

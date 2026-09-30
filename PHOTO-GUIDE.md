@@ -11,7 +11,7 @@ my-reverso-story.html
 reverso-history.html
 reverso-models.html
 reverso-calibres.html
-reverso-collection.html
+reverso-stories.html
 reverso-styles.css
 reverso-reference.js
 reverso-data.js
@@ -27,7 +27,7 @@ type underneath the icon — so you can read the name straight
 off the page and save the file to match. Nothing else to change.
 
 **Recommended:** ~1200px on the long edge, JPEG, under ~400 KB.
-Models use a 4:5 portrait crop, archive pieces 1:1 square,
+Models use a 4:5 portrait crop, Stories-page pieces 1:1 square,
 calibres a wide landscape strip.
 
 ---
@@ -516,7 +516,7 @@ Claude Joray — the best single source for the calibre page:
 
 ---
 
-## Archive cards — front/back
+## Stories-page cards — front/back
 
 | Front | Back | Entry |
 |---|---|---|

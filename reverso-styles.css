@@ -370,7 +370,7 @@ textarea{ resize:vertical; min-height:110px; font-size:17px; }
 .upload-box.has-image .upload-hint{ display:none; }
 .upload-preview{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
-/* ---------- collection page controls ---------- */
+/* ---------- Stories page controls ---------- */
 .controls-bar{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
 .search-wrap{ flex:1; min-width:240px; }
 .search-input{
@@ -675,7 +675,7 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
   .h-rule{ transition:none; transform:scaleY(1); }
 }
 
-/* ---- clickable series cards (archive → dedicated set pages) ---- */
+/* ---- clickable series cards (Stories → dedicated set pages) ---- */
 .series-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
 .series-card{ border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column;
   text-decoration:none; transition:border-color .3s, transform .3s; }
@@ -708,7 +708,7 @@ footer p{ font-family:'Jost',sans-serif; font-size:12px; color:var(--ink-dim); l
 .series-card .arch-text{ -webkit-line-clamp:3; }
 .series-body{ min-height:0; }
 
-/* ---- flippable front/back placeholders (shared: archive + series pages) ---- */
+/* ---- flippable front/back placeholders (shared: Stories + series pages) ---- */
 .piece-stage{ perspective:1400px; aspect-ratio:4/5; cursor:pointer; position:relative; }
 .piece-case{ position:relative; width:100%; height:100%; transform-style:preserve-3d;
   transition:transform .9s cubic-bezier(.65,.05,.36,1); }

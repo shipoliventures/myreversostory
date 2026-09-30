@@ -46,7 +46,7 @@ window.addEventListener('load', function(){
     <li><a href="reverso-history.html">History</a></li>
     <li><a href="reverso-models.html">Models</a></li>
     <li><a href="reverso-calibres.html">Calibres</a></li>
-    <li><a href="reverso-collection.html">Archive</a></li>
+    <li><a href="reverso-stories.html">Stories</a></li>
     <li><a href="reverso-limited.html">Limited</a></li>
     <li><a href="#submit">Share Yours</a></li>
     </ul>
@@ -60,7 +60,7 @@ window.addEventListener('load', function(){
       <h1>Every Reverso has two sides.<br>One tells the time. <em>The other tells a story.</em></h1>
       <p>The Reverso was built to turn its back on danger. Collectors turned that same blank steel into a canvas — initials, crests, enamel, engravings. This is where those second faces, and the stories behind them, are kept.</p>
       <div class="hero-actions">
-        <a href="#gallery" class="btn solid">Explore the Collection</a>
+        <a href="#gallery" class="btn solid">Explore the Stories</a>
         <a href="#submit" class="btn">Share Your Story</a>
       </div>
     </div>
@@ -237,15 +237,15 @@ window.addEventListener('load', function(){
     <div class="section-head reveal">
       <p class="eyebrow" style="justify-content:center;">Featured Stories</p>
       <h2>Stories from the case back</h2>
-      <p>Every Reverso in this archive was engraved, enamelled, or otherwise personalized by a collector's own imagination, memory, or story. Click a case to read what's on the back and visit the collection for the whole archive.</p>
+      <p>Every Reverso here was engraved, enamelled, or otherwise personalized by a collector's own imagination, memory, or story. Click a case to read what's on the back, or visit Stories for the full set.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-empty">Loading the collection…</div>
+      <div class="gallery-empty">Loading the stories…</div>
     </div>
     <div class="deco-divider" style="margin-top:56px;"><span></span><i></i><span></span></div>
     <div class="gallery-cta">
       <p class="gallery-foot" id="galleryCount"></p>
-      <a href="reverso-collection.html" class="btn solid">View the Whole Collection</a>
+      <a href="reverso-stories.html" class="btn solid">View All the Stories</a>
     </div>
   </div>
 </section>
@@ -255,7 +255,7 @@ window.addEventListener('load', function(){
     <div class="section-head reveal">
       <p class="eyebrow" style="justify-content:center;">Add Your Watch</p>
       <h2>Tell us what's on the back of yours</h2>
-      <p>Every submission is read by hand before it joins the collection, so nothing appears without a real person approving it first.</p>
+      <p>Every submission is read by hand before it appears on the site, so nothing appears without a real person approving it first.</p>
     </div>
     <form id="storyForm" class="reveal" method="POST" enctype="multipart/form-data" novalidate>
       <!-- FormSubmit control fields. _next is filled in by script so it always
@@ -394,9 +394,9 @@ window.addEventListener('load', function(){
     const grid = document.getElementById('galleryGrid');
     const RSTORIES = window.RSTORIES || null;
     // Only personalized entries (engraving, enamel, lacquer) rotate through
-    // this homepage teaser — an unspoken house rule, same as the archive's
+    // this homepage teaser — an unspoken house rule, same as the Stories page's
     // display order below. A story without any physical mark on the watch
-    // can still appear in the archive gallery, just not in this rotation.
+    // can still appear on the Stories page, just not in this rotation.
     const curated = RSTORIES ? RSTORIES.STORIES.filter(function(s){ return s.personalized; }).map(function(s){
       const collector = RSTORIES.collectorById(s.collectorId);
       return {
@@ -420,7 +420,7 @@ window.addEventListener('load', function(){
     const approvedLight = index.filter(s => s.status === 'approved');
     const totalCount = curated.length + approvedLight.length;
     document.getElementById('galleryCount').textContent = totalCount
-      ? 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story in the collection' : ' stories in the collection')
+      ? 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story' : ' stories')
       : '';
     if(!totalCount){
       grid.innerHTML = '<div class="gallery-empty">No stories yet — be the first to share yours below.</div>';
@@ -456,7 +456,7 @@ window.addEventListener('load', function(){
       </div>
     `).join('');
     if(!document.getElementById('galleryCount').textContent && totalCount){
-      document.getElementById('galleryCount').textContent = 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story in the collection' : ' stories in the collection');
+      document.getElementById('galleryCount').textContent = 'Showing ' + Math.min(3, totalCount) + ' of ' + totalCount + (totalCount === 1 ? ' story' : ' stories');
     }
     grid.querySelectorAll('.story-stage').forEach(el => {
       el.addEventListener('click', (ev) => { if(ev.target.closest('a')) return; el.classList.toggle('flipped'); });
@@ -619,7 +619,7 @@ window.addEventListener('load', function(){
 
   // Returning from a successful submission.
   if(new URLSearchParams(location.search).get('sent') === '1'){
-    msg.textContent = 'Thank you. Your story and photos are on their way to the archive\u2019s curators. We read every submission by hand and will be in touch.';
+    msg.textContent = 'Thank you. Your story and photos are on their way to the site\u2019s curators. We read every submission by hand and will be in touch.';
     msg.className = 'form-msg show ok';
     history.replaceState(null, '', location.pathname + '#submit');
   }

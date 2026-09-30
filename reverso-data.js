@@ -1,6 +1,6 @@
 /* ============================================================
    My Reverso Story — shared data layer
-   Used by: my-reverso-story.html, reverso-collection.html, reverso-admin.html
+   Used by: my-reverso-story.html, reverso-stories.html, reverso-admin.html
 
    STORAGE MODEL
    - 'reverso:index'      (shared) → JSON array of lightweight records (no photos)

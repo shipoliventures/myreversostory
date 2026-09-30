@@ -10,7 +10,7 @@
    builds its filter buttons from the data.
 
    back:  'engraved'  case-back carries a crest / engraving / enamel
-                      (these ALSO appear on the Archive page)
+                      (these ALSO appear on the Stories page)
           'dial'      special dial and/or hands, standard back
           '—'         unknown / not established
 
@@ -57,7 +57,7 @@ const EDITIONS = [
 { slot:'le-enamel-hokusai', year:'2018 – 2026', name:'Reverso Tribute Enamel — Hokusai “Waterfalls”',
   ref:'Q39334T3–T9', run:'10 pieces per reference · 9 references', link:'reverso-series.html?s=hokusai', cat:'metiersrares', series:'enamel',
   family:'Métiers Rares', cal:'Cal. 822', material:'White gold', market:'International', back:'engraved',
-  note:'An eight-year cycle reproducing every waterfall Hokusai printed, plus <em>The Great Wave</em>. Around fourteen layers of fired enamel per case-back, roughly 100 hours apiece. Full set catalogued on the Archive.' },
+  note:'An eight-year cycle reproducing every waterfall Hokusai printed, plus <em>The Great Wave</em>. Around fourteen layers of fired enamel per case-back, roughly 100 hours apiece. Full set catalogued on the Stories page.' },
 
 { slot:'le-enamel-hidden', year:'2021', name:'Reverso Tribute Enamel — “Hidden Treasures”',
   ref:'—', run:'10 pieces per reference · 3 references', link:'reverso-series.html?s=hidden-treasures', cat:'metiersrares', series:'enamel',
@@ -358,7 +358,7 @@ const EDITIONS = [
   ref:'270.8.62', run:'Unnumbered, unlimited', cat:'gtspecial', family:'Grande Taille — special dials', cal:'Cal. 822',
   material:'Stainless steel', market:'International', back:'dial', note:'The second Latitude variant, sharing its reference with the first.' },
 
-/* ---------- commemorative (also on the Archive page) ---------- */
+/* ---------- commemorative (also on the Stories page) ---------- */
 { slot:'ed-magritte-1', year:'2016', name:'Reverso in tribute to René Magritte, Series 1 — “La Trahison des images”',
   ref:'—', run:'20 pieces total — 5 white gold, 15 steel', cat:'commemorative', family:'Commemorative', cal:'Cal. 822',
   material:'White gold and stainless steel', market:'Maison De Greef, Brussels', back:'engraved',
@@ -603,7 +603,7 @@ const CATEGORIES = [
   { id:'eclipses',     name:'Reverso \u00e0 \u00c9clipses',      years:'2006 \u2013 today',
     blurb:'A miniature shutter over the case-back, opened by a wheel beside the crown, concealing a painted enamel beneath. The only Reverso whose decoration has to be unveiled twice.' },
   { id:'metiersrares', name:'M\u00e9tiers Rares',            years:'2018 \u2013 today',
-    blurb:'The case-back as a canvas \u2014 grand feu enamel, miniature painting, guillochage, paillonnage. Each set below is catalogued piece by piece on the Archive.' },
+    blurb:'The case-back as a canvas \u2014 grand feu enamel, miniature painting, guillochage, paillonnage. Each set below is catalogued piece by piece on the Stories page.' },
   { id:'joaillerie',   name:'Reverso Joaillerie',       years:'1990 \u2013 today',
     blurb:'Diamond-set cases, jewelled cords, and the Reverso worn as something other than a wristwatch.' },
   { id:'anniversary',  name:'Anniversary & Milestone Editions', years:'2001 \u2013 today',
